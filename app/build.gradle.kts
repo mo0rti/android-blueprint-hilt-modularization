@@ -83,6 +83,8 @@ addAndroidCore()
 addMaterialDesign()
 addLayouts()
 addHilt()
+addRetrofit()
+addCoroutines()
 
 addAndroidxCoreTesting()
 addUITestUtils()

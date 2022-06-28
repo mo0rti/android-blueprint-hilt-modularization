@@ -1,18 +1,42 @@
 package orangevelvet.androidblueprint.hilt.di
 
-import dagger.Binds
+import com.google.gson.Gson
+import com.google.gson.GsonBuilder
 import dagger.Module
+import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.android.components.ActivityComponent
-import orangevelvet.androidblueprint.hilt.domain.contract.CurrencyService
+import okhttp3.OkHttpClient
+import okhttp3.logging.HttpLoggingInterceptor
+import orangevelvet.androidblueprint.hilt.BuildConfig
+import retrofit2.Retrofit
+import retrofit2.converter.gson.GsonConverterFactory
 
 @Module
 @InstallIn(ActivityComponent::class)
-abstract class AppModule {
+object AppModule {
 
-    /*
-    @Binds
-    abstract fun bindCurrencyService(
+    @Provides
+    fun provideGsonBuilder(): Gson = GsonBuilder().disableHtmlEscaping().create()
 
-    ): CurrencyService*/
+    @Provides
+    fun loggingInterceptor() = HttpLoggingInterceptor().apply {
+        this.level = HttpLoggingInterceptor.Level.BODY
+    }
+
+    @Provides
+    fun provideRetrofit(
+        gson: Gson,
+        loggingInterceptor: HttpLoggingInterceptor
+    ): Retrofit.Builder {
+        val client: OkHttpClient.Builder = OkHttpClient.Builder()
+
+        if (BuildConfig.DEBUG)
+            client.addInterceptor(loggingInterceptor)
+
+        return Retrofit.Builder()
+            .baseUrl("https://api.coinbase.com")
+            .client(client.build())
+            .addConverterFactory(GsonConverterFactory.create(gson))
+    }
 }
