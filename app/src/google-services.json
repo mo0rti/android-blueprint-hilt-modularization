@@ -1,0 +1,68 @@
+{
+  "project_info": {
+    "project_number": "105151226751",
+    "project_id": "blue-prints-85f2f",
+    "storage_bucket": "blue-prints-85f2f.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:105151226751:android:56a1706ef7e1696139b04a",
+        "android_client_info": {
+          "package_name": "orangevelvet.androidblueprint.hilt"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "105151226751-tt8rvld264lm4bqgiss5jcknhroa8o0f.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC0Ij3VNPOcRX7JooV3DRr9niAkYB7SjqI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "105151226751-tt8rvld264lm4bqgiss5jcknhroa8o0f.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:105151226751:android:79900b75bc154d4639b04a",
+        "android_client_info": {
+          "package_name": "orangevelvet.androidblueprint.hilt.dev"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "105151226751-tt8rvld264lm4bqgiss5jcknhroa8o0f.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC0Ij3VNPOcRX7JooV3DRr9niAkYB7SjqI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "105151226751-tt8rvld264lm4bqgiss5jcknhroa8o0f.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
