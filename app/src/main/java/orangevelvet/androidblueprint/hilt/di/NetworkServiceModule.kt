@@ -3,16 +3,18 @@ package orangevelvet.androidblueprint.hilt.di
 import dagger.Binds
 import dagger.Module
 import dagger.hilt.InstallIn
-import dagger.hilt.android.components.ActivityComponent
-import orangevelvet.androidblueprint.hilt.datasource.network.service.CurrencyNetworkNetworkServiceImpl
-import orangevelvet.androidblueprint.hilt.domain.contract.CurrencyNetworkService
+import dagger.hilt.components.SingletonComponent
+import orangevelvet.androidblueprint.hilt.datasource.network.service.fake.FakeDashboardNetworkNetworkServiceImpl
+import orangevelvet.androidblueprint.hilt.domain.contract.network.DashboardNetworkService
+import javax.inject.Singleton
 
 @Module
-@InstallIn(ActivityComponent::class)
+@InstallIn(SingletonComponent::class)
 abstract class NetworkServiceModule {
 
+    @Singleton
     @Binds
-    abstract fun bindCurrencyNetworkService(
-        currencyNetworkServiceImpl: CurrencyNetworkNetworkServiceImpl
-    ): CurrencyNetworkService
+    abstract fun bindDashboardNetworkService(
+        dashboardNetworkNetworkServiceImpl: FakeDashboardNetworkNetworkServiceImpl
+    ): DashboardNetworkService
 }

@@ -1,0 +1,3 @@
+package orangevelvet.androidblueprint.hilt.presentation.navigation.events
+
+interface CoordinatorEvent

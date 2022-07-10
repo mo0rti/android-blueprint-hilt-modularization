@@ -42,7 +42,7 @@ object Versions {
         const val MaterialDesign = "1.6.1"
         const val ViewPager = "1.0.0"
 
-        const val Hilt = "2.38.1"
+        const val Hilt = "2.42"
         const val SecurityCrypto = "1.1.0-alpha01"
         const val UICountryPicker = "2.5.4"
     }

@@ -3,18 +3,20 @@ package orangevelvet.androidblueprint.hilt.di
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
-import dagger.hilt.android.components.ActivityComponent
-import orangevelvet.androidblueprint.hilt.datasource.network.api.CurrencyApi
+import dagger.hilt.components.SingletonComponent
+import orangevelvet.androidblueprint.hilt.datasource.network.api.DashboardApi
 import retrofit2.Retrofit
+import javax.inject.Singleton
 
 @Module
-@InstallIn(ActivityComponent::class)
+@InstallIn(SingletonComponent::class)
 object ApiModule {
 
+    @Singleton
     @Provides
-    fun provideCurrencyApi(
+    fun provideDashboardApi(
         retrofitBuilder: Retrofit.Builder
-    ): CurrencyApi {
-        return retrofitBuilder.build().create(CurrencyApi::class.java)
+    ): DashboardApi {
+        return retrofitBuilder.build().create(DashboardApi::class.java)
     }
 }

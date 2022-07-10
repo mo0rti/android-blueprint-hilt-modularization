@@ -80,6 +80,7 @@ android {
 }
 
 addAndroidCore()
+addNavigationComponent()
 addMaterialDesign()
 addLayouts()
 addHilt()
@@ -88,3 +89,7 @@ addCoroutines()
 
 addAndroidxCoreTesting()
 addUITestUtils()
+
+kapt {
+    correctErrorTypes = true
+}

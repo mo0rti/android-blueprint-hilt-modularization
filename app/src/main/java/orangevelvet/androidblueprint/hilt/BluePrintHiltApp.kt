@@ -1,4 +1,4 @@
-package orangevelvet.androidblueprint.hilt.di
+package orangevelvet.androidblueprint.hilt
 
 import android.app.Application
 import dagger.hilt.android.HiltAndroidApp

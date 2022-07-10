@@ -90,10 +90,15 @@ fun Project.addLiveCycle() {
 fun Project.addHilt() {
     dependencies {
         add("implementation", "com.google.dagger:hilt-android:${AndroidDependencies.Hilt}")
-        // Annotations
         add("kapt", "com.google.dagger:hilt-compiler:${AndroidDependencies.Hilt}")
-        // Test
+
+        // For instrumentation tests
+        add("androidTestImplementation", "com.google.dagger:hilt-android-testing:${AndroidDependencies.Hilt}")
         add("kaptAndroidTest", "com.google.dagger:hilt-compiler:${AndroidDependencies.Hilt}")
+
+        // For local unit tests
+        add("testImplementation", "com.google.dagger:hilt-android-testing:${AndroidDependencies.Hilt}")
+        add("kaptTest", "com.google.dagger:hilt-compiler:${AndroidDependencies.Hilt}")
     }
 }
 

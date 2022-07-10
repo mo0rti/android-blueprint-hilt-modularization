@@ -5,7 +5,7 @@
     <uses-permission android:name="android.permission.INTERNET" />
 
     <application
-        android:name=".di.BluePrintHiltApp"
+        android:name=".BluePrintHiltApp"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
@@ -14,18 +14,34 @@
         android:theme="@style/Theme.Hilt" >
 
         <activity
-            android:name=".presentation.ui.main.MainActivity"
+            android:name=".presentation.ui.main.activity.MainActivity"
             android:exported="true" >
+
+            <nav-graph android:value="@navigation/nav_graph_main" />
+
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+
+            <intent-filter>
+                <action android:name="orangevelvet.androidblueprint.hilt.main.open" />
+                <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
 
         <activity
-            android:name=".presentation.ui.account.AccountActivity"
-            android:exported="false" />
+            android:name=".presentation.ui.account.activity.AccountActivity"
+            android:exported="true">
+
+            <nav-graph android:value="@navigation/nav_graph_account" />
+
+            <intent-filter>
+                <action android:name="orangevelvet.androidblueprint.hilt.account.open" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+
+        </activity>
 
     </application>
 
