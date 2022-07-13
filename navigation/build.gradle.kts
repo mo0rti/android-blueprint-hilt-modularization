@@ -1,4 +1,5 @@
 import dependencies.addFragment
+import dependencies.addNavigationCore
 
 plugins {
     id("com.android.library")
@@ -35,8 +36,4 @@ android {
 }
 
 addFragment()
-
-dependencies {
-    implementation("androidx.navigation:navigation-runtime-ktx:2.5.0")
-    implementation("androidx.navigation:navigation-fragment-ktx:2.5.0")
-}
+addNavigationCore()

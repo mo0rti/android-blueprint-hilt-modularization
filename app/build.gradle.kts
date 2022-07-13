@@ -80,11 +80,15 @@ android {
 }
 
 addAndroidCore()
+addFragment()
+addNavigationCore()
+addNavigationUI()
 addNavigationComponent()
 addMaterialDesign()
 addLayouts()
 addHilt()
 addRetrofit()
+addGson()
 addCoroutines()
 
 addAndroidxCoreTesting()
@@ -92,6 +96,7 @@ addUITestUtils()
 
 dependencies {
     implementation(project(":navigation"))
+    implementation(project(":core"))
 }
 
 kapt {

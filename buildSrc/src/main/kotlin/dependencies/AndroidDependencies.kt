@@ -17,6 +17,11 @@ fun Project.addAndroidCore() {
         add("implementation", "androidx.core:core-ktx:${AndroidDependencies.AndroidCore}")
         add("implementation", "androidx.appcompat:appcompat:${AndroidDependencies.AndroidCompat}")
         add("implementation", "androidx.legacy:legacy-support-v4:${AndroidDependencies.AndroidLegacy}")
+    }
+}
+
+fun Project.addGson() {
+    dependencies {
         add("implementation", "com.google.code.gson:gson:${AndroidDependencies.GSON}")
     }
 }
@@ -46,10 +51,21 @@ fun Project.addMaterialDesign() {
     }
 }
 
+fun Project.addNavigationCore() {
+    dependencies {
+        add("implementation", "androidx.navigation:navigation-runtime-ktx:${AndroidDependencies.NavigationComponent}")
+        add("implementation", "androidx.navigation:navigation-fragment-ktx:${AndroidDependencies.NavigationComponent}")
+    }
+}
+
+fun Project.addNavigationUI() {
+    dependencies {
+        add("implementation", "androidx.navigation:navigation-ui-ktx:${AndroidDependencies.NavigationComponent}")
+    }
+}
+
 fun Project.addNavigationComponent() {
     dependencies {
-        add("implementation", "androidx.navigation:navigation-fragment-ktx:${AndroidDependencies.NavigationComponent}")
-        add("implementation", "androidx.navigation:navigation-ui-ktx:${AndroidDependencies.NavigationComponent}")
         // Feature module Support
         add("implementation", "androidx.navigation:navigation-dynamic-features-fragment:${AndroidDependencies.NavigationComponent}")
         // Testing Navigation

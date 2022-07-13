@@ -1,3 +1,8 @@
+import dependencies.addAndroidCore
+import dependencies.addFragment
+import dependencies.addNavigationCore
+import dependencies.addNavigationUI
+
 plugins {
     id("com.android.library")
     id("org.jetbrains.kotlin.android")
@@ -30,4 +35,18 @@ android {
     kotlinOptions {
         jvmTarget = "1.8"
     }
+    buildFeatures {
+        viewBinding = true
+        dataBinding = true
+    }
 }
+
+addAndroidCore()
+addFragment()
+addNavigationCore()
+addNavigationUI()
+
+dependencies {
+    implementation(project(":navigation"))
+}
+
