@@ -6,7 +6,7 @@ import androidx.lifecycle.ViewModel
 import orangevelvet.androidblueprint.hilt.presentation.base.state.view.ViewAction
 import orangevelvet.androidblueprint.hilt.presentation.base.state.view.ViewEvent
 import orangevelvet.androidblueprint.hilt.presentation.base.state.view.ViewState
-import orangevelvet.androidblueprint.hilt.presentation.navigation.events.CoordinatorEvent
+import orangevelvet.androidblueprint.navigation.event.CoordinatorEvent
 
 abstract class BaseViewModel<
         VS: ViewState,

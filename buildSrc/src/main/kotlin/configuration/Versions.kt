@@ -28,13 +28,13 @@ object Versions {
         const val RxJava = "3.1.2"
         const val RxAndroid = "3.0.0"
 
-        const val NavigationComponent = "2.4.2"
+        const val NavigationComponent = "2.5.0"
         const val LifeCycle = "2.4.0"
         const val Coroutine = "1.4.1"
         const val CoroutineWorker = "2.7.1"
         const val Room = "2.3.0-alpha04"
 
-        const val Fragment = "1.3.6"
+        const val Fragment = "1.5.0"
         const val CardView = "1.0.0"
         const val ConstraintLayout = "2.1.4"
         const val FlexBoxLayout = "3.0.0"

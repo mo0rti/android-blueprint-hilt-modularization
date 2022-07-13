@@ -1,4 +1,4 @@
-package orangevelvet.androidblueprint.hilt.presentation.navigation.navigators
+package orangevelvet.androidblueprint.navigation.navigator
 
 import android.content.Intent
 

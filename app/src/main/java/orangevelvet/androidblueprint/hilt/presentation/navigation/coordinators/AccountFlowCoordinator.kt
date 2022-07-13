@@ -3,10 +3,10 @@ package orangevelvet.androidblueprint.hilt.presentation.navigation.coordinators
 import orangevelvet.androidblueprint.hilt.R
 import orangevelvet.androidblueprint.hilt.domain.contract.session.UserSessionManager
 import orangevelvet.androidblueprint.hilt.presentation.navigation.events.AccountCoordinatorEvent
-import orangevelvet.androidblueprint.hilt.presentation.navigation.events.CoordinatorEvent
-import orangevelvet.androidblueprint.hilt.presentation.navigation.navigators.Coordinator
-import orangevelvet.androidblueprint.hilt.presentation.navigation.navigators.FeatureNavigator
-import orangevelvet.androidblueprint.hilt.presentation.navigation.navigators.StartDestination
+import orangevelvet.androidblueprint.navigation.coordinator.Coordinator
+import orangevelvet.androidblueprint.navigation.event.CoordinatorEvent
+import orangevelvet.androidblueprint.navigation.navigator.FeatureNavigator
+import orangevelvet.androidblueprint.navigation.navigator.StartDestination
 import javax.inject.Inject
 
 class AccountFlowCoordinator

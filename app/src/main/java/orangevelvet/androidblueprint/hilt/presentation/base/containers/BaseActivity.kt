@@ -10,9 +10,9 @@ import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.navigateUp
 import androidx.viewbinding.ViewBinding
-import orangevelvet.androidblueprint.hilt.presentation.navigation.navigators.Coordinator
-import orangevelvet.androidblueprint.hilt.presentation.navigation.navigators.CoordinatorHost
-import orangevelvet.androidblueprint.hilt.presentation.navigation.navigators.StartDestination
+import orangevelvet.androidblueprint.navigation.coordinator.Coordinator
+import orangevelvet.androidblueprint.navigation.coordinator.CoordinatorHost
+import orangevelvet.androidblueprint.navigation.navigator.StartDestination
 
 typealias ActivityInflate<T> = (LayoutInflater) -> T
 

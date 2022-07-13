@@ -6,12 +6,11 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.viewbinding.ViewBinding
-import dagger.hilt.android.AndroidEntryPoint
 import orangevelvet.androidblueprint.hilt.presentation.base.state.view.ViewAction
 import orangevelvet.androidblueprint.hilt.presentation.base.state.view.ViewEvent
 import orangevelvet.androidblueprint.hilt.presentation.base.state.view.ViewState
-import orangevelvet.androidblueprint.hilt.presentation.navigation.navigators.Coordinator
-import orangevelvet.androidblueprint.hilt.presentation.navigation.navigators.CoordinatorHost
+import orangevelvet.androidblueprint.navigation.coordinator.Coordinator
+import orangevelvet.androidblueprint.navigation.coordinator.CoordinatorHost
 
 typealias FragmentInflate<T> = (LayoutInflater, ViewGroup?, Boolean) -> T
 

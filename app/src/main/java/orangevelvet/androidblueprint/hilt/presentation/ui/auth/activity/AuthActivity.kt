@@ -8,10 +8,8 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import orangevelvet.androidblueprint.hilt.R
 import orangevelvet.androidblueprint.hilt.databinding.ActivityAuthBinding
-import orangevelvet.androidblueprint.hilt.databinding.ActivityMainBinding
 import orangevelvet.androidblueprint.hilt.presentation.base.containers.BaseActivity
 import orangevelvet.androidblueprint.hilt.presentation.navigation.coordinators.AuthFlowCoordinator
-import orangevelvet.androidblueprint.hilt.presentation.navigation.coordinators.MainFlowCoordinator
 import javax.inject.Inject
 
 @AndroidEntryPoint

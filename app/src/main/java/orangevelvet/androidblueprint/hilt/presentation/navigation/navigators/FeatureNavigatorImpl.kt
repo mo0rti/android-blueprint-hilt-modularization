@@ -2,6 +2,7 @@ package orangevelvet.androidblueprint.hilt.presentation.navigation.navigators
 
 import android.app.Application
 import orangevelvet.androidblueprint.navigation.action.Actions
+import orangevelvet.androidblueprint.navigation.navigator.FeatureNavigator
 import javax.inject.Inject
 
 class FeatureNavigatorImpl

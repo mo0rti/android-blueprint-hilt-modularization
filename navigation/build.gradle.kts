@@ -1,3 +1,5 @@
+import dependencies.addFragment
+
 plugins {
     id("com.android.library")
     id("org.jetbrains.kotlin.android")
@@ -30,4 +32,11 @@ android {
     kotlinOptions {
         jvmTarget = "1.8"
     }
+}
+
+addFragment()
+
+dependencies {
+    implementation("androidx.navigation:navigation-runtime-ktx:2.5.0")
+    implementation("androidx.navigation:navigation-fragment-ktx:2.5.0")
 }

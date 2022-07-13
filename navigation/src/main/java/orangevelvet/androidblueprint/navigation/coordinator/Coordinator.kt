@@ -1,9 +1,11 @@
-package orangevelvet.androidblueprint.hilt.presentation.navigation.navigators
+package orangevelvet.androidblueprint.navigation.coordinator
 
 import androidx.fragment.app.FragmentActivity
 import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
-import orangevelvet.androidblueprint.hilt.presentation.navigation.events.CoordinatorEvent
+import orangevelvet.androidblueprint.navigation.event.CoordinatorEvent
+import orangevelvet.androidblueprint.navigation.navigator.FeatureNavigator
+import orangevelvet.androidblueprint.navigation.navigator.StartDestination
 
 // Coordinator responsibilities:
 // Kick starting the flow

@@ -2,11 +2,11 @@ package orangevelvet.androidblueprint.hilt.presentation.navigation.coordinators
 
 import orangevelvet.androidblueprint.hilt.R
 import orangevelvet.androidblueprint.hilt.presentation.navigation.events.AuthCoordinatorEvent
-import orangevelvet.androidblueprint.hilt.presentation.navigation.events.CoordinatorEvent
-import orangevelvet.androidblueprint.hilt.presentation.navigation.navigators.Coordinator
-import orangevelvet.androidblueprint.hilt.presentation.navigation.navigators.FeatureNavigator
-import orangevelvet.androidblueprint.hilt.presentation.navigation.navigators.StartDestination
 import orangevelvet.androidblueprint.hilt.presentation.ui.auth.login.LoginFragmentDirections
+import orangevelvet.androidblueprint.navigation.coordinator.Coordinator
+import orangevelvet.androidblueprint.navigation.event.CoordinatorEvent
+import orangevelvet.androidblueprint.navigation.navigator.FeatureNavigator
+import orangevelvet.androidblueprint.navigation.navigator.StartDestination
 import javax.inject.Inject
 import javax.inject.Singleton
 
