@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph_auth"
+    app:startDestination="@id/navLoginFragment">
+
+    <fragment
+        android:id="@+id/navLoginFragment"
+        android:name="orangevelvet.androidblueprint.auth.presentation.login.LoginFragment"
+        android:label="Login"
+        tools:layout="@layout/fragment_login">
+        <action
+            android:id="@+id/action_Login_to_ForgotPinCode"
+            app:destination="@id/navForgotPinCodeFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/navForgotPinCodeFragment"
+        android:name="orangevelvet.androidblueprint.auth.presentation.forgotPinCode.ForgotPinCodeFragment"
+        android:label="Forgot Pin code"
+        tools:layout="@layout/fragment_forgot_pin_code"/>
+
+</navigation>

@@ -16,7 +16,6 @@ fun Project.addAndroidCore() {
     dependencies {
         add("implementation", "androidx.core:core-ktx:${AndroidDependencies.AndroidCore}")
         add("implementation", "androidx.appcompat:appcompat:${AndroidDependencies.AndroidCompat}")
-        add("implementation", "androidx.legacy:legacy-support-v4:${AndroidDependencies.AndroidLegacy}")
     }
 }
 

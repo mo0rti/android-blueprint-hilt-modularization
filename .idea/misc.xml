@@ -11,6 +11,9 @@
         <entry key="app/src/main/res/layout/fragment_forgot_pincode.xml" value="0.5307971014492754" />
         <entry key="app/src/main/res/layout/fragment_login.xml" value="0.12130177514792899" />
         <entry key="app/src/main/res/layout/fragment_splash.xml" value="0.3129528985507246" />
+        <entry key="auth/src/main/res/layout/activity_auth.xml" value="0.5635416666666667" />
+        <entry key="auth/src/main/res/layout/fragment_forgot_pin_code.xml" value="0.5635416666666667" />
+        <entry key="auth/src/main/res/layout/fragment_login.xml" value="0.5635416666666667" />
       </map>
     </option>
   </component>

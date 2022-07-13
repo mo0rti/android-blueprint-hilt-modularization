@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/navSplashFragment"
-        android:name="orangevelvet.androidblueprint.hilt.presentation.ui.main.splash.SplashFragment"
+        android:name="orangevelvet.androidblueprint.hilt.presentation.splash.SplashFragment"
         android:label="Splash"
         tools:layout="@layout/fragment_splash" />
 

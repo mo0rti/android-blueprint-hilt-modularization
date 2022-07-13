@@ -98,6 +98,7 @@ dependencies {
     implementation(project(":navigation"))
     implementation(project(":core"))
     implementation(project(":account"))
+    implementation(project(":auth"))
 }
 
 kapt {

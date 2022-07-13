@@ -10,5 +10,4 @@ interface DashboardApi {
 
     @GET(AccountEndPoints.GetLatestNews)
     suspend fun getLatestNews(): GetLatestNewsResponse
-
 }
