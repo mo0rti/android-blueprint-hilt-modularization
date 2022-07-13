@@ -1,0 +1,3 @@
+package orangevelvet.blueprint.navigation.event
+
+interface CoordinatorEvent

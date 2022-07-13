@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/navDashboardFragment"
-        android:name="orangevelvet.androidblueprint.account.presentation.dashboard.DashboardFragment"
+        android:name="orangevelvet.blueprint.account.presentation.dashboard.DashboardFragment"
         android:label="Dashboard"
         tools:layout="@layout/fragment_dashboard"/>
 
