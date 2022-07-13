@@ -3,6 +3,7 @@ package orangevelvet.androidblueprint.hilt.presentation.navigation.coordinators
 import orangevelvet.androidblueprint.hilt.R
 import orangevelvet.androidblueprint.hilt.domain.contract.session.UserSessionManager
 import orangevelvet.androidblueprint.hilt.presentation.navigation.events.AccountCoordinatorEvent
+import orangevelvet.androidblueprint.hilt.presentation.navigation.events.CoordinatorEvent
 import orangevelvet.androidblueprint.hilt.presentation.navigation.navigators.Coordinator
 import orangevelvet.androidblueprint.hilt.presentation.navigation.navigators.FeatureNavigator
 import orangevelvet.androidblueprint.hilt.presentation.navigation.navigators.StartDestination
@@ -19,7 +20,7 @@ constructor(
         return StartDestination(destination = R.id.navDashboardFragment, args = null)
     }
 
-    override fun onEvent(event: Any): Boolean {
+    override fun onEvent(event: CoordinatorEvent): Boolean {
         return when (event) {
             is AccountCoordinatorEvent.Logout -> logout()
             else -> false

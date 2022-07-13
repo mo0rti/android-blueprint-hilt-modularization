@@ -3,7 +3,7 @@ package configuration
 object Versions {
 
     object Build {
-        const val Gradle = "7.0.4"
+        const val Gradle = "7.1.3"
 
         const val CompileSdk = 31
         const val MinSdk = 29

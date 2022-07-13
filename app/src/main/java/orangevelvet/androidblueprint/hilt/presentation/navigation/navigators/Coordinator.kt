@@ -3,6 +3,7 @@ package orangevelvet.androidblueprint.hilt.presentation.navigation.navigators
 import androidx.fragment.app.FragmentActivity
 import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
+import orangevelvet.androidblueprint.hilt.presentation.navigation.events.CoordinatorEvent
 
 // Coordinator responsibilities:
 // Kick starting the flow
@@ -21,7 +22,7 @@ abstract class Coordinator(val featureNavigator: FeatureNavigator) {
 
     // Handle events sent from view models and navigate to different screens
     // navController acts as flowNavigator for navigation with the help of navigation actions
-    abstract fun onEvent(event: Any): Boolean
+    abstract fun onEvent(event: CoordinatorEvent): Boolean
 
     // fire events when a screen pops from stack
     abstract fun onPop()

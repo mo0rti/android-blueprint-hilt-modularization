@@ -90,6 +90,10 @@ addCoroutines()
 addAndroidxCoreTesting()
 addUITestUtils()
 
+dependencies {
+    implementation(project(":navigation"))
+}
+
 kapt {
     correctErrorTypes = true
 }

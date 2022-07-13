@@ -13,4 +13,4 @@ dependencyResolutionManagement {
     }
 }
 rootProject.name = "AndroidBluePrintHilt"
-include(":app", ":core")
+include(":app", ":core", ":navigation", ":auth")

@@ -1,21 +1,37 @@
 package orangevelvet.androidblueprint.hilt.presentation.ui.main.splash
 
-import android.os.Bundle
-import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
+import androidx.fragment.app.viewModels
 import dagger.hilt.android.AndroidEntryPoint
-import orangevelvet.androidblueprint.hilt.R
+import kotlinx.coroutines.*
+import orangevelvet.androidblueprint.hilt.databinding.FragmentSplashBinding
+import orangevelvet.androidblueprint.hilt.presentation.base.containers.BaseFragment
+import orangevelvet.androidblueprint.hilt.presentation.base.containers.ToolbarConfiguration
+import orangevelvet.androidblueprint.hilt.presentation.base.state.view.empty.EmptyViewEvent
+import orangevelvet.androidblueprint.hilt.presentation.base.state.view.empty.EmptyViewState
+import kotlin.coroutines.CoroutineContext
 
 @AndroidEntryPoint
-class SplashFragment : Fragment() {
+class SplashFragment: BaseFragment<
+        FragmentSplashBinding,
+        EmptyViewState,
+        EmptyViewEvent,
+        SplashViewAction,
+        SplashViewModel
+        >
+    (
+    FragmentSplashBinding::inflate,
+    ToolbarConfiguration(isVisible = false)
+), CoroutineScope {
 
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_splash, container, false)
+    override val coroutineContext: CoroutineContext
+        get() = Dispatchers.Main + Job()
+
+    override val viewModel: SplashViewModel by viewModels()
+
+    override fun initializeComponents() {
+        launch {
+            delay(500)
+            postAction(SplashViewAction.GotoNextScreenAction)
+        }
     }
 }
