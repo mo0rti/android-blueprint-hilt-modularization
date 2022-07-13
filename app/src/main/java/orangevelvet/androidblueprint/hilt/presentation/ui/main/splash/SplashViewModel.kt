@@ -4,7 +4,7 @@ import dagger.hilt.android.lifecycle.HiltViewModel
 import orangevelvet.androidblueprint.core.base.state.view.empty.EmptyViewEvent
 import orangevelvet.androidblueprint.core.base.state.view.empty.EmptyViewState
 import orangevelvet.androidblueprint.core.base.viewmodel.BaseViewModel
-import orangevelvet.androidblueprint.hilt.domain.contract.session.UserSessionManager
+import orangevelvet.androidblueprint.core.domain.contract.session.UserSessionManager
 import orangevelvet.androidblueprint.hilt.presentation.navigation.events.MainCoordinatorEvent
 import javax.inject.Inject
 

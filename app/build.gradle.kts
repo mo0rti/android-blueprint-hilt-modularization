@@ -97,6 +97,7 @@ addUITestUtils()
 dependencies {
     implementation(project(":navigation"))
     implementation(project(":core"))
+    implementation(project(":account"))
 }
 
 kapt {

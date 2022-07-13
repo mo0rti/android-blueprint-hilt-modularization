@@ -1,11 +1,10 @@
-import dependencies.addAndroidCore
-import dependencies.addFragment
-import dependencies.addNavigationCore
-import dependencies.addNavigationUI
+import dependencies.*
 
 plugins {
     id("com.android.library")
     id("org.jetbrains.kotlin.android")
+    id("kotlin-kapt")
+    id("dagger.hilt.android.plugin")
 }
 
 android {
@@ -45,8 +44,14 @@ addAndroidCore()
 addFragment()
 addNavigationCore()
 addNavigationUI()
+addHilt()
+addRetrofit()
+addGson()
 
 dependencies {
     implementation(project(":navigation"))
 }
 
+kapt {
+    correctErrorTypes = true
+}
