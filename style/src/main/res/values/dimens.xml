@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="screen_margin">16dp</dimen>
+
+    <dimen name="font_size_small_8sp">8sp</dimen>
+    <dimen name="font_size_small_10sp">10sp</dimen>
+    <dimen name="font_size_small_12sp">12sp</dimen>
+    <dimen name="font_size_body_14sp">14sp</dimen>
+    <dimen name="font_size_body_16sp">16sp</dimen>
+    <dimen name="font_size_title_18sp">18sp</dimen>
+    <dimen name="font_size_title_20sp">20sp</dimen>
+    <dimen name="font_size_title_25sp">25sp</dimen>
+
+    <dimen name="spacing_small_4dp">4dp</dimen>
+    <dimen name="spacing_small_6dp">6dp</dimen>
+    <dimen name="spacing_regular_8dp">8dp</dimen>
+    <dimen name="spacing_large_10dp">10dp</dimen>
+    <dimen name="spacing_large_12dp">12dp</dimen>
+    <dimen name="spacing_large_14dp">14dp</dimen>
+
+    <dimen name="pin_button_width">120dp</dimen>
+    <dimen name="pin_button_height">54dp</dimen>
+
+</resources>

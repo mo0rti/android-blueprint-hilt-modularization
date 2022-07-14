@@ -17,6 +17,8 @@
             <option value="$PROJECT_DIR$/core" />
             <option value="$PROJECT_DIR$/navigation" />
             <option value="$PROJECT_DIR$/onboarding" />
+            <option value="$PROJECT_DIR$/style" />
+            <option value="$PROJECT_DIR$/ui-components" />
           </set>
         </option>
       </GradleProjectSettings>

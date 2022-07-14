@@ -16,9 +16,7 @@ class SplashFragment: BaseFragment<
         EmptyViewState,
         EmptyViewEvent,
         SplashViewAction,
-        SplashViewModel
-        >
-    (
+        SplashViewModel>(
     FragmentSplashBinding::inflate,
     ToolbarConfiguration(isVisible = false)
 ), CoroutineScope {
@@ -30,7 +28,7 @@ class SplashFragment: BaseFragment<
 
     override fun initializeComponents() {
         launch {
-            delay(500)
+            delay(1000)
             postAction(SplashViewAction.GotoNextScreenAction)
         }
     }

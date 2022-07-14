@@ -50,6 +50,7 @@ addGson()
 
 dependencies {
     implementation(project(":navigation"))
+    implementation(project(":style"))
 }
 
 kapt {

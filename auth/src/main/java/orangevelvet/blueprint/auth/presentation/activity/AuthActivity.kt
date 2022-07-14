@@ -16,7 +16,6 @@ import javax.inject.Inject
 class AuthActivity: BaseActivity<ActivityAuthBinding, AuthFlowCoordinator>(
     ActivityAuthBinding::inflate
 ) {
-
     @Inject
     lateinit var authFlowCoordinator: AuthFlowCoordinator
 
@@ -29,7 +28,7 @@ class AuthActivity: BaseActivity<ActivityAuthBinding, AuthFlowCoordinator>(
 
     private val viewModel: AuthViewModel by viewModels()
 
-    override fun initUIComponents() {
+    override fun initializeUIComponents() {
         CoroutineScope(Dispatchers.Main).launch {
             Toast.makeText(this@AuthActivity, viewModel.load().size.toString(), Toast.LENGTH_LONG).show()
         }

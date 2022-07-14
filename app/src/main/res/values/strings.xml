@@ -1,6 +1,4 @@
 <resources>
-    <string name="app_name">Blue print hilt</string>
+    <string name="app_name">Blue print</string>
     <string name="welcome_message">Welcome</string>
-    <string name="login">Login</string>
-    <string name="dashboard">Dashboard</string>
 </resources>

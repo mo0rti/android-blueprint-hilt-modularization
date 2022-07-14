@@ -13,4 +13,5 @@ dependencyResolutionManagement {
     }
 }
 rootProject.name = "blueprint"
-include(":app", ":core", ":navigation", ":auth", ":account", ":onboarding")
+include(":app", ":core", ":navigation", ":auth", ":account", ":onboarding", ":style")
+include ':ui-components'

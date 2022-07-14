@@ -99,6 +99,7 @@ dependencies {
     implementation(project(":core"))
     implementation(project(":account"))
     implementation(project(":auth"))
+    implementation(project(":style"))
 }
 
 kapt {

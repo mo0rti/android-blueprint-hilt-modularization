@@ -53,6 +53,7 @@ addUITestUtils()
 
 dependencies {
     implementation(project(":navigation"))
+    implementation(project(":style"))
     implementation(project(":core"))
 }
 

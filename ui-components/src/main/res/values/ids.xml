@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item name="pinPad" type="id" />
+    <item name="pinView" type="id" />
+    <item name="btnPin" type="id" />
+    <item name="btnPin1" type="id" />
+    <item name="btnPin2" type="id" />
+    <item name="btnPin3" type="id" />
+    <item name="btnPin4" type="id" />
+    <item name="btnPin5" type="id" />
+    <item name="btnPin6" type="id" />
+    <item name="btnPin7" type="id" />
+    <item name="btnPin8" type="id" />
+    <item name="btnPin9" type="id" />
+    <item name="btnPin0" type="id" />
+    <item name="btnPinDel" type="id" />
+    <item name="btnPinBiometrics" type="id" />
+</resources>

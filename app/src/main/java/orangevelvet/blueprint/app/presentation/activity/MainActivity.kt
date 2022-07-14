@@ -16,7 +16,6 @@ import javax.inject.Inject
 class MainActivity : BaseActivity<ActivityMainBinding, MainFlowCoordinator>(
     ActivityMainBinding::inflate
 ) {
-
     @Inject
     lateinit var mainFlowCoordinator: MainFlowCoordinator
 
@@ -29,7 +28,7 @@ class MainActivity : BaseActivity<ActivityMainBinding, MainFlowCoordinator>(
 
     private val viewModel: MainViewModel by viewModels()
 
-    override fun initUIComponents() {
+    override fun initializeUIComponents() {
         CoroutineScope(Dispatchers.Main).launch {
             Toast.makeText(this@MainActivity, viewModel.load().size.toString(), Toast.LENGTH_LONG).show()
         }

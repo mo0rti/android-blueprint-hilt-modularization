@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="Widget.App.TextView">
+        <item name="android:textSize">@dimen/font_size_body_14sp</item>
+        <item name="android:textColor">@color/teal_900</item>
+    </style>
+
+    <style name="Widget.App.TextView.PageTitle">
+        <item name="android:textSize">@dimen/font_size_title_20sp</item>
+        <item name="android:textFontWeight">700</item>
+    </style>
+
+    <style name="Widget.App.TextView.PageSubtitle">
+        <item name="android:textSize">@dimen/font_size_body_16sp</item>
+        <item name="android:textFontWeight">500</item>
+    </style>
+</resources>

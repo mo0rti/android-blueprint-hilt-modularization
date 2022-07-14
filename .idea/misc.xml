@@ -3,6 +3,7 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="account/src/main/res/layout/activity_account.xml" value="0.5635416666666667" />
         <entry key="account/src/main/res/layout/fragment_dashboard.xml" value="0.5635416666666667" />
         <entry key="app/src/main/res/layout/activity_account.xml" value="0.2740628166160081" />
         <entry key="app/src/main/res/layout/activity_auth.xml" value="0.5307971014492754" />
@@ -13,7 +14,16 @@
         <entry key="app/src/main/res/layout/fragment_splash.xml" value="0.3129528985507246" />
         <entry key="auth/src/main/res/layout/activity_auth.xml" value="0.5635416666666667" />
         <entry key="auth/src/main/res/layout/fragment_forgot_pin_code.xml" value="0.5635416666666667" />
-        <entry key="auth/src/main/res/layout/fragment_login.xml" value="0.5635416666666667" />
+        <entry key="auth/src/main/res/layout/fragment_login.xml" value="0.5" />
+        <entry key="style/src/main/res/drawable/btn_normal.xml" value="0.3425" />
+        <entry key="style/src/main/res/drawable/btn_pressed_state.xml" value="0.3425" />
+        <entry key="style/src/main/res/drawable/btn_rounded.xml" value="0.5555" />
+        <entry key="style/src/main/res/drawable/button_bg.xml" value="0.3425" />
+        <entry key="style/src/main/res/drawable/ic_nav_back.xml" value="0.5565" />
+        <entry key="style/src/main/res/layout/toolbar.xml" value="0.5" />
+        <entry key="ui-components/src/main/res/drawable/ic_finger_print.xml" value="0.3425" />
+        <entry key="ui-components/src/main/res/drawable/ic_number_0.xml" value="0.3425" />
+        <entry key="ui-components/src/main/res/layout/pin_pad.xml" value="0.340625" />
       </map>
     </option>
   </component>

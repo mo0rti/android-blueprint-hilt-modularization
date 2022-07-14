@@ -1,21 +1,27 @@
 package orangevelvet.blueprint.auth.presentation.login
 
-import android.os.Bundle
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
-import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
 import dagger.hilt.android.AndroidEntryPoint
-import orangevelvet.blueprint.auth.R
+import orangevelvet.blueprint.auth.databinding.FragmentLoginBinding
+import orangevelvet.blueprint.core.base.state.view.empty.EmptyViewAction
+import orangevelvet.blueprint.core.base.state.view.empty.EmptyViewEvent
+import orangevelvet.blueprint.core.base.state.view.empty.EmptyViewState
+import orangevelvet.blueprint.core.base.view.BaseFragment
+import orangevelvet.blueprint.core.base.view.ToolbarConfiguration
 
 @AndroidEntryPoint
-class LoginFragment : Fragment() {
+class LoginFragment : BaseFragment<
+        FragmentLoginBinding,
+        EmptyViewState,
+        EmptyViewEvent,
+        EmptyViewAction,
+        LoginViewModel>(
+    FragmentLoginBinding::inflate,
+    ToolbarConfiguration(title = "")
+) {
 
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_login, container, false)
+    override val viewModel: LoginViewModel by viewModels()
+
+    override fun initializeComponents() {
     }
 }

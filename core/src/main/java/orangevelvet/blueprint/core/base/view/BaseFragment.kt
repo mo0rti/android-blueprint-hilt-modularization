@@ -55,6 +55,15 @@ constructor(
         initializeComponents()
     }
 
+    override fun onStart() {
+        activity().updateToolbar(toolbarConfiguration)
+        super.onStart()
+    }
+
+    fun activity() = activity?.run {
+        (this as BaseActivity<*, *>)
+    } ?: throw Exception("Activity is not inherited from BaseActivity")
+
     //------------------- State and Event
     protected fun postAction(action: VA) {
         viewModel.postAction(action)

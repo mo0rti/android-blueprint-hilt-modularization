@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item name="appbar" type="id" />
+    <item name="toolbar" type="id" />
+    <item name="tvToolbarTitle" type="id" />
+
+    <item name="tvPageTitle" type="id" />
+    <item name="tvPageSubtitle" type="id" />
+
+    <item name="edtEmail" type="id" />
+    <item name="edtPassword" type="id" />
+
+    <item name="btnNext" type="id" />
+    <item name="btnClose" type="id" />
+    <item name="btnOk" type="id" />
+    <item name="btnCancel" type="id" />
+</resources>

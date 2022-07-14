@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="Widget.App.Input">
+    </style>
+
+    <style name="Widget.App.Input.Grey">
+        <item name="colorControlActivated">@color/grey_600</item>
+        <item name="colorControlHighlight">@color/grey_600</item>
+        <item name="colorControlNormal">@color/grey_400</item>
+    </style>
+
+</resources>
