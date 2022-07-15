@@ -23,5 +23,6 @@ class LoginFragment : BaseFragment<
     override val viewModel: LoginViewModel by viewModels()
 
     override fun initializeComponents() {
+        binding.pinPad.isEnabled = false
     }
 }

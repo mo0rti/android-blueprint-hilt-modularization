@@ -40,7 +40,8 @@ constructor(
         container: ViewGroup?,
         savedInstanceState: Bundle?,
     ): View? {
-        return fragmentInflate.invoke(inflater, container, false).root
+        _binding = fragmentInflate.invoke(inflater, container, false)
+        return _binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {

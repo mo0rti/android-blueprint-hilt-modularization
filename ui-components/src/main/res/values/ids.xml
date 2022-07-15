@@ -15,4 +15,7 @@
     <item name="btnPin0" type="id" />
     <item name="btnPinDel" type="id" />
     <item name="btnPinBiometrics" type="id" />
+
+    <item name="tvPinButton" type="id" />
+    <item name="icPinButton" type="id" />
 </resources>

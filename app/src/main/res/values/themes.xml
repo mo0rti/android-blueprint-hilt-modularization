@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <style name="Theme.Hilt" parent="Theme.Base">
+    <style name="BluePrint.Theme.App" parent="BluePrint.Theme.Base">
+        <item name="pinButtonBackgroundColor">@color/grey_50</item>
+        <item name="pinButtonBackgroundColorPressed">@color/pink_200</item>
     </style>
 </resources>

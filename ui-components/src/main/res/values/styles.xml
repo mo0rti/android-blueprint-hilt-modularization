@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="BluePrint.Widget.PinPad" />
+
+    <style name="BluePrint.Widget.PinPad.Button">
+        <item name="android:background">@drawable/btn_pin_bg</item>
+        <item name="android:layout_height">@dimen/pin_button_height</item>
+    </style>
+
+    <style name="BluePrint.Widget.PinPad.Button.Transparent">
+        <item name="android:background">@drawable/btn_pin_bg_transparent</item>
+    </style>
+
+    <style name="BluePrint.Widget.PinPad.Button.Text">
+        <item name="android:textSize">@dimen/font_size_small_8sp</item>
+        <item name="android:textColor">@color/grey_500</item>
+        <item name="android:layout_marginTop">@dimen/spacing_small_4dp</item>
+    </style>
+</resources>

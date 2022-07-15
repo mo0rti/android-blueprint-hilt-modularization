@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="PinPad">
+        <attr name="pinLength" format="integer" />
+        <attr name="hasBiometric" format="boolean" />
+        <attr name="android:enabled" format="boolean" />
+    </declare-styleable>
+
+    <declare-styleable name="PinPadButton">
+        <attr name="android:text" />
+        <attr name="android:drawable" format="reference" />
+        <attr name="android:enabled" format="boolean" />
+        <attr name="pinButtonBackgroundColor" format="reference|color" />
+        <attr name="pinButtonBackgroundColorPressed" format="reference|color" />
+    </declare-styleable>
+
+</resources>

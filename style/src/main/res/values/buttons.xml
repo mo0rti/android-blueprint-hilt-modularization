@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <style name="Widget.App.Button">
+    <style name="BluePrint.Widget.Button">
         <item name="android:textAllCaps">false</item>
     </style>
 
-    <style name="Widget.App.Button.Rounded">
+    <style name="BluePrint.Widget.Button.Rounded">
         <item name="android:background">@drawable/btn_rounded</item>
         <item name="android:textColor">?colorOnPrimary</item>
         <item name="android:textStyle">bold</item>
     </style>
 
-    <style name="Widget.App.Button.Pin">
+    <style name="BluePrint.Widget.Button.Pin">
         <item name="android:width">@dimen/pin_button_width</item>
         <item name="android:height">@dimen/pin_button_height</item>
-        <item name="android:background">@drawable/btn_bg</item>
+        <item name="android:background">@drawable/btn_bg_filled</item>
         <item name="android:padding">2dp</item>
         <item name="android:drawablePadding">0dp</item>
         <item name="android:textSize">@dimen/font_size_body_14sp</item>
