@@ -20,7 +20,7 @@ import orangevelvet.blueprint.style.R as style
 
 typealias ActivityInflate<T> = (LayoutInflater) -> T
 
-abstract class BaseActivity<VB : ViewBinding, C : Coordinator>(
+abstract class BaseActivity<VB: ViewBinding, C: Coordinator>(
     private val inflate: ActivityInflate<VB>
 ) : AppCompatActivity(), CoordinatorHost<C> {
 

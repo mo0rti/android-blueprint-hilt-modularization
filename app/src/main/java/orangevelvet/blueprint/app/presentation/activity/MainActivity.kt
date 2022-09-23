@@ -20,7 +20,7 @@ class MainActivity : BaseActivity<ActivityMainBinding, MainFlowCoordinator>(
     lateinit var mainFlowCoordinator: MainFlowCoordinator
 
     override val graph: Int?
-        get() = R.navigation.nav_graph_main
+        get() = R.navigation.nav_graph_app
     override val navHostId: Int
         get() = R.id.nav_host_fragment_main
     override val coordinator: MainFlowCoordinator

@@ -1,9 +1,9 @@
-package orangevelvet.blueprint.account.datasource.network.model.news
+package orangevelvet.blueprint.account.datasource.network.model.event
 
 import com.google.gson.annotations.SerializedName
 import orangevelvet.blueprint.core.base.net.BaseNetworkResponse
 
-data class GetLatestNewsResponse(
+data class GetLatestEventsResponse(
     @SerializedName("data")
-    val data: List<LatestNewsDto>
+    val data: List<LatestEventDto>
 ): BaseNetworkResponse()

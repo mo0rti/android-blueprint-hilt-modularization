@@ -10,7 +10,8 @@ class FeatureNavigatorImpl
 constructor(
     private val application: Application
 ): FeatureNavigator {
-    override fun main() = Actions.openMainIntent(application)
+    override fun app() = Actions.openAppIntent(application)
     override fun auth() = Actions.openAuthIntent(application)
     override fun account() = Actions.openAccountIntent(application)
+    override fun onboarding() = Actions.openOnboardingIntent(application)
 }

@@ -8,7 +8,7 @@
     <fragment
         android:id="@+id/navLoginFragment"
         android:name="orangevelvet.blueprint.auth.presentation.login.LoginFragment"
-        android:label="Login"
+        android:label=" "
         tools:layout="@layout/fragment_login">
         <action
             android:id="@+id/action_Login_to_ForgotPinCode"
@@ -18,7 +18,7 @@
     <fragment
         android:id="@+id/navForgotPinCodeFragment"
         android:name="orangevelvet.blueprint.auth.presentation.forgotPinCode.ForgotPinCodeFragment"
-        android:label="Forgot Pin code"
+        android:label=" "
         tools:layout="@layout/fragment_forgot_pin_code"/>
 
 </navigation>

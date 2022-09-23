@@ -14,7 +14,7 @@ class AuthFlowCoordinator
 @Inject
 constructor(
     featureNavigator: FeatureNavigator,
-) : Coordinator(featureNavigator) {
+): Coordinator(featureNavigator) {
 
     override fun onStart(): StartDestination {
         return StartDestination(destination = R.id.navLoginFragment)

@@ -28,7 +28,7 @@ object Versions {
         const val RxJava = "3.1.2"
         const val RxAndroid = "3.0.0"
 
-        const val NavigationComponent = "2.5.0"
+        const val NavigationComponent = "2.5.2"
         const val LifeCycle = "2.4.0"
         const val Coroutine = "1.4.1"
         const val CoroutineWorker = "2.7.1"

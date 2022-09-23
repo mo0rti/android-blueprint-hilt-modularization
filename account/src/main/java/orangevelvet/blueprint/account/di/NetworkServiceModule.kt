@@ -4,8 +4,8 @@ import dagger.Binds
 import dagger.Module
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
-import orangevelvet.blueprint.account.datasource.network.service.fake.FakeDashboardNetworkNetworkServiceImpl
-import orangevelvet.blueprint.core.domain.contract.network.DashboardNetworkService
+import orangevelvet.blueprint.account.datasource.network.service.fake.FakeEventNetworkNetworkServiceImpl
+import orangevelvet.blueprint.account.domain.contract.EventNetworkService
 import javax.inject.Singleton
 
 @Module
@@ -14,7 +14,7 @@ abstract class NetworkServiceModule {
 
     @Singleton
     @Binds
-    abstract fun bindDashboardNetworkService(
-        dashboardNetworkNetworkServiceImpl: FakeDashboardNetworkNetworkServiceImpl
-    ): DashboardNetworkService
+    abstract fun bindEventNetworkService(
+        eventNetworkNetworkService: FakeEventNetworkNetworkServiceImpl
+    ): EventNetworkService
 }

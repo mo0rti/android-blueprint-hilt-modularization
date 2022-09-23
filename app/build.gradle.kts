@@ -30,6 +30,15 @@ android {
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
 
+    signingConfigs {
+        create("release") {
+            storeFile = rootProject.file("signingkey.keystore")
+            keyAlias = "alias"
+            storePassword = "123456789"
+            keyPassword = "123456789"
+        }
+    }
+
     buildTypes {
         Application.DEV.apply {
             getByName(BuildName) {
@@ -38,7 +47,7 @@ android {
                 manifestPlaceholders["app_label"] = Label
                 manifestPlaceholders["app_icon"] = Icon
                 applicationIdSuffix = ApplicationIdSuffix
-                signingConfig = signingConfigs.getByName("debug")
+                signingConfig = signingConfigs.getByName("release")
                 isDebuggable = true
             }
         }
@@ -50,19 +59,21 @@ android {
                 manifestPlaceholders["app_label"] = Label
                 manifestPlaceholders["app_icon"] = Icon
                 applicationIdSuffix = ApplicationIdSuffix
-                signingConfig = signingConfigs.getByName("debug")
+                signingConfig = signingConfigs.getByName("release")
             }
         }
         Application.RELEASE.apply {
             getByName(BuildName) {
-                isMinifyEnabled = false
+                isMinifyEnabled = true
+                isShrinkResources = true
                 proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro")
                 buildConfigField("String", "IDP_BASE_URL", EndPoint)
                 buildConfigField("String", "IDP_APP_ICON", "\"${Icon}\"")
                 manifestPlaceholders["app_label"] = Label
                 manifestPlaceholders["app_icon"] = Icon
                 // Should be replaced with azure pipeline signing when it's ready for production
-                signingConfig = signingConfigs.getByName("debug")
+                signingConfig = signingConfigs.getByName("release")
+                isDebuggable = false
             }
         }
     }

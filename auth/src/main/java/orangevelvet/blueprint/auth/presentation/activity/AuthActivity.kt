@@ -1,13 +1,10 @@
 package orangevelvet.blueprint.auth.presentation.activity
 
-import android.widget.Toast
 import androidx.activity.viewModels
 import dagger.hilt.android.AndroidEntryPoint
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.launch
 import orangevelvet.blueprint.auth.R
 import orangevelvet.blueprint.auth.databinding.ActivityAuthBinding
+import orangevelvet.blueprint.auth.navigation.AuthCoordinatorEvent
 import orangevelvet.blueprint.auth.navigation.AuthFlowCoordinator
 import orangevelvet.blueprint.core.base.view.BaseActivity
 import javax.inject.Inject
@@ -29,8 +26,5 @@ class AuthActivity: BaseActivity<ActivityAuthBinding, AuthFlowCoordinator>(
     private val viewModel: AuthViewModel by viewModels()
 
     override fun initializeUIComponents() {
-        CoroutineScope(Dispatchers.Main).launch {
-            Toast.makeText(this@AuthActivity, viewModel.load().size.toString(), Toast.LENGTH_LONG).show()
-        }
     }
 }

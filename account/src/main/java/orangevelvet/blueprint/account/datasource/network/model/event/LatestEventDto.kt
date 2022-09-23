@@ -1,10 +1,10 @@
-package orangevelvet.blueprint.account.datasource.network.model.news
+package orangevelvet.blueprint.account.datasource.network.model.event
 
 import com.google.gson.annotations.SerializedName
 import orangevelvet.blueprint.core.base.net.BaseNetworkModel
-import orangevelvet.blueprint.core.domain.model.LatestNews
+import orangevelvet.blueprint.account.domain.model.Event
 
-data class LatestNewsDto (
+data class LatestEventDto (
     @SerializedName("id")
     val id: String,
 
@@ -20,7 +20,7 @@ data class LatestNewsDto (
     @SerializedName("large_photo")
     val largePhoto: String,
 ): BaseNetworkModel() {
-    fun convertToDomainModel() = LatestNews(
+    fun convertToDomainModel() = Event(
         id, title, description, smallPhoto, largePhoto
     )
 }

@@ -1,10 +1,10 @@
-package orangevelvet.blueprint.core.domain.model
+package orangevelvet.blueprint.account.domain.model
 
 import orangevelvet.blueprint.core.base.domain.BaseDomainModel
 
-data class LatestNews (
+data class Event (
     val id: String,
-    val name: String,
+    val title: String,
     val description: String,
     val smallPhoto: String,
     val largePhotoUrl: String

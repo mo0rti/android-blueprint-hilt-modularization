@@ -31,7 +31,7 @@ constructor(
 
     private fun logout(): Boolean {
         userSessionManager.logout()
-        activity?.startActivity(featureNavigator.main())
+        activity?.startActivity(featureNavigator.app())
         activity?.finish()
         return true
     }
