@@ -12,6 +12,6 @@ dependencyResolutionManagement {
         mavenCentral()
     }
 }
-rootProject.name = "blueprint"
+rootProject.name = "hiltmodularisation"
 include(":app", ":core", ":navigation", ":auth", ":account", ":onboarding", ":style")
 include ':ui-components'

@@ -14,7 +14,7 @@
         android:orientation="horizontal"
         android:weightSum="3">
 
-        <orangevelvet.blueprint.uicomponents.pin.PinPadButton
+        <bluevelvet.blueprint.uicomponents.pin.PinPadButton
             android:theme="@style/BluePrint.Widget.PinPad.Button"
             android:id="@id/btnPin1"
             android:tag="1"
@@ -23,7 +23,7 @@
             android:layout_weight="1"
             android:drawable="@drawable/ic_number_1" />
 
-        <orangevelvet.blueprint.uicomponents.pin.PinPadButton
+        <bluevelvet.blueprint.uicomponents.pin.PinPadButton
             android:theme="@style/BluePrint.Widget.PinPad.Button"
             android:id="@id/btnPin2"
             android:tag="2"
@@ -34,7 +34,7 @@
             android:drawable="@drawable/ic_number_2"
             android:text="ABC" />
 
-        <orangevelvet.blueprint.uicomponents.pin.PinPadButton
+        <bluevelvet.blueprint.uicomponents.pin.PinPadButton
             android:theme="@style/BluePrint.Widget.PinPad.Button"
             android:id="@id/btnPin3"
             android:tag="3"
@@ -54,7 +54,7 @@
         android:paddingTop="@dimen/spacing_small_4dp"
         android:weightSum="3">
 
-        <orangevelvet.blueprint.uicomponents.pin.PinPadButton
+        <bluevelvet.blueprint.uicomponents.pin.PinPadButton
             android:theme="@style/BluePrint.Widget.PinPad.Button"
             android:id="@id/btnPin4"
             android:tag="4"
@@ -64,7 +64,7 @@
             android:drawable="@drawable/ic_number_4"
             android:text="GHI" />
 
-        <orangevelvet.blueprint.uicomponents.pin.PinPadButton
+        <bluevelvet.blueprint.uicomponents.pin.PinPadButton
             android:theme="@style/BluePrint.Widget.PinPad.Button"
             android:id="@id/btnPin5"
             android:tag="5"
@@ -75,7 +75,7 @@
             android:drawable="@drawable/ic_number_5"
             android:text="JKL" />
 
-        <orangevelvet.blueprint.uicomponents.pin.PinPadButton
+        <bluevelvet.blueprint.uicomponents.pin.PinPadButton
             android:theme="@style/BluePrint.Widget.PinPad.Button"
             android:id="@id/btnPin6"
             android:tag="6"
@@ -95,7 +95,7 @@
         android:paddingTop="@dimen/spacing_small_4dp"
         android:weightSum="3">
 
-        <orangevelvet.blueprint.uicomponents.pin.PinPadButton
+        <bluevelvet.blueprint.uicomponents.pin.PinPadButton
             android:theme="@style/BluePrint.Widget.PinPad.Button"
             android:id="@id/btnPin7"
             android:tag="7"
@@ -105,7 +105,7 @@
             android:drawable="@drawable/ic_number_7"
             android:text="PQRS" />
 
-        <orangevelvet.blueprint.uicomponents.pin.PinPadButton
+        <bluevelvet.blueprint.uicomponents.pin.PinPadButton
             android:theme="@style/BluePrint.Widget.PinPad.Button"
             android:id="@id/btnPin8"
             android:tag="8"
@@ -116,7 +116,7 @@
             android:drawable="@drawable/ic_number_8"
             android:text="TUV" />
 
-        <orangevelvet.blueprint.uicomponents.pin.PinPadButton
+        <bluevelvet.blueprint.uicomponents.pin.PinPadButton
             android:theme="@style/BluePrint.Widget.PinPad.Button"
             android:id="@id/btnPin9"
             android:tag="9"
@@ -142,7 +142,7 @@
             android:layout_weight="1"
             android:layout_height="@dimen/pin_button_height" >
 
-            <orangevelvet.blueprint.uicomponents.pin.PinPadButton
+            <bluevelvet.blueprint.uicomponents.pin.PinPadButton
                 android:theme="@style/BluePrint.Widget.PinPad.Button.Transparent"
                 android:id="@id/btnPinBiometrics"
                 android:layout_width="match_parent"
@@ -151,7 +151,7 @@
 
         </FrameLayout>
 
-        <orangevelvet.blueprint.uicomponents.pin.PinPadButton
+        <bluevelvet.blueprint.uicomponents.pin.PinPadButton
             android:theme="@style/BluePrint.Widget.PinPad.Button"
             android:id="@id/btnPin0"
             android:tag="0"
@@ -162,7 +162,7 @@
             android:text="TUV"
             android:drawable="@drawable/ic_number_0"/>
 
-        <orangevelvet.blueprint.uicomponents.pin.PinPadButton
+        <bluevelvet.blueprint.uicomponents.pin.PinPadButton
             android:theme="@style/BluePrint.Widget.PinPad.Button.Transparent"
             android:id="@id/btnPinDel"
             android:layout_width="0dp"

@@ -4,7 +4,7 @@
     "type": "APK",
     "kind": "Directory"
   },
-  "applicationId": "orangevelvet.androidblueprint.hilt",
+  "applicationId": "bluevelvet.blueprint.hilt",
   "variantName": "release",
   "elements": [
     {

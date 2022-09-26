@@ -1,4 +1,4 @@
-package orangevelvet.blueprint.onboarding
+package bluevelvet.blueprint.onboarding
 
 import androidx.test.platform.app.InstrumentationRegistry
 import androidx.test.ext.junit.runners.AndroidJUnit4
@@ -19,6 +19,6 @@ class ExampleInstrumentedTest {
     fun useAppContext() {
         // Context of the app under test.
         val appContext = InstrumentationRegistry.getInstrumentation().targetContext
-        assertEquals("orangevelvet.androidblueprint.onboarding.test", appContext.packageName)
+        assertEquals("bluevelvet.blueprint.onboarding.test", appContext.packageName)
     }
 }

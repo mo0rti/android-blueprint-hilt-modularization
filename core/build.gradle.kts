@@ -51,6 +51,7 @@ addGson()
 dependencies {
     implementation(project(":navigation"))
     implementation(project(":style"))
+    implementation("androidx.test.ext:junit-ktx:1.1.3")
 }
 
 kapt {

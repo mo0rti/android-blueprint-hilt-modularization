@@ -10,7 +10,7 @@ object Versions {
         const val TargetSdk = 31
         const val BuildTools = "32.0.0"
 
-        const val Kotlin = "1.6.10"
+        const val KotlinGradle = "1.7.10"
     }
 
     object AndroidDependencies {

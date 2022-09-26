@@ -9,7 +9,7 @@
       "client_info": {
         "mobilesdk_app_id": "1:105151226751:android:56a1706ef7e1696139b04a",
         "android_client_info": {
-          "package_name": "orangevelvet.androidblueprint.hilt"
+          "package_name": "bluevelvet.blueprint.hilt"
         }
       },
       "oauth_client": [
@@ -38,7 +38,7 @@
       "client_info": {
         "mobilesdk_app_id": "1:105151226751:android:79900b75bc154d4639b04a",
         "android_client_info": {
-          "package_name": "orangevelvet.androidblueprint.hilt.dev"
+          "package_name": "bluevelvet.blueprint.hilt.dev"
         }
       },
       "oauth_client": [

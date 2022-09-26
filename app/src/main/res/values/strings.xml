@@ -1,4 +1,4 @@
 <resources>
     <string name="app_name">Blue print</string>
-    <string name="welcome_message">Welcome</string>
+    <string name="splash_welcome_message">For learning purposes\nBy Morteza</string>
 </resources>
