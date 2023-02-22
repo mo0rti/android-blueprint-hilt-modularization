@@ -28,7 +28,7 @@ class SplashFragment: BaseFragment<
 
     override fun initializeComponents() {
         launch {
-            // You can wait for an api call to finish and then go to the next screen.
+            // TODO: You can wait for an api call to finish and then go to the next screen.
             delay(2000)
             postEvent(SplashViewContract.Event.GotoNextScreen)
         }

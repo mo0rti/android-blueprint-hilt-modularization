@@ -1,8 +1,8 @@
 package bluevelvet.blueprint.account.datasource.network.service.fake
 
-import kotlinx.coroutines.delay
 import bluevelvet.blueprint.account.domain.contract.EventNetworkService
 import bluevelvet.blueprint.account.domain.model.Event
+import kotlinx.coroutines.delay
 import java.util.*
 import javax.inject.Inject
 

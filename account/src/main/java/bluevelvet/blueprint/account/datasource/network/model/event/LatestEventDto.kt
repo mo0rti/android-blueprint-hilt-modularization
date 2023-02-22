@@ -1,8 +1,8 @@
 package bluevelvet.blueprint.account.datasource.network.model.event
 
-import com.google.gson.annotations.SerializedName
-import bluevelvet.blueprint.core.base.net.BaseDto
 import bluevelvet.blueprint.account.domain.model.Event
+import bluevelvet.blueprint.core.base.net.BaseDto
+import com.google.gson.annotations.SerializedName
 
 data class LatestEventDto (
     @SerializedName("id")

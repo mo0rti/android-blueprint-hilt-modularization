@@ -1,19 +1,26 @@
 package bluevelvet.blueprint.account.presentation.dashboard
 
-import android.os.Bundle
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
-import androidx.fragment.app.Fragment
-import bluevelvet.blueprint.account.R
+import androidx.fragment.app.viewModels
+import bluevelvet.blueprint.account.databinding.FragmentDashboardBinding
+import bluevelvet.blueprint.core.base.state.view.empty.EmptyViewEffect
+import bluevelvet.blueprint.core.base.state.view.empty.EmptyViewEvent
+import bluevelvet.blueprint.core.base.state.view.empty.EmptyViewState
+import bluevelvet.blueprint.core.base.view.BaseFragment
+import bluevelvet.blueprint.core.base.view.ToolbarConfiguration
+import dagger.hilt.android.AndroidEntryPoint
 
-class DashboardFragment : Fragment() {
+@AndroidEntryPoint
+class DashboardFragment: BaseFragment<
+        FragmentDashboardBinding,
+        EmptyViewState,
+        EmptyViewEvent,
+        EmptyViewEffect,
+        DashboardViewModel>(
+    FragmentDashboardBinding::inflate,
+    ToolbarConfiguration(title = "")
+) {
+    override val viewModel: DashboardViewModel by viewModels()
 
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_dashboard, container, false)
+    override fun initializeComponents() {
     }
 }
