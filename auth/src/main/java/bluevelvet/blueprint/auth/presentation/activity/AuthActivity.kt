@@ -1,11 +1,11 @@
 package bluevelvet.blueprint.auth.presentation.activity
 
 import androidx.activity.viewModels
-import dagger.hilt.android.AndroidEntryPoint
 import bluevelvet.blueprint.auth.R
 import bluevelvet.blueprint.auth.databinding.ActivityAuthBinding
 import bluevelvet.blueprint.auth.navigation.AuthFlowCoordinator
 import bluevelvet.blueprint.core.base.view.BaseActivity
+import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
 
 @AndroidEntryPoint

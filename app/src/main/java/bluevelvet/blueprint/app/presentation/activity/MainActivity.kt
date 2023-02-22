@@ -1,10 +1,10 @@
 package bluevelvet.blueprint.app.presentation.activity
 
-import dagger.hilt.android.AndroidEntryPoint
-import bluevelvet.blueprint.core.base.view.BaseActivity
 import bluevelvet.blueprint.app.R
 import bluevelvet.blueprint.app.databinding.ActivityMainBinding
 import bluevelvet.blueprint.app.navigation.MainFlowCoordinator
+import bluevelvet.blueprint.core.base.view.BaseActivity
+import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
 
 @AndroidEntryPoint

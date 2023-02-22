@@ -1,7 +1,7 @@
-package bluevelvet.blueprint.core.domain.manager
+package bluevelvet.blueprint.core.manager
 
-import bluevelvet.blueprint.core.domain.contract.session.ApplicationStateManager
-import bluevelvet.blueprint.core.domain.contract.session.UserSessionManager
+import bluevelvet.blueprint.core.contract.session.ApplicationStateManager
+import bluevelvet.blueprint.core.contract.session.UserSessionManager
 import javax.inject.Inject
 
 class UserSessionManagerImpl
@@ -13,7 +13,8 @@ constructor(
     private var _accessToken: String
 
     init {
-        _accessToken = applicationStateManager.loadState().authToken
+        // on initialization of the project we can check if the user is logged in before
+        _accessToken = applicationStateManager.loadState().isUserRegistered
     }
 
     override fun isUserAuthenticated(): Boolean {
@@ -28,7 +29,7 @@ constructor(
         val applicationState = applicationStateManager.loadState()
         applicationStateManager.saveState(
             applicationState.copy(
-                authToken = _accessToken
+                isUserRegistered = _accessToken
             ))
     }
 }

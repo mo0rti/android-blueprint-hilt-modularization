@@ -89,9 +89,11 @@ fun Project.addViewPager() {
 fun Project.addCoroutines() {
     dependencies {
         add("implementation", "org.jetbrains.kotlinx:kotlinx-coroutines-android:${AndroidDependencies.Coroutine}")
+        add("implementation", "androidx.lifecycle:lifecycle-runtime-ktx:${AndroidDependencies.Coroutine}")
         add("implementation", "androidx.work:work-runtime-ktx:${AndroidDependencies.CoroutineWorker}")
     }
 }
+
 
 fun Project.addLiveCycle() {
     dependencies {

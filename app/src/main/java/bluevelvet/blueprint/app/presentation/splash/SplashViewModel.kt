@@ -1,11 +1,11 @@
 package bluevelvet.blueprint.app.presentation.splash
 
-import dagger.hilt.android.lifecycle.HiltViewModel
-import bluevelvet.blueprint.core.base.state.view.empty.EmptyViewEvent
+import bluevelvet.blueprint.app.navigation.MainCoordinatorEvent
+import bluevelvet.blueprint.core.base.state.view.empty.EmptyViewEffect
 import bluevelvet.blueprint.core.base.state.view.empty.EmptyViewState
 import bluevelvet.blueprint.core.base.viewmodel.BaseViewModel
-import bluevelvet.blueprint.core.domain.contract.session.UserSessionManager
-import bluevelvet.blueprint.app.navigation.MainCoordinatorEvent
+import bluevelvet.blueprint.core.contract.session.UserSessionManager
+import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
 
 @HiltViewModel
@@ -15,13 +15,14 @@ constructor(
     private val userSessionManager: UserSessionManager
 ) : BaseViewModel<
         EmptyViewState,
-        EmptyViewEvent,
-        SplashViewAction,
+        SplashViewContract.Event,
+        EmptyViewEffect,
         >() {
 
-    override fun postAction(action: SplashViewAction) {
-        when (action) {
-            is SplashViewAction.GotoNextScreenAction ->  {
+    override fun handleViewEvent(viewEvent: SplashViewContract.Event) {
+        when(viewEvent) {
+            is SplashViewContract.Event.GotoNextScreen -> {
+                // Decide which flow should be shown
                 if (userSessionManager.isUserAuthenticated())
                     sendCoordinatorEvent(MainCoordinatorEvent.AccountFlow)
                 else
@@ -30,6 +31,5 @@ constructor(
         }
     }
 
-    override fun onViewEvent(viewEvent: EmptyViewEvent) {
-    }
+    override fun createInitialState() = EmptyViewState()
 }

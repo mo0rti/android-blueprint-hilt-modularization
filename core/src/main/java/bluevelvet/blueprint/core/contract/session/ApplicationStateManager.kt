@@ -1,6 +1,6 @@
-package bluevelvet.blueprint.core.domain.contract.session
+package bluevelvet.blueprint.core.contract.session
 
-import bluevelvet.blueprint.core.domain.model.ApplicationState
+import bluevelvet.blueprint.core.model.ApplicationState
 
 interface ApplicationStateManager {
     fun loadState(): ApplicationState

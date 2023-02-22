@@ -1,11 +1,14 @@
 package bluevelvet.blueprint.core.base.view
 
+import android.app.Activity
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.widget.TextView
+import android.widget.Toast
 import androidx.activity.addCallback
 import androidx.annotation.IdRes
 import androidx.annotation.NavigationRes
+import androidx.annotation.StringRes
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import androidx.navigation.fragment.NavHostFragment
@@ -105,4 +108,12 @@ abstract class BaseActivity<VB: ViewBinding, C: Coordinator>(
         graph.setStartDestination(startDestination.destination)
         host.navController.setGraph(graph, startDestination.args)
     }
+}
+
+fun Activity.showToast(@StringRes message:Int){
+    Toast.makeText(this, message, Toast.LENGTH_LONG).show()
+}
+
+fun Activity.showToast(message:String){
+    Toast.makeText(this, message, Toast.LENGTH_LONG).show()
 }

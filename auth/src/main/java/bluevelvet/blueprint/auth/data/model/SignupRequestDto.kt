@@ -5,12 +5,21 @@ import bluevelvet.blueprint.core.base.net.RequestDto
 import com.google.gson.annotations.SerializedName
 
 /**
- * Dto for login request.
+ * Dto for signup request.
  */
-data class LoginRequestDto(
+data class SignupRequestDto(
+    @SerializedName("fullName")
+    val fullName: String,
+
+    @SerializedName("gender")
+    val gender: Int,
+
+    @SerializedName("birthDate")
+    val birthDate: Long,
+
     @SerializedName("username")
     val username: String,
 
     @SerializedName("password")
-    val password: String
+    val password: String,
 ): BaseDto(), RequestDto

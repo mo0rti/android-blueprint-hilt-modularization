@@ -1,21 +1,21 @@
 package bluevelvet.blueprint.app.presentation.splash
 
 import androidx.fragment.app.viewModels
-import dagger.hilt.android.AndroidEntryPoint
-import kotlinx.coroutines.*
-import bluevelvet.blueprint.core.base.state.view.empty.EmptyViewEvent
+import bluevelvet.blueprint.app.databinding.FragmentSplashBinding
+import bluevelvet.blueprint.core.base.state.view.empty.EmptyViewEffect
 import bluevelvet.blueprint.core.base.state.view.empty.EmptyViewState
 import bluevelvet.blueprint.core.base.view.BaseFragment
 import bluevelvet.blueprint.core.base.view.ToolbarConfiguration
-import bluevelvet.blueprint.app.databinding.FragmentSplashBinding
+import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.*
 import kotlin.coroutines.CoroutineContext
 
 @AndroidEntryPoint
 class SplashFragment: BaseFragment<
         FragmentSplashBinding,
         EmptyViewState,
-        EmptyViewEvent,
-        SplashViewAction,
+        SplashViewContract.Event,
+        EmptyViewEffect,
         SplashViewModel>(
     FragmentSplashBinding::inflate,
     ToolbarConfiguration(isVisible = false)
@@ -28,8 +28,9 @@ class SplashFragment: BaseFragment<
 
     override fun initializeComponents() {
         launch {
+            // You can wait for an api call to finish and then go to the next screen.
             delay(2000)
-            postAction(SplashViewAction.GotoNextScreenAction)
+            postEvent(SplashViewContract.Event.GotoNextScreen)
         }
     }
 }

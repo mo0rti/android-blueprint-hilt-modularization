@@ -1,8 +1,7 @@
 package bluevelvet.blueprint.auth.business
 
-import bluevelvet.blueprint.core.domain.contract.network.AuthNetworkService
-import bluevelvet.blueprint.core.domain.exception.InvalidInputException
-import kotlin.jvm.Throws
+import bluevelvet.blueprint.core.contract.network.AuthNetworkService
+import bluevelvet.blueprint.core.exception.InvalidInputException
 
 /**
  * Created by Morteza Taghdisi on 23 Sep 2022
@@ -20,7 +19,7 @@ constructor (
             throw InvalidInputException("Invalid user id")
 
         networkService.resetPinCode(
-            userId = userId
+            username = userId
         )
     }
 }

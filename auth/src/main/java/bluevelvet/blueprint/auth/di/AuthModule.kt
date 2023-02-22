@@ -5,7 +5,7 @@ import bluevelvet.blueprint.auth.business.LoginUseCase
 import bluevelvet.blueprint.auth.business.ResetPinCodeUseCase
 import bluevelvet.blueprint.auth.business.SignupUseCase
 import bluevelvet.blueprint.auth.data.service.AuthNetworkServiceImpl
-import bluevelvet.blueprint.core.domain.contract.network.AuthNetworkService
+import bluevelvet.blueprint.core.contract.network.AuthNetworkService
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn

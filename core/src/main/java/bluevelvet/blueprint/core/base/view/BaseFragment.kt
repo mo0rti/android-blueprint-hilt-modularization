@@ -6,7 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.viewbinding.ViewBinding
-import bluevelvet.blueprint.core.base.state.view.ViewAction
+import bluevelvet.blueprint.core.base.state.view.ViewEffect
 import bluevelvet.blueprint.core.base.state.view.ViewEvent
 import bluevelvet.blueprint.core.base.state.view.ViewState
 import bluevelvet.blueprint.core.base.viewmodel.BaseViewModel
@@ -19,8 +19,8 @@ abstract class BaseFragment<
         VB : ViewBinding,
         VS : ViewState,
         VE : ViewEvent,
-        VA : ViewAction,
-        VM : BaseViewModel<VS, VE, VA>,
+        VF : ViewEffect,
+        VM : BaseViewModel<VS, VE, VF>,
         >
 constructor(
     private val fragmentInflate: FragmentInflate<VB>,
@@ -66,12 +66,8 @@ constructor(
     } ?: throw Exception("Activity is not inherited from BaseActivity")
 
     //------------------- State and Event
-    protected fun postAction(action: VA) {
-        viewModel.postAction(action)
-    }
-
-    fun View.postClickAction(action: VA) {
-        setOnClickListener { postAction(action) }
+    protected fun postEvent(event: VE) {
+        viewModel.updateViewEvent(event)
     }
 
     //------------------- Navigation
@@ -91,5 +87,9 @@ constructor(
         return (hostFragment(this) as? CoordinatorHost<*>)
             ?: (this.requireActivity() as? CoordinatorHost<*>)
             ?: throw Exception("The fragment must be opened in a CoordinatorHost fragment/activity")
+    }
+
+    fun showToast(message: String) {
+        activity().showToast(message)
     }
 }

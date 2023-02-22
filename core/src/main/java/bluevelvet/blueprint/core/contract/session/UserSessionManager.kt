@@ -1,4 +1,4 @@
-package bluevelvet.blueprint.core.domain.contract.session
+package bluevelvet.blueprint.core.contract.session
 
 interface UserSessionManager {
     fun isUserAuthenticated(): Boolean

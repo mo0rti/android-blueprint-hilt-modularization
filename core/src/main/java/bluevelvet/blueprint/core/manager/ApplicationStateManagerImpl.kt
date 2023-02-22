@@ -1,10 +1,10 @@
-package bluevelvet.blueprint.core.domain.manager
+package bluevelvet.blueprint.core.manager
 
 import android.content.Context
 import android.content.SharedPreferences
+import bluevelvet.blueprint.core.contract.session.ApplicationStateManager
+import bluevelvet.blueprint.core.model.ApplicationState
 import com.google.gson.Gson
-import bluevelvet.blueprint.core.domain.contract.session.ApplicationStateManager
-import bluevelvet.blueprint.core.domain.model.ApplicationState
 import javax.inject.Inject
 
 class ApplicationStateManagerImpl
@@ -18,6 +18,7 @@ constructor(
         const val FILE_NAME = "bluevelvet.blueprint"
     }
 
+    // For security reasons, it's better to use EncryptedSharedPreferences
     private var _sharedPref: SharedPreferences = context.getSharedPreferences(FILE_NAME, Context.MODE_PRIVATE)
 
     override fun loadState(): ApplicationState {

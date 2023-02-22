@@ -4,7 +4,7 @@ import bluevelvet.blueprint.core.base.net.BaseDto
 import bluevelvet.blueprint.core.base.net.ResponseDto
 import com.google.gson.annotations.SerializedName
 
-data class LoginResponseDto(
+data class SignupResponseDto(
     @SerializedName("accessToken")
     val accessToken: String,
 

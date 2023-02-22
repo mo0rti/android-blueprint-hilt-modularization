@@ -1,12 +1,10 @@
 package bluevelvet.blueprint.auth.business
 
-import bluevelvet.blueprint.core.domain.contract.network.AuthNetworkService
-import bluevelvet.blueprint.core.domain.exception.InvalidInputException
-import kotlin.jvm.Throws
+import bluevelvet.blueprint.core.contract.network.AuthNetworkService
+import bluevelvet.blueprint.core.exception.InvalidInputException
 
 /**
- * Created by Morteza Taghdisi on 23 Sep 2022
- * https://github.com/mo0rti
+ * Use case to authenticate a user using username and password.
  */
 
 class LoginUseCase
@@ -14,16 +12,16 @@ constructor (
     private val networkService: AuthNetworkService
 ) {
     @Throws(InvalidInputException::class)
-    suspend operator fun invoke(userId: String, pinCode: String) {
+    suspend operator fun invoke(username: String, password: String) {
 
-        if (userId.isEmpty())
-            throw InvalidInputException("Invalid user id")
-        if (pinCode.length < 6)
-            throw InvalidInputException("Invalid pin code")
+        if (username.isEmpty())
+            throw InvalidInputException("User name cannot be empty")
+        if (password.length < 6)
+            throw InvalidInputException("Password should be at least 6 characters")
 
         networkService.login(
-            userId = userId,
-            pinCode = pinCode
+            username = username,
+            password = password
         )
     }
 }
