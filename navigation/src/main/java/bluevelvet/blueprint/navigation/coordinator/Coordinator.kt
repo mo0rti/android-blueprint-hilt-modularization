@@ -26,8 +26,9 @@ abstract class Coordinator(val featureNavigator: FeatureNavigator) {
     // navController acts as flowNavigator for navigation with the help of navigation actions
     abstract fun onEvent(event: CoordinatorEvent): Boolean
 
-    // fire events when a screen pops from stack
-    abstract fun onPop()
+    protected fun goBack(): Boolean {
+        return navController?.navigateUp() ?: false
+    }
 
     open fun clear() {
         navController = null

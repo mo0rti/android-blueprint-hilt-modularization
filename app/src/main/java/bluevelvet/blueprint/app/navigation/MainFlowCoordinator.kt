@@ -27,9 +27,6 @@ constructor(
         }
     }
 
-    override fun onPop() {
-    }
-
     private fun toAccountFlow(): Boolean {
         activity?.startActivity(featureNavigator.account())
         activity?.finish()

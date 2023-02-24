@@ -23,21 +23,26 @@ constructor(
     override fun onEvent(event: CoordinatorEvent): Boolean {
         return when (event) {
             is AuthCoordinatorEvent.ForgotPinCode -> toForgotPinCode()
+            is AuthCoordinatorEvent.BackToLogin -> goBack()
             is AuthCoordinatorEvent.AccountFlow -> toAccountFlow()
+            is AuthCoordinatorEvent.OnboardingFlow -> toOnboardingFlow()
             else -> false
         }
     }
 
-    override fun onPop() {
-    }
-
     private fun toForgotPinCode(): Boolean {
-        navController?.navigate(LoginFragmentDirections.actionLoginToForgotPinCode())
+        navController?.navigate(LoginFragmentDirections.actionLoginToForgotPassword())
         return true
     }
 
     private fun toAccountFlow(): Boolean {
         activity?.startActivity(featureNavigator.account())
+        activity?.finish()
+        return true
+    }
+
+    private fun toOnboardingFlow(): Boolean {
+        activity?.startActivity(featureNavigator.onboarding())
         activity?.finish()
         return true
     }

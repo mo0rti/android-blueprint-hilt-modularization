@@ -2,8 +2,8 @@ package bluevelvet.blueprint.auth.data.service
 
 import bluevelvet.blueprint.auth.data.model.LoginRequestDto
 import bluevelvet.blueprint.auth.data.model.LoginResponseDto
-import bluevelvet.blueprint.auth.data.model.SignupResponseDto
 import bluevelvet.blueprint.auth.data.model.SignupRequestDto
+import bluevelvet.blueprint.auth.data.model.SignupResponseDto
 import bluevelvet.blueprint.core.contract.network.AuthNetworkService
 import bluevelvet.blueprint.core.model.UserSession
 import kotlinx.coroutines.delay

@@ -4,17 +4,19 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".presentation.activity.MainActivity">
+    tools:context=".presentation.activity.MainActivity"
+    android:layout_margin="@dimen/screen_margin">
 
     <ImageView
         android:id="@+id/imgBackground"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="160dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@mipmap/splash_bg"
-        android:scaleType="centerCrop"/>
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:src="@mipmap/logo"
+        android:contentDescription="@string/logo_description" />
 
     <TextView
         android:layout_width="wrap_content"

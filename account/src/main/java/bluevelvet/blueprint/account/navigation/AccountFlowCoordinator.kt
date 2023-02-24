@@ -26,9 +26,6 @@ constructor(
         }
     }
 
-    override fun onPop() {
-    }
-
     private fun logout(): Boolean {
         userSessionManager.logout()
         activity?.startActivity(featureNavigator.app())

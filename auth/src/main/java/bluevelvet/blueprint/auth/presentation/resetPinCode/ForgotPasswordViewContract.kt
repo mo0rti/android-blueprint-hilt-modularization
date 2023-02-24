@@ -1,32 +1,36 @@
-package bluevelvet.blueprint.auth.presentation.login
+package bluevelvet.blueprint.auth.presentation.resetPinCode
 
+import androidx.annotation.StringRes
+import bluevelvet.blueprint.auth.R
 import bluevelvet.blueprint.core.base.state.view.ViewEffect
 import bluevelvet.blueprint.core.base.state.view.ViewEvent
 import bluevelvet.blueprint.core.base.state.view.ViewState
 
 /**
- * Contracts for Login view model state and event handling.
+ * Contracts for Forgot password view model state and event handling.
  **/
 
-class LoginViewContract {
+class ForgotPasswordViewContract {
 
     data class State(
         val isLoading: Boolean,
         val username: String = "",
-        val password: String = ""
     ): ViewState
 
     sealed class Event: ViewEvent {
-        object OnLoginButtonClicked: Event()
-        object OnForgotPasswordLinkClicked: Event()
-        object OnSignupLinkClicked: Event()
+        object OnResetButtonClicked: Event()
+        object OnBackToLoginLinkClicked: Event()
         data class OnUserNameTextChanged(val username: String): Event()
-        data class OnPasswordTextChanged(val password: String): Event()
     }
 
     sealed class Effect: ViewEffect {
         data class ShowErrorToast(
             val error: String?
+        ): Effect()
+
+        data class ShowSuccessDialog(
+            @StringRes
+            val message: Int = R.string.reset_password_success
         ): Effect()
     }
 }

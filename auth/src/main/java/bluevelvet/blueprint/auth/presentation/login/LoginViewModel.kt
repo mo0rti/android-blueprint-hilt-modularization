@@ -21,7 +21,6 @@ constructor(
 
     override fun createInitialState() = LoginViewContract.State(
         isLoading = false,
-        error = null
     )
 
     override fun handleViewEvent(viewEvent: LoginViewContract.Event) {
@@ -30,6 +29,12 @@ constructor(
                 with(currentViewState()) {
                     login(username, password)
                 }
+            }
+            is LoginViewContract.Event.OnForgotPasswordLinkClicked -> {
+                sendCoordinatorEvent(AuthCoordinatorEvent.ForgotPinCode)
+            }
+            is LoginViewContract.Event.OnSignupLinkClicked -> {
+                sendCoordinatorEvent(AuthCoordinatorEvent.OnboardingFlow)
             }
             is LoginViewContract.Event.OnUserNameTextChanged -> {
                 updateViewState { copy(username = viewEvent.username) }
@@ -50,8 +55,7 @@ constructor(
                 authUserCases.loginUseCase(username, password)
                 sendCoordinatorEvent(AuthCoordinatorEvent.AccountFlow)
             } catch (e: Exception) {
-                updateViewState { copy(error = e.message) }
-                updateViewEffect(LoginViewContract.Effect.ShowToast)
+                updateViewEffect(LoginViewContract.Effect.ShowErrorToast(e.message))
             } finally {
                 updateViewState { copy(isLoading = false) }
             }

@@ -8,17 +8,15 @@
     <fragment
         android:id="@+id/navLoginFragment"
         android:name="bluevelvet.blueprint.auth.presentation.login.LoginFragment"
-        android:label=" "
         tools:layout="@layout/fragment_login">
         <action
-            android:id="@+id/action_Login_to_ForgotPinCode"
-            app:destination="@id/navForgotPinCodeFragment" />
+            android:id="@+id/action_login_to_forgot_password"
+            app:destination="@id/navForgotPasswordFragment" />
     </fragment>
 
     <fragment
-        android:id="@+id/navForgotPinCodeFragment"
-        android:name="bluevelvet.blueprint.auth.presentation.resetPinCode.ResetPinCodeFragment"
-        android:label=" "
-        tools:layout="@layout/fragment_forgot_pin_code"/>
+        android:id="@+id/navForgotPasswordFragment"
+        android:name="bluevelvet.blueprint.auth.presentation.resetPinCode.ForgotPasswordFragment"
+        tools:layout="@layout/fragment_forgot_password"/>
 
 </navigation>

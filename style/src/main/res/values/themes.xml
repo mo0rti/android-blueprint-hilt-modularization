@@ -15,4 +15,9 @@
         <item name="android:windowBackground">@color/teal_100</item>
         <item name="android:textAppearance">@style/BluePrint.Widget.TextView</item>
     </style>
+
+    <style name="BluePrint.Theme.Base.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
 </resources>

@@ -3,23 +3,18 @@ package bluevelvet.blueprint.auth.domain.usecase
 import bluevelvet.blueprint.core.contract.network.AuthNetworkService
 import bluevelvet.blueprint.core.exception.InvalidInputException
 
-/**
- * Created by Morteza Taghdisi on 23 Sep 2022
- * https://github.com/mo0rti
- */
-
-class ResetPinCodeUseCase
+class ResetPasswordUseCase
 constructor (
     private val networkService: AuthNetworkService
 ) {
     @Throws(InvalidInputException::class)
-    suspend operator fun invoke(userId: String) {
+    suspend operator fun invoke(username: String) {
 
-        if (userId.isEmpty())
-            throw InvalidInputException("Invalid user id")
+        if (username.isEmpty())
+            throw InvalidInputException("User name cannot be empty")
 
         networkService.resetPinCode(
-            username = userId
+            username = username
         )
     }
 }

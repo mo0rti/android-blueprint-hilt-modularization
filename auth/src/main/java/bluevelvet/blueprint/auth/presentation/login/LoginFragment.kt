@@ -2,7 +2,6 @@ package bluevelvet.blueprint.auth.presentation.login
 
 import androidx.core.widget.doOnTextChanged
 import androidx.fragment.app.viewModels
-import androidx.lifecycle.lifecycleScope
 import bluevelvet.blueprint.auth.databinding.FragmentLoginBinding
 import bluevelvet.blueprint.core.base.view.BaseFragment
 import bluevelvet.blueprint.core.base.view.ToolbarConfiguration
@@ -26,6 +25,12 @@ class LoginFragment : BaseFragment<
         binding.btnLogin.setOnClickListener {
             postEvent(LoginViewContract.Event.OnLoginButtonClicked)
         }
+        binding.tvForgotPassword.setOnClickListener {
+            postEvent(LoginViewContract.Event.OnForgotPasswordLinkClicked)
+        }
+        binding.tvSignup.setOnClickListener {
+            postEvent(LoginViewContract.Event.OnSignupLinkClicked)
+        }
         binding.edtPassword.doOnTextChanged { text, _, _, _ ->
             postEvent(LoginViewContract.Event.OnPasswordTextChanged(text.toString()))
         }
@@ -34,17 +39,17 @@ class LoginFragment : BaseFragment<
         }
     }
 
-    override fun onViewStateChange(viewState: LoginViewContract.State) {
-        binding.loadingIndicator.setVisibility(viewState.isLoading)
-        binding.lytInputs.setVisibility(!viewState.isLoading)
-        binding.btnLogin.isEnabled = !viewState.isLoading
-    }
-
     override fun onViewEffectReceived(viewEffect: LoginViewContract.Effect) {
         when(viewEffect) {
-            LoginViewContract.Effect.ShowToast -> {
-                showToast(viewModel.viewState.value.error!!)
+            is LoginViewContract.Effect.ShowErrorToast -> {
+                showToast(viewEffect.error)
             }
         }
+    }
+
+    override fun onViewStateChange(viewState: LoginViewContract.State) {
+        binding.pbLoading.setVisibility(viewState.isLoading)
+        binding.grpInput.setVisibility(!viewState.isLoading)
+        binding.btnLogin.isEnabled = !viewState.isLoading
     }
 }

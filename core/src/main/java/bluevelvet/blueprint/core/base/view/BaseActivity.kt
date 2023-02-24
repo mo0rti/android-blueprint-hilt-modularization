@@ -9,6 +9,7 @@ import androidx.activity.addCallback
 import androidx.annotation.IdRes
 import androidx.annotation.NavigationRes
 import androidx.annotation.StringRes
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import androidx.navigation.fragment.NavHostFragment
@@ -110,10 +111,21 @@ abstract class BaseActivity<VB: ViewBinding, C: Coordinator>(
     }
 }
 
-fun Activity.showToast(@StringRes message:Int){
+fun Activity.showToast(message:String) {
     Toast.makeText(this, message, Toast.LENGTH_LONG).show()
 }
 
-fun Activity.showToast(message:String){
-    Toast.makeText(this, message, Toast.LENGTH_LONG).show()
+fun Activity.showDialog(
+    message:String,
+    callback: (() -> Unit)? = null
+) {
+    with(AlertDialog.Builder(this)) {
+        setTitle("Info")
+        setMessage(message)
+        setPositiveButton("Ok") { dialog, _ ->
+            callback?.invoke()
+            dialog.dismiss()
+        }
+        create().show()
+    }
 }

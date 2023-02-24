@@ -35,6 +35,10 @@ abstract class BaseViewModel<
     private val _viewEffect: Channel<VF> = Channel()
     val viewEffect = _viewEffect.receiveAsFlow()
 
+    // Navigation coordinators to deliver coordinator events to a single subscriber
+    private val _coordinatorEvent: Channel<CoordinatorEvent> = Channel()
+    val coordinatorEvent = _coordinatorEvent.receiveAsFlow()
+
     abstract fun createInitialState(): VS
     abstract fun handleViewEvent(viewEvent: VE)
 
@@ -67,11 +71,7 @@ abstract class BaseViewModel<
         }
     }
 
-    private val _coordinatorEvent = MutableLiveData<CoordinatorEvent>()
-    val coordinatorEvent: LiveData<CoordinatorEvent>
-        get() = _coordinatorEvent
-
     protected fun <E : CoordinatorEvent> sendCoordinatorEvent(event: E) {
-        _coordinatorEvent.value = event
+        viewModelScope.launch { _coordinatorEvent.send(event) }
     }
 }

@@ -14,6 +14,7 @@ import bluevelvet.blueprint.core.base.viewmodel.BaseViewModel
 import bluevelvet.blueprint.navigation.coordinator.Coordinator
 import bluevelvet.blueprint.navigation.coordinator.CoordinatorHost
 import kotlinx.coroutines.flow.collect
+import kotlinx.coroutines.launch
 
 typealias FragmentInflate<T> = (LayoutInflater, ViewGroup?, Boolean) -> T
 
@@ -49,8 +50,8 @@ constructor(
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        viewModel.coordinatorEvent.observe(viewLifecycleOwner) { coordinatorEvent ->
-            if (!coordinatorHost().coordinator.onEvent(coordinatorEvent)) {
+        lifecycleScope.launchWhenStarted {
+            viewModel.coordinatorEvent.collect { coordinatorEvent ->
                 activityCoordinator().onEvent(coordinatorEvent)
             }
         }
@@ -85,10 +86,8 @@ constructor(
     protected fun postEvent(event: VE) {
         viewModel.updateViewEvent(event)
     }
-
-    abstract fun onViewStateChange(viewState: VS)
     abstract fun onViewEffectReceived(viewEffect: VF)
-
+    abstract fun onViewStateChange(viewState: VS)
     //------------------- Navigation
     private fun activityCoordinator(): Coordinator {
         return (requireActivity() as CoordinatorHost<*>).coordinator
@@ -106,7 +105,14 @@ constructor(
             ?: throw Exception("The fragment must be opened in a CoordinatorHost fragment/activity")
     }
 
-    fun showToast(message: String) {
-        activity().showToast(message)
+    fun showToast(message: String?) {
+        activity().showToast(message ?: "Invalid message")
+    }
+
+    fun showDialog(
+        message: String?,
+        callBack: (() -> Unit)? = null
+    ) {
+        activity().showDialog(message ?: "Invalid message", callBack)
     }
 }

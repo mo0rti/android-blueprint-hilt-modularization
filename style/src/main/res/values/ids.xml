@@ -4,11 +4,11 @@
     <item name="toolbar" type="id" />
     <item name="tvToolbarTitle" type="id" />
 
-    <item name="tvPageTitle" type="id" />
+    <item name="tv_page_title" type="id" />
     <item name="tvPageSubtitle" type="id" />
 
     <item name="edtEmail" type="id" />
-    <item name="edtPassword" type="id" />
+    <item name="edt_password" type="id" />
 
     <item name="btnNext" type="id" />
     <item name="btnClose" type="id" />
