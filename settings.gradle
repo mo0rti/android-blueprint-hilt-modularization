@@ -12,6 +12,12 @@ dependencyResolutionManagement {
         mavenCentral()
     }
 }
-rootProject.name = "hiltmodularisation"
-include(":app", ":core", ":navigation", ":auth", ":account", ":onboarding", ":style")
+rootProject.name = "hiltModularisation"
+include ':app'
+include ':core'
+include ':navigation'
+include ':auth'
+include ':account'
+include ':onboarding'
+include ':style'
 include ':ui-components'

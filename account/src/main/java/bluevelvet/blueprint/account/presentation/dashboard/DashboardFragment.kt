@@ -23,4 +23,10 @@ class DashboardFragment: BaseFragment<
 
     override fun initializeComponents() {
     }
+
+    override fun onViewEffectReceived(viewEffect: EmptyViewEffect) {
+    }
+
+    override fun onViewStateChange(viewState: EmptyViewState) {
+    }
 }

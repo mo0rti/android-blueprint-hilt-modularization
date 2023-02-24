@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.lifecycleScope
 import androidx.viewbinding.ViewBinding
 import bluevelvet.blueprint.core.base.state.view.ViewEffect
 import bluevelvet.blueprint.core.base.state.view.ViewEvent
@@ -12,6 +13,7 @@ import bluevelvet.blueprint.core.base.state.view.ViewState
 import bluevelvet.blueprint.core.base.viewmodel.BaseViewModel
 import bluevelvet.blueprint.navigation.coordinator.Coordinator
 import bluevelvet.blueprint.navigation.coordinator.CoordinatorHost
+import kotlinx.coroutines.flow.collect
 
 typealias FragmentInflate<T> = (LayoutInflater, ViewGroup?, Boolean) -> T
 
@@ -54,6 +56,20 @@ constructor(
         }
 
         initializeComponents()
+
+        // Collect view state
+        lifecycleScope.launchWhenStarted {
+            viewModel.viewState.collect {
+                onViewStateChange(it)
+            }
+        }
+
+        // Collect view effect
+        lifecycleScope.launchWhenStarted {
+            viewModel.viewEffect.collect {
+                onViewEffectReceived(it)
+            }
+        }
     }
 
     override fun onStart() {
@@ -70,6 +86,9 @@ constructor(
         viewModel.updateViewEvent(event)
     }
 
+    abstract fun onViewStateChange(viewState: VS)
+    abstract fun onViewEffectReceived(viewEffect: VF)
+
     //------------------- Navigation
     private fun activityCoordinator(): Coordinator {
         return (requireActivity() as CoordinatorHost<*>).coordinator
@@ -77,9 +96,7 @@ constructor(
 
     private fun hostFragment(fragment: Fragment?): Fragment? {
         if (fragment == null) return null
-
         if (fragment is CoordinatorHost<*>) return fragment
-
         return hostFragment(fragment.parentFragment)
     }
 

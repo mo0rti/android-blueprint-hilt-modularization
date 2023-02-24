@@ -1,3 +1,4 @@
+import configuration.Versions
 import dependencies.addAndroidCore
 import dependencies.addMaterialDesign
 
@@ -7,11 +8,11 @@ plugins {
 }
 
 android {
-    compileSdk = 32
+    compileSdk = Versions.Build.CompileSdk
 
     defaultConfig {
-        minSdk = 29
-        targetSdk = 32
+        minSdk = Versions.Build.MinSdk
+        targetSdk = Versions.Build.TargetSdk
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles("consumer-rules.pro")
@@ -24,11 +25,11 @@ android {
         }
     }
     compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_1_8
-        targetCompatibility = JavaVersion.VERSION_1_8
+        sourceCompatibility = JavaVersion.VERSION_11
+        targetCompatibility = JavaVersion.VERSION_11
     }
     kotlinOptions {
-        jvmTarget = "1.8"
+        jvmTarget = JavaVersion.VERSION_11.toString()
     }
     buildFeatures {
         viewBinding = true

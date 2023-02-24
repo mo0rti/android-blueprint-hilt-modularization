@@ -1,3 +1,4 @@
+import configuration.Versions
 import dependencies.addFragment
 import dependencies.addNavigationCore
 
@@ -7,12 +8,12 @@ plugins {
 }
 
 android {
-    compileSdk = configuration.Versions.Build.CompileSdk
-    buildToolsVersion = configuration.Versions.Build.BuildTools
+    compileSdk = Versions.Build.CompileSdk
+    buildToolsVersion = Versions.Build.BuildTools
 
     defaultConfig {
-        minSdk = configuration.Versions.Build.MinSdk
-        targetSdk = configuration.Versions.Build.TargetSdk
+        minSdk = Versions.Build.MinSdk
+        targetSdk = Versions.Build.TargetSdk
 
         consumerProguardFiles("consumer-rules.pro")
     }
@@ -27,11 +28,11 @@ android {
         }
     }
     compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_1_8
-        targetCompatibility = JavaVersion.VERSION_1_8
+        sourceCompatibility = JavaVersion.VERSION_11
+        targetCompatibility = JavaVersion.VERSION_11
     }
     kotlinOptions {
-        jvmTarget = "1.8"
+        jvmTarget = JavaVersion.VERSION_11.toString()
     }
 }
 

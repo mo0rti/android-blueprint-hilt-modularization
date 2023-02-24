@@ -32,24 +32,18 @@ class LoginFragment : BaseFragment<
         binding.edtUserName.doOnTextChanged { text, _, _, _ ->
             postEvent(LoginViewContract.Event.OnUserNameTextChanged(text.toString()))
         }
+    }
 
-        // Collect view state
-        lifecycleScope.launchWhenStarted {
-            viewModel.viewState.collect {
-                binding.loadingIndicator.setVisibility(it.isLoading)
-                binding.lytInputs.setVisibility(!it.isLoading)
-                binding.btnLogin.isEnabled = !it.isLoading
-            }
-        }
+    override fun onViewStateChange(viewState: LoginViewContract.State) {
+        binding.loadingIndicator.setVisibility(viewState.isLoading)
+        binding.lytInputs.setVisibility(!viewState.isLoading)
+        binding.btnLogin.isEnabled = !viewState.isLoading
+    }
 
-        // Collect view effect
-        lifecycleScope.launchWhenStarted {
-            viewModel.viewEffect.collect {
-                when(it) {
-                    LoginViewContract.Effect.ShowToast -> {
-                        showToast(viewModel.viewState.value.error!!)
-                    }
-                }
+    override fun onViewEffectReceived(viewEffect: LoginViewContract.Effect) {
+        when(viewEffect) {
+            LoginViewContract.Effect.ShowToast -> {
+                showToast(viewModel.viewState.value.error!!)
             }
         }
     }

@@ -3,14 +3,14 @@ package configuration
 object Versions {
 
     object Build {
-        const val Gradle = "7.1.3"
+        const val Gradle = "7.4.0"
 
-        const val CompileSdk = 31
+        const val CompileSdk = 33
         const val MinSdk = 29
-        const val TargetSdk = 31
-        const val BuildTools = "32.0.0"
+        const val TargetSdk = 33
+        const val BuildTools = "33.0.0"
 
-        const val KotlinGradle = "1.7.10"
+        const val KotlinGradle = "1.8.20-Beta"
     }
 
     object AndroidDependencies {
@@ -42,7 +42,7 @@ object Versions {
         const val MaterialDesign = "1.6.1"
         const val ViewPager = "1.0.0"
 
-        const val Hilt = "2.42"
+        const val Hilt = "2.45"
         const val SecurityCrypto = "1.1.0-alpha01"
         const val UICountryPicker = "2.5.4"
     }

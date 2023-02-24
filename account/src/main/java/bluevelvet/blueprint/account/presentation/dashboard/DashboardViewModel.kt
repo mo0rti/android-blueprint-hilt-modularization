@@ -7,13 +7,6 @@ import bluevelvet.blueprint.core.base.viewmodel.BaseViewModel
 import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
 
-/**
- *
- *
- * @author Morteza Taghdisi
- * @since 2023-02-22
- **/
-
 @HiltViewModel
 class DashboardViewModel
 @Inject

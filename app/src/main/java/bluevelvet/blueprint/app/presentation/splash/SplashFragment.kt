@@ -33,4 +33,10 @@ class SplashFragment: BaseFragment<
             postEvent(SplashViewContract.Event.GotoNextScreen)
         }
     }
+
+    override fun onViewEffectReceived(viewEffect: EmptyViewEffect) {
+    }
+
+    override fun onViewStateChange(viewState: EmptyViewState) {
+    }
 }
