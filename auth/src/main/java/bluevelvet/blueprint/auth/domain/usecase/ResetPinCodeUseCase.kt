@@ -1,4 +1,4 @@
-package bluevelvet.blueprint.auth.business
+package bluevelvet.blueprint.auth.domain.usecase
 
 import bluevelvet.blueprint.core.contract.network.AuthNetworkService
 import bluevelvet.blueprint.core.exception.InvalidInputException

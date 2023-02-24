@@ -11,6 +11,7 @@ plugins {
     id("androidx.navigation.safeargs")
     id("com.google.firebase.crashlytics")
     id("dagger.hilt.android.plugin")
+    id("org.jetbrains.kotlin.android")
 }
 
 android {

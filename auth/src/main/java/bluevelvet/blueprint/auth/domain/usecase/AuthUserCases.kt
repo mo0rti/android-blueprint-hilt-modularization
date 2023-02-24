@@ -1,4 +1,4 @@
-package bluevelvet.blueprint.auth.business
+package bluevelvet.blueprint.auth.domain.usecase
 
 /**
  * Created by Morteza Taghdisi on 23 Sep 2022

@@ -1,7 +1,7 @@
 package bluevelvet.blueprint.auth.presentation.login
 
 import androidx.lifecycle.viewModelScope
-import bluevelvet.blueprint.auth.business.AuthUserCases
+import bluevelvet.blueprint.auth.domain.usecase.AuthUserCases
 import bluevelvet.blueprint.auth.navigation.AuthCoordinatorEvent
 import bluevelvet.blueprint.core.base.viewmodel.BaseViewModel
 import dagger.hilt.android.lifecycle.HiltViewModel

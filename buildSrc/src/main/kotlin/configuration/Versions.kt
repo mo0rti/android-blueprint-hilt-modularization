@@ -18,7 +18,7 @@ object Versions {
         const val GoogleServices = "4.3.10"
         const val Firebase = "28.3.1"
         const val FirebaseAnalytics = "9.0.3"
-        const val AndroidCore = "1.8.0"
+        const val AndroidCore = "1.9.0"
         const val AndroidCompat = "1.4.2"
         const val AndroidLegacy = "1.0.0"
         const val GSON = "2.8.9"
