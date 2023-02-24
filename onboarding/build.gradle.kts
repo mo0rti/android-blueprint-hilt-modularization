@@ -1,11 +1,11 @@
 import configuration.Versions
-import dependencies.addAndroidCore
-import dependencies.addAndroidxCoreTesting
-import dependencies.addMaterialDesign
+import dependencies.*
 
 plugins {
     id("com.android.library")
+    id("kotlin-kapt")
     id("org.jetbrains.kotlin.android")
+    id("dagger.hilt.android.plugin")
 }
 
 android {
@@ -35,8 +35,30 @@ android {
     kotlinOptions {
         jvmTarget = JavaVersion.VERSION_11.toString()
     }
+    buildFeatures {
+        viewBinding = true
+        dataBinding = true
+    }
 }
 
 addAndroidCore()
 addMaterialDesign()
+addNavigationCore()
+addNavigationUI()
+addNavigationComponent()
+addGson()
+addRetrofit()
+addHilt()
 addAndroidxCoreTesting()
+addUITestUtils()
+
+dependencies {
+    implementation(project(":navigation"))
+    implementation(project(":style"))
+    implementation(project(":core"))
+    implementation(project(":ui-components"))
+}
+
+kapt {
+    correctErrorTypes = true
+}

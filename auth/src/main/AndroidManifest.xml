@@ -4,7 +4,7 @@
 
     <application>
         <activity
-            android:name="bluevelvet.blueprint.auth.presentation.activity.AuthActivity"
+            android:name=".presentation.activity.AuthActivity"
             android:exported="false"
             android:theme="@style/BluePrint.Theme.Base.NoActionBar">
 

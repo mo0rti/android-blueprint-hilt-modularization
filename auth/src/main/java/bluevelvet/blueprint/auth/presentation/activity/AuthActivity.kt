@@ -13,14 +13,14 @@ class AuthActivity: BaseActivity<ActivityAuthBinding, AuthFlowCoordinator>(
     ActivityAuthBinding::inflate
 ) {
     @Inject
-    lateinit var authFlowCoordinator: AuthFlowCoordinator
+    lateinit var flowCoordinator: AuthFlowCoordinator
 
-    override val graph: Int?
+    override val graph: Int
         get() = R.navigation.nav_graph_auth
     override val navHostId: Int
         get() = R.id.nav_host_fragment_auth
     override val coordinator: AuthFlowCoordinator
-        get() = authFlowCoordinator
+        get() = flowCoordinator
 
     private val viewModel: AuthViewModel by viewModels()
 

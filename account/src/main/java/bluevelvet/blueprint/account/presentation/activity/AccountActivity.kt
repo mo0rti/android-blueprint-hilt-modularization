@@ -13,14 +13,14 @@ class AccountActivity: BaseActivity<ActivityAccountBinding, AccountFlowCoordinat
     ActivityAccountBinding::inflate
 ) {
     @Inject
-    lateinit var authFlowCoordinator: AccountFlowCoordinator
+    lateinit var flowCoordinator: AccountFlowCoordinator
 
     override val graph: Int?
         get() = R.navigation.nav_graph_account
     override val navHostId: Int
         get() = R.id.nav_host_fragment_account
     override val coordinator: AccountFlowCoordinator
-        get() = authFlowCoordinator
+        get() = flowCoordinator
 
     private val viewModel: AccountViewModel by viewModels()
 

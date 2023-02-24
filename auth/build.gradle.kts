@@ -56,8 +56,8 @@ addUITestUtils()
 dependencies {
     implementation(project(":navigation"))
     implementation(project(":style"))
-    implementation(project(":ui-components"))
     implementation(project(":core"))
+    implementation(project(":ui-components"))
 }
 
 kapt {

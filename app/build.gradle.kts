@@ -32,8 +32,14 @@ android {
     }
 
     signingConfigs {
+        getByName("debug") {
+            storeFile = rootProject.file("certificates/debug_signing.keystore")
+            keyAlias = "alias"
+            storePassword = "123456789"
+            keyPassword = "123456789"
+        }
         create("release") {
-            storeFile = rootProject.file("signingkey.keystore")
+            storeFile = rootProject.file("certificates/debug_signing.keystore")
             keyAlias = "alias"
             storePassword = "123456789"
             keyPassword = "123456789"
@@ -44,11 +50,9 @@ android {
         Application.DEV.apply {
             getByName(BuildName) {
                 buildConfigField("String", "BASE_URL", EndPoint)
-                buildConfigField("String", "APP_ICON", "\"${Icon}\"")
-                manifestPlaceholders["app_label"] = Label
                 manifestPlaceholders["app_icon"] = Icon
                 applicationIdSuffix = ApplicationIdSuffix
-                signingConfig = signingConfigs.getByName("release")
+                signingConfig = signingConfigs.getByName("debug")
                 isDebuggable = true
             }
         }
@@ -56,11 +60,9 @@ android {
             create(BuildName) {
                 initWith(getByName(Application.DEV.BuildName))
                 buildConfigField("String", "BASE_URL", EndPoint)
-                buildConfigField("String", "APP_ICON", "\"${Icon}\"")
-                manifestPlaceholders["app_label"] = Label
                 manifestPlaceholders["app_icon"] = Icon
                 applicationIdSuffix = ApplicationIdSuffix
-                signingConfig = signingConfigs.getByName("release")
+                signingConfig = signingConfigs.getByName("debug")
             }
         }
         Application.RELEASE.apply {
@@ -69,8 +71,6 @@ android {
                 isShrinkResources = true
                 proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro")
                 buildConfigField("String", "IDP_BASE_URL", EndPoint)
-                buildConfigField("String", "IDP_APP_ICON", "\"${Icon}\"")
-                manifestPlaceholders["app_label"] = Label
                 manifestPlaceholders["app_icon"] = Icon
                 // Should be replaced with azure pipeline signing when it's ready for production
                 signingConfig = signingConfigs.getByName("release")
