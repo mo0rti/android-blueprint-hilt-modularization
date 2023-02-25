@@ -18,8 +18,7 @@ constructor(
     }
 
     override fun isUserAuthenticated(): Boolean {
-        //return _accessToken.isNotEmpty()
-        return true
+        return _accessToken.isNotEmpty()
     }
 
     override fun logout() {

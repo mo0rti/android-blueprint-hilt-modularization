@@ -15,17 +15,42 @@ a new app with MVI architecture. It provides a ready-to-use code structure that 
 
 ## Project Structure
 
+This repository demonstrates an online shopping app that follows best practices for Android development. The app is built using the MVI architecture, Domain use cases, Hilt, single activity architecture, and flow. There are 8 modules in this project:
+
+- `account`: This module is for all the screens that need the user to be authenticated, such as the dashboard, home, user profile, settings, cart, etc.
+- `auth`: This module is for user authentication flow, such as login and forgot password.
+- `app`: This module is the entry point of the Android app and contains only a splash screen.
+- `onboarding`: This module is for user registration flow.
+- `core`: This module contains domain model, interface contracts, base classes, shared classes, and utils.
+- `navigation`: This module contains all the base classes needed for navigation coordinator pattern.
+- `style`: This module has all the shared resources among the other modules, such as styles, colors, theme, drawable, etc.
+- `ui-components`: This module contains all the custom UI components to be used by other modules, such as CustomButton, CustomProgressIndicator, etc.
+
 The project is structured using the multi-module architecture approach, which separates different functionalities into individual modules. The following is a brief overview of each module:
+- `data` package: The classes inside this package that handles data retrieval from different sources, such as APIs or local databases. It uses Retrofit and Room libraries to implement the data layer.
+- `domain` package: The classes inside this package that contains the business logic and domain models of the app. It provides the use cases and repositories that are used by the presentation layer.
+- `presentation` package: The classes inside this package that handles the UI and user interactions. It implements the MVI architecture using Coroutine flow and provides the view models and view states that are used by the app.
+- `di` package: The classes inside this package that contains all the dagger modules and components which is needed in the module.
+- `navigation` package: The classes inside this package that contains navigation flow coordinator and navigation event to break the dependency of ui and navigation components. This help for a clearer structure and also better unit testing the navigation directions.
 
-- app module: The main module that contains the single activity and app-level dependencies, such as Hilt and navigation components.
-- data module: The module that handles data retrieval from different sources, such as APIs or local databases. It uses Retrofit and Room libraries to implement the data layer.
-- domain module: The module that contains the business logic and domain models of the app. It provides the use cases and repositories that are used by the presentation layer.
-- presentation module: The module that handles the UI and user interactions. It implements the MVI architecture using Coroutine flow and provides the view models and view states that are used by the app.
+## Flows
+- Account flow: The account module represents it when user is authenticated
+- Authentication flow: The auth module represents it when user needs to be authenticated
+- User registration flow: The onboarding module represents it when user needs to be registered
 
-Top level structure is based on flows. There are three main flows in this project:
-- account module: The module for account flow which includes the network services, DI classes and screens when user is authenticated
-- onboarding module: The module for onboarding flow which contains the network services, DI classes and screens for user onboarding
-- auth module
+<div align="center">
+  <img src="./images/login.png" alt="Hilt & Modularization" width=300>
+</div>
+
+The `app` module only contains a splash screen and decides which flow should be represented to the user based on user authentication status.
+
+## How to use the app
+The app is an online shopping app that allows users to browse products, add them to their cart, and make purchases. The app has three main flows:
+
+Account flow: This flow is for users who are already authenticated. It includes screens such as the dashboard, home, user profile, settings, cart, etc.
+Authentication flow: This flow is for users who need to log in or reset their password. It includes screens such as login and forgot password.
+User registration flow: This flow is for new users who need to create an account. It includes screens such as sign up and verification.
+The app uses the MVI architecture, which means that each screen has a corresponding view model that handles state and business logic. The view model communicates with the repository to get data from the server or local database.
 
 
 ## Architecture Overview
