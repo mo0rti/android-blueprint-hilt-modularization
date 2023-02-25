@@ -3,6 +3,7 @@ import dependencies.*
 
 plugins {
     id("com.android.library")
+    id("androidx.navigation.safeargs")
     id("kotlin-kapt")
     id("org.jetbrains.kotlin.android")
     id("dagger.hilt.android.plugin")

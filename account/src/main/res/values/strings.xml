@@ -1,3 +1,8 @@
 <resources>
     <string name="dashboard">Dashboard</string>
+    <string name="home">Home</string>
+    <string name="favorites">Favorites</string>
+    <string name="shopping_cart">Cart</string>
+    <string name="bonus">Bonus</string>
+    <string name="settings">Settings</string>
 </resources>
