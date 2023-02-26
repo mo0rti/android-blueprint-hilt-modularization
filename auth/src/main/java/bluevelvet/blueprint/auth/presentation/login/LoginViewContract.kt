@@ -1,8 +1,8 @@
 package bluevelvet.blueprint.auth.presentation.login
 
-import bluevelvet.blueprint.core.base.state.view.ViewEffect
-import bluevelvet.blueprint.core.base.state.view.ViewEvent
-import bluevelvet.blueprint.core.base.state.view.ViewState
+import bluevelvet.blueprint.core.ui.state.view.ViewEffect
+import bluevelvet.blueprint.core.ui.state.view.ViewEvent
+import bluevelvet.blueprint.core.ui.state.view.ViewState
 
 /**
  * Contracts for Login view model state and event handling.

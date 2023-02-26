@@ -3,7 +3,7 @@ package bluevelvet.blueprint.auth.presentation.resetPinCode
 import androidx.lifecycle.viewModelScope
 import bluevelvet.blueprint.auth.domain.usecase.AuthUserCases
 import bluevelvet.blueprint.auth.navigation.AuthCoordinatorEvent
-import bluevelvet.blueprint.core.base.viewmodel.BaseViewModel
+import bluevelvet.blueprint.core.ui.base.BaseViewModel
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 import javax.inject.Inject

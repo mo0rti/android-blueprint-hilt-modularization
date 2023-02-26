@@ -1,7 +1,7 @@
 package bluevelvet.blueprint.core.manager
 
-import bluevelvet.blueprint.core.contract.session.ApplicationStateManager
-import bluevelvet.blueprint.core.contract.session.UserSessionManager
+import bluevelvet.blueprint.core.manager.contract.ApplicationStateManager
+import bluevelvet.blueprint.core.manager.contract.UserSessionManager
 import javax.inject.Inject
 
 class UserSessionManagerImpl

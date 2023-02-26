@@ -47,7 +47,9 @@ addNavigationCore()
 addNavigationUI()
 addHilt()
 addRetrofit()
+addGlide()
 addGson()
+addRoom()
 
 dependencies {
     implementation(project(":navigation"))

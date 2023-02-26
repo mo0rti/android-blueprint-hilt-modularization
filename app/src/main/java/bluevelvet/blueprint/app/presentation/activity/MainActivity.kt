@@ -3,7 +3,7 @@ package bluevelvet.blueprint.app.presentation.activity
 import bluevelvet.blueprint.app.R
 import bluevelvet.blueprint.app.databinding.ActivityMainBinding
 import bluevelvet.blueprint.app.navigation.MainFlowCoordinator
-import bluevelvet.blueprint.core.base.ui.BaseActivity
+import bluevelvet.blueprint.core.ui.base.BaseActivity
 import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
 

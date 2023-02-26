@@ -1,6 +1,6 @@
 package bluevelvet.blueprint.auth.domain.usecase
 
-import bluevelvet.blueprint.core.contract.network.AuthNetworkService
+import bluevelvet.blueprint.core.data.remote.contract.AuthRemoteService
 import bluevelvet.blueprint.core.exception.InvalidInputException
 
 /**
@@ -9,7 +9,7 @@ import bluevelvet.blueprint.core.exception.InvalidInputException
 
 class SignupUseCase
 constructor (
-    private val networkService: AuthNetworkService
+    private val networkService: AuthRemoteService
 ) {
     @Throws(InvalidInputException::class)
     suspend operator fun invoke(

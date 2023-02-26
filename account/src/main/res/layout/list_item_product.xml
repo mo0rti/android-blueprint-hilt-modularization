@@ -5,7 +5,7 @@
     <data>
         <variable
             name="item"
-            type="bluevelvet.blueprint.core.model.Product" />
+            type="bluevelvet.blueprint.core.domain.model.Product" />
     </data>
 
     <androidx.cardview.widget.CardView

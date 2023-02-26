@@ -10,11 +10,11 @@ import bluevelvet.blueprint.account.presentation.dashboard.cart.CartFragmentDire
 import bluevelvet.blueprint.account.presentation.dashboard.favorites.FavoritesFragmentDirections
 import bluevelvet.blueprint.account.presentation.dashboard.home.HomeFragmentDirections
 import bluevelvet.blueprint.account.presentation.dashboard.settings.SettingsFragmentDirections
-import bluevelvet.blueprint.core.base.state.view.empty.EmptyViewEffect
-import bluevelvet.blueprint.core.base.state.view.empty.EmptyViewEvent
-import bluevelvet.blueprint.core.base.state.view.empty.EmptyViewState
-import bluevelvet.blueprint.core.base.ui.BaseFragment
-import bluevelvet.blueprint.core.base.ui.ToolbarConfiguration
+import bluevelvet.blueprint.core.ui.state.view.empty.EmptyViewEffect
+import bluevelvet.blueprint.core.ui.state.view.empty.EmptyViewEvent
+import bluevelvet.blueprint.core.ui.state.view.empty.EmptyViewState
+import bluevelvet.blueprint.core.ui.base.BaseFragment
+import bluevelvet.blueprint.core.ui.ToolbarConfiguration
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint

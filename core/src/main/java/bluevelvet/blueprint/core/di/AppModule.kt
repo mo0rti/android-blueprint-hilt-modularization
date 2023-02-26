@@ -2,8 +2,8 @@ package bluevelvet.blueprint.core.di
 
 import android.app.Application
 import bluevelvet.blueprint.core.BuildConfig
-import bluevelvet.blueprint.core.contract.session.ApplicationStateManager
-import bluevelvet.blueprint.core.contract.session.UserSessionManager
+import bluevelvet.blueprint.core.manager.contract.ApplicationStateManager
+import bluevelvet.blueprint.core.manager.contract.UserSessionManager
 import bluevelvet.blueprint.core.manager.ApplicationStateManagerImpl
 import bluevelvet.blueprint.core.manager.UserSessionManagerImpl
 import com.google.gson.Gson
@@ -63,7 +63,7 @@ object AppModule {
             client.addInterceptor(loggingInterceptor)
 
         return Retrofit.Builder()
-            .baseUrl("https://api.coinbase.com")
+            .baseUrl("https://myapi.com/api")
             .client(client.build())
             .addConverterFactory(GsonConverterFactory.create(gson))
     }

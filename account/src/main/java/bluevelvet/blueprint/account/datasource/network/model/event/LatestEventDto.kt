@@ -1,7 +1,7 @@
 package bluevelvet.blueprint.account.datasource.network.model.event
 
 import bluevelvet.blueprint.account.domain.model.Event
-import bluevelvet.blueprint.core.base.net.BaseDto
+import bluevelvet.blueprint.core.data.remote.model.Dto
 import com.google.gson.annotations.SerializedName
 
 data class LatestEventDto (
@@ -19,7 +19,7 @@ data class LatestEventDto (
 
     @SerializedName("large_photo")
     val largePhoto: String,
-): BaseDto() {
+): Dto() {
     fun convertToDomainModel() = Event(
         id, title, description, smallPhoto, largePhoto
     )

@@ -1,7 +1,7 @@
 package bluevelvet.blueprint.auth.data.model
 
-import bluevelvet.blueprint.core.base.net.BaseDto
-import bluevelvet.blueprint.core.base.net.ResponseDto
+import bluevelvet.blueprint.core.data.remote.model.Dto
+import bluevelvet.blueprint.core.data.remote.model.ResponseDto
 import com.google.gson.annotations.SerializedName
 
 data class SignupResponseDto(
@@ -10,4 +10,4 @@ data class SignupResponseDto(
 
     @SerializedName("refreshToken")
     val refreshToken: String
-): BaseDto(), ResponseDto
+): Dto(), ResponseDto

@@ -1,7 +1,7 @@
 package bluevelvet.blueprint.account.navigation
 
 import bluevelvet.blueprint.account.R
-import bluevelvet.blueprint.core.contract.session.UserSessionManager
+import bluevelvet.blueprint.core.manager.contract.UserSessionManager
 import bluevelvet.blueprint.navigation.coordinator.Coordinator
 import bluevelvet.blueprint.navigation.event.CoordinatorEvent
 import bluevelvet.blueprint.navigation.navigator.FeatureNavigator

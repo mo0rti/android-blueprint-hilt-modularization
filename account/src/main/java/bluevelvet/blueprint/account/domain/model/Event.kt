@@ -1,6 +1,6 @@
 package bluevelvet.blueprint.account.domain.model
 
-import bluevelvet.blueprint.core.base.domain.BaseDomainModel
+import bluevelvet.blueprint.core.domain.model.DomainModel
 
 data class Event (
     val id: String,
@@ -8,4 +8,4 @@ data class Event (
     val description: String,
     val smallPhoto: String,
     val largePhotoUrl: String
-): BaseDomainModel()
+): DomainModel()

@@ -2,10 +2,10 @@ package bluevelvet.blueprint.app.presentation.splash
 
 import androidx.fragment.app.viewModels
 import bluevelvet.blueprint.app.databinding.FragmentSplashBinding
-import bluevelvet.blueprint.core.base.state.view.empty.EmptyViewEffect
-import bluevelvet.blueprint.core.base.state.view.empty.EmptyViewState
-import bluevelvet.blueprint.core.base.ui.BaseFragment
-import bluevelvet.blueprint.core.base.ui.ToolbarConfiguration
+import bluevelvet.blueprint.core.ui.state.view.empty.EmptyViewEffect
+import bluevelvet.blueprint.core.ui.state.view.empty.EmptyViewState
+import bluevelvet.blueprint.core.ui.base.BaseFragment
+import bluevelvet.blueprint.core.ui.ToolbarConfiguration
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.*
 import kotlin.coroutines.CoroutineContext

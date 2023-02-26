@@ -2,9 +2,9 @@ package bluevelvet.blueprint.auth.presentation.resetPinCode
 
 import androidx.annotation.StringRes
 import bluevelvet.blueprint.auth.R
-import bluevelvet.blueprint.core.base.state.view.ViewEffect
-import bluevelvet.blueprint.core.base.state.view.ViewEvent
-import bluevelvet.blueprint.core.base.state.view.ViewState
+import bluevelvet.blueprint.core.ui.state.view.ViewEffect
+import bluevelvet.blueprint.core.ui.state.view.ViewEvent
+import bluevelvet.blueprint.core.ui.state.view.ViewState
 
 /**
  * Contracts for Forgot password view model state and event handling.

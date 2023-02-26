@@ -1,7 +1,7 @@
 package bluevelvet.blueprint.auth.data.model
 
-import bluevelvet.blueprint.core.base.net.BaseDto
-import bluevelvet.blueprint.core.base.net.RequestDto
+import bluevelvet.blueprint.core.data.remote.model.Dto
+import bluevelvet.blueprint.core.data.remote.model.RequestDto
 import com.google.gson.annotations.SerializedName
 
 /**
@@ -13,4 +13,4 @@ data class LoginRequestDto(
 
     @SerializedName("password")
     val password: String
-): BaseDto(), RequestDto
+): Dto(), RequestDto

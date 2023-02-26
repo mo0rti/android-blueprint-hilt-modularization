@@ -4,7 +4,7 @@ import androidx.activity.viewModels
 import bluevelvet.blueprint.account.R
 import bluevelvet.blueprint.account.databinding.ActivityAccountBinding
 import bluevelvet.blueprint.account.navigation.AccountFlowCoordinator
-import bluevelvet.blueprint.core.base.ui.BaseActivity
+import bluevelvet.blueprint.core.ui.base.BaseActivity
 import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
 
