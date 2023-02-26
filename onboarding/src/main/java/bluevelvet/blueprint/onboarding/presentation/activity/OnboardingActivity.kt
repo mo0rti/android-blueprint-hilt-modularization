@@ -1,7 +1,7 @@
 package bluevelvet.blueprint.onboarding.presentation.activity
 
 import androidx.activity.viewModels
-import bluevelvet.blueprint.core.base.view.BaseActivity
+import bluevelvet.blueprint.core.base.ui.BaseActivity
 import bluevelvet.blueprint.onboarding.R
 import bluevelvet.blueprint.onboarding.databinding.ActivityOnboardingBinding
 import bluevelvet.blueprint.onboarding.navigation.OnboardingFlowCoordinator

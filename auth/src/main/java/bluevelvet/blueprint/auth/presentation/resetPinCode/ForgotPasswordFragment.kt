@@ -3,8 +3,8 @@ package bluevelvet.blueprint.auth.presentation.resetPinCode
 import androidx.core.widget.doOnTextChanged
 import androidx.fragment.app.viewModels
 import bluevelvet.blueprint.auth.databinding.FragmentForgotPasswordBinding
-import bluevelvet.blueprint.core.base.view.BaseFragment
-import bluevelvet.blueprint.core.base.view.ToolbarConfiguration
+import bluevelvet.blueprint.core.base.ui.BaseFragment
+import bluevelvet.blueprint.core.base.ui.ToolbarConfiguration
 import bluevelvet.blueprint.style.view.setVisibility
 import dagger.hilt.android.AndroidEntryPoint
 

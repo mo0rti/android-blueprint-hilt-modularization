@@ -1,4 +1,4 @@
-package bluevelvet.blueprint.core.base.view
+package bluevelvet.blueprint.core.base.ui
 
 import androidx.annotation.StringRes
 

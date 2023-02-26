@@ -1,7 +1,6 @@
 package bluevelvet.blueprint.account.presentation.dashboard
 
 import androidx.fragment.app.viewModels
-import androidx.navigation.findNavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.setupWithNavController
 import bluevelvet.blueprint.account.R
@@ -14,8 +13,8 @@ import bluevelvet.blueprint.account.presentation.dashboard.settings.SettingsFrag
 import bluevelvet.blueprint.core.base.state.view.empty.EmptyViewEffect
 import bluevelvet.blueprint.core.base.state.view.empty.EmptyViewEvent
 import bluevelvet.blueprint.core.base.state.view.empty.EmptyViewState
-import bluevelvet.blueprint.core.base.view.BaseFragment
-import bluevelvet.blueprint.core.base.view.ToolbarConfiguration
+import bluevelvet.blueprint.core.base.ui.BaseFragment
+import bluevelvet.blueprint.core.base.ui.ToolbarConfiguration
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint

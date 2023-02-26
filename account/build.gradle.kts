@@ -49,6 +49,7 @@ addNavigationUI()
 addNavigationComponent()
 addGson()
 addRetrofit()
+addGlide()
 addHilt()
 addAndroidxCoreTesting()
 addUITestUtils()
@@ -58,6 +59,7 @@ dependencies {
     implementation(project(":style"))
     implementation(project(":core"))
     implementation(project(":ui-components"))
+    implementation("androidx.recyclerview:recyclerview:1.2.1")
 }
 
 kapt {

@@ -1,4 +1,4 @@
-package bluevelvet.blueprint.core.base.view
+package bluevelvet.blueprint.core.base.ui
 
 import android.app.Activity
 import android.os.Bundle
@@ -8,7 +8,6 @@ import android.widget.Toast
 import androidx.activity.addCallback
 import androidx.annotation.IdRes
 import androidx.annotation.NavigationRes
-import androidx.annotation.StringRes
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar

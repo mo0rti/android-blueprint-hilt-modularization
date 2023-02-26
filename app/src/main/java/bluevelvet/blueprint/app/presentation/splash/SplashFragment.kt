@@ -4,8 +4,8 @@ import androidx.fragment.app.viewModels
 import bluevelvet.blueprint.app.databinding.FragmentSplashBinding
 import bluevelvet.blueprint.core.base.state.view.empty.EmptyViewEffect
 import bluevelvet.blueprint.core.base.state.view.empty.EmptyViewState
-import bluevelvet.blueprint.core.base.view.BaseFragment
-import bluevelvet.blueprint.core.base.view.ToolbarConfiguration
+import bluevelvet.blueprint.core.base.ui.BaseFragment
+import bluevelvet.blueprint.core.base.ui.ToolbarConfiguration
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.*
 import kotlin.coroutines.CoroutineContext

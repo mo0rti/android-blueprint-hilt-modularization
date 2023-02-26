@@ -1,4 +1,4 @@
-package bluevelvet.blueprint.core.base.view
+package bluevelvet.blueprint.core.base.ui
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -13,8 +13,6 @@ import bluevelvet.blueprint.core.base.state.view.ViewState
 import bluevelvet.blueprint.core.base.viewmodel.BaseViewModel
 import bluevelvet.blueprint.navigation.coordinator.Coordinator
 import bluevelvet.blueprint.navigation.coordinator.CoordinatorHost
-import kotlinx.coroutines.flow.collect
-import kotlinx.coroutines.launch
 
 typealias FragmentInflate<T> = (LayoutInflater, ViewGroup?, Boolean) -> T
 
