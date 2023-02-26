@@ -11,10 +11,9 @@ import bluevelvet.blueprint.core.base.state.view.ViewEffect
 import bluevelvet.blueprint.core.base.state.view.ViewEvent
 import bluevelvet.blueprint.core.base.state.view.ViewState
 import bluevelvet.blueprint.core.base.viewmodel.BaseViewModel
+import bluevelvet.blueprint.core.model.ViewInflater
 import bluevelvet.blueprint.navigation.coordinator.Coordinator
 import bluevelvet.blueprint.navigation.coordinator.CoordinatorHost
-
-typealias FragmentInflate<T> = (LayoutInflater, ViewGroup?, Boolean) -> T
 
 abstract class BaseFragment<
         VB : ViewBinding,
@@ -24,7 +23,7 @@ abstract class BaseFragment<
         VM : BaseViewModel<VS, VE, VF>,
         >
 constructor(
-    private val fragmentInflate: FragmentInflate<VB>,
+    private val viewInflater: ViewInflater<VB>,
     private val toolbarConfiguration: ToolbarConfiguration,
 ) : Fragment() {
 
@@ -41,7 +40,7 @@ constructor(
         container: ViewGroup?,
         savedInstanceState: Bundle?,
     ): View? {
-        _binding = fragmentInflate.invoke(inflater, container, false)
+        _binding = viewInflater.invoke(inflater, container, false)
         return _binding.root
     }
 
