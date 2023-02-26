@@ -31,15 +31,16 @@
                 android:id="@+id/categories_recycler_view"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:paddingStart="16dp"
-                android:paddingEnd="16dp"
-                android:paddingBottom="16dp"/>
+                android:paddingBottom="16dp" />
 
             <!-- Popular Products -->
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:padding="16dp"
+                android:paddingStart="16dp"
+                android:paddingTop="16dp"
+                android:paddingEnd="16dp"
+                android:paddingBottom="8dp"
                 android:text="@string/popular_products"
                 android:textColor="?colorPrimaryDark"
                 android:textSize="18sp"
@@ -49,7 +50,8 @@
                 android:id="@+id/popular_products_recycler_view"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:padding="16dp" />
+                android:paddingHorizontal="8dp"
+                android:paddingBottom="16dp" />
 
         </LinearLayout>
 

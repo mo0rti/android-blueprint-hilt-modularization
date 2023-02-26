@@ -16,7 +16,7 @@
 
     <fragment
         android:id="@+id/navForgotPasswordFragment"
-        android:name="bluevelvet.blueprint.auth.presentation.resetPinCode.ForgotPasswordFragment"
+        android:name="bluevelvet.blueprint.auth.presentation.forgotPassword.ForgotPasswordFragment"
         tools:layout="@layout/fragment_forgot_password"/>
 
 </navigation>

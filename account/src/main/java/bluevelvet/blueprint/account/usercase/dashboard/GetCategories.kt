@@ -1,0 +1,36 @@
+package bluevelvet.blueprint.account.usercase.dashboard
+
+import bluevelvet.blueprint.account.data.local.contract.DashboardLocalService
+import bluevelvet.blueprint.account.data.remote.contract.DashboardRemoteService
+import bluevelvet.blueprint.core.domain.model.Category
+import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.collectLatest
+import kotlinx.coroutines.flow.flow
+import kotlinx.coroutines.sync.Mutex
+import kotlinx.coroutines.sync.withLock
+
+class GetCategories(
+    private val localService: DashboardLocalService,
+    private val remoteService: DashboardRemoteService,
+) {
+    // Mutex to make writes to cached values thread-safe.
+    private val mutex = Mutex()
+
+    private var categories: List<Category> = emptyList()
+
+    suspend operator fun invoke() : Flow<List<Category>> = flow {
+        val networkResult = remoteService.getCategories()
+
+        // Thread-safe write to latestNews
+        mutex.withLock {
+            localService.insertOrUpdateCategories(networkResult)
+            localService.getCategories().collectLatest {
+                categories = it
+            }
+        }
+
+        mutex.withLock {
+            emit(categories)
+        }
+    }
+}

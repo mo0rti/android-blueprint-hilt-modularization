@@ -1,11 +1,11 @@
 package bluevelvet.blueprint.auth.di
 
-import bluevelvet.blueprint.auth.data.service.AuthRemoteServiceImpl
-import bluevelvet.blueprint.auth.domain.usecase.AuthUserCases
-import bluevelvet.blueprint.auth.domain.usecase.LoginUseCase
-import bluevelvet.blueprint.auth.domain.usecase.ResetPasswordUseCase
-import bluevelvet.blueprint.auth.domain.usecase.SignupUseCase
-import bluevelvet.blueprint.core.data.remote.contract.AuthRemoteService
+import bluevelvet.blueprint.auth.data.service.AuthenticationRemoteServiceImpl
+import bluevelvet.blueprint.auth.usecase.AuthUserCases
+import bluevelvet.blueprint.auth.usecase.LoginUseCase
+import bluevelvet.blueprint.auth.usecase.ResetPasswordUseCase
+import bluevelvet.blueprint.auth.usecase.SignupUseCase
+import bluevelvet.blueprint.core.data.remote.contract.AuthenticationRemoteService
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -16,12 +16,12 @@ import dagger.hilt.components.SingletonComponent
 object AuthModule {
 
     @Provides
-    fun provideNetworkService(): AuthRemoteService {
-        return AuthRemoteServiceImpl()
+    fun provideNetworkService(): AuthenticationRemoteService {
+        return AuthenticationRemoteServiceImpl()
     }
 
     @Provides
-    fun provideUseCases(networkService: AuthRemoteService) = AuthUserCases(
+    fun provideUseCases(networkService: AuthenticationRemoteService) = AuthUserCases(
         loginUseCase = LoginUseCase(networkService),
         signupUseCase = SignupUseCase(networkService),
         resetPasswordUseCase = ResetPasswordUseCase(networkService),

@@ -1,10 +1,11 @@
 package bluevelvet.blueprint.account.di
 
-import bluevelvet.blueprint.account.domain.contract.EventCacheService
-import bluevelvet.blueprint.account.domain.contract.EventNetworkService
-import bluevelvet.blueprint.account.domain.usercase.event.BookmarkEvent
-import bluevelvet.blueprint.account.domain.usercase.event.EventUseCases
-import bluevelvet.blueprint.account.domain.usercase.event.GetLatestEvents
+import bluevelvet.blueprint.account.data.local.contract.DashboardLocalService
+import bluevelvet.blueprint.account.data.remote.contract.DashboardRemoteService
+import bluevelvet.blueprint.account.usercase.dashboard.BookmarkProduct
+import bluevelvet.blueprint.account.usercase.dashboard.DashboardUseCases
+import bluevelvet.blueprint.account.usercase.dashboard.GetCategories
+import bluevelvet.blueprint.account.usercase.dashboard.GetPopularProducts
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -18,10 +19,11 @@ object UseCaseModule {
     @Provides
     @Singleton
     fun provideEventUseCases(
-        cacheService: EventCacheService,
-        networkService: EventNetworkService,
-    ) = EventUseCases(
-        getLatestEvents = GetLatestEvents(cacheService, networkService),
-        bookmarkEvent = BookmarkEvent(cacheService, networkService),
+        localService: DashboardLocalService,
+        remoteService: DashboardRemoteService,
+    ) = DashboardUseCases(
+        getCategories = GetCategories(localService, remoteService),
+        getPopularProducts = GetPopularProducts(localService, remoteService),
+        bookmarkProduct = BookmarkProduct(localService, remoteService),
     )
 }

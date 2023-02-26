@@ -12,8 +12,7 @@
         android:id="@+id/product_card"
         android:layout_width="160dp"
         android:layout_height="220dp"
-        android:layout_margin="8dp"
-        android:padding="8dp"
+        android:layout_marginHorizontal="8dp"
         android:foreground="?attr/selectableItemBackground">
 
         <LinearLayout
@@ -35,7 +34,8 @@
                 android:textColor="?colorPrimaryDark"
                 android:text="@{item.name}"
                 android:textSize="16sp"
-                android:textStyle="bold"/>
+                android:textStyle="bold"
+                android:paddingHorizontal="4dp" />
 
             <TextView
                 android:id="@+id/product_description"
@@ -45,7 +45,8 @@
                 android:textSize="14sp"
                 android:ellipsize="end"
                 android:maxLines="3"
-                android:textColor="?colorPrimary"/>
+                android:textColor="?colorPrimary"
+                android:paddingHorizontal="4dp" />
         </LinearLayout>
 
     </androidx.cardview.widget.CardView>

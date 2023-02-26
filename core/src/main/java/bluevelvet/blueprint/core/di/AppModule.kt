@@ -1,7 +1,9 @@
 package bluevelvet.blueprint.core.di
 
 import android.app.Application
+import androidx.room.Room
 import bluevelvet.blueprint.core.BuildConfig
+import bluevelvet.blueprint.core.data.local.provider.AppDatabase
 import bluevelvet.blueprint.core.manager.contract.ApplicationStateManager
 import bluevelvet.blueprint.core.manager.contract.UserSessionManager
 import bluevelvet.blueprint.core.manager.ApplicationStateManagerImpl
@@ -63,8 +65,14 @@ object AppModule {
             client.addInterceptor(loggingInterceptor)
 
         return Retrofit.Builder()
-            .baseUrl("https://myapi.com/api")
+            .baseUrl("https://myapi.com/api/")
             .client(client.build())
             .addConverterFactory(GsonConverterFactory.create(gson))
     }
+
+    @Provides
+    fun provideDatabase(app: Application): AppDatabase =
+        Room.databaseBuilder(app, AppDatabase::class.java, "db")
+            .fallbackToDestructiveMigration()
+            .build()
 }

@@ -13,7 +13,7 @@ class LoginViewContract {
     data class State(
         val isLoading: Boolean,
         val username: String = "",
-        val password: String = ""
+        val password: String = "",
     ): ViewState
 
     sealed class Event: ViewEvent {
