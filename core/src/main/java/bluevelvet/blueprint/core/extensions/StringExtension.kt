@@ -1,4 +1,4 @@
-package bluevelvet.blueprint.core.utils
+package bluevelvet.blueprint.core.extensions
 
 import java.util.*
 import kotlin.random.Random
@@ -6,9 +6,6 @@ import kotlin.random.Random
 
 /**
  * Extension functions for [String]
- *
- * @author Morteza Taghdisi
- * @since 2023-02-10
  **/
 
 fun String.randomId(): String {

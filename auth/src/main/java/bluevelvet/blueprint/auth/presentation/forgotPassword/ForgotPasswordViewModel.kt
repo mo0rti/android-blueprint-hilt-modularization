@@ -1,8 +1,8 @@
 package bluevelvet.blueprint.auth.presentation.forgotPassword
 
 import androidx.lifecycle.viewModelScope
-import bluevelvet.blueprint.auth.usecase.AuthUserCases
 import bluevelvet.blueprint.auth.navigation.AuthCoordinatorEvent
+import bluevelvet.blueprint.auth.usecase.AuthUserCases
 import bluevelvet.blueprint.core.ui.base.BaseViewModel
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch

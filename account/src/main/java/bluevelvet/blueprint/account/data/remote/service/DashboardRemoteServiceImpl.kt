@@ -43,14 +43,14 @@ constructor(
         )
 
     override suspend fun getCategories(): List<Category> {
-        delay(1000)
+        delay(500)
         return categories.map { dto ->
             Category(dto.id, dto.name, dto.imageUrl)
         }
     }
 
     override suspend fun getPopularProducts(): List<Product> {
-        delay(4000)
+        delay(2000)
         return products.map { dto ->
                 Product(
                     dto.id,

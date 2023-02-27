@@ -1,6 +1,6 @@
 package bluevelvet.blueprint.core.domain.model
 
-import bluevelvet.blueprint.core.utils.randomId
+import bluevelvet.blueprint.core.extensions.randomId
 
 data class Category(
     val id: String = "".randomId(),

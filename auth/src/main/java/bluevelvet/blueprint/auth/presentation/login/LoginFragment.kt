@@ -3,8 +3,8 @@ package bluevelvet.blueprint.auth.presentation.login
 import androidx.core.widget.doOnTextChanged
 import androidx.fragment.app.viewModels
 import bluevelvet.blueprint.auth.databinding.FragmentLoginBinding
-import bluevelvet.blueprint.core.ui.base.BaseFragment
 import bluevelvet.blueprint.core.ui.ToolbarConfiguration
+import bluevelvet.blueprint.core.ui.base.BaseFragment
 import bluevelvet.blueprint.style.view.setVisibility
 import dagger.hilt.android.AndroidEntryPoint
 

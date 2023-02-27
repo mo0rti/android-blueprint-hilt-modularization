@@ -1,4 +1,4 @@
-package bluevelvet.blueprint.core.utils
+package bluevelvet.blueprint.core.extensions
 
 import kotlin.math.pow
 import kotlin.math.roundToLong
@@ -6,9 +6,6 @@ import kotlin.random.Random
 
 /**
  * Extension functions for all the numeric types.
- *
- * @author Morteza Taghdisi
- * @since 2023-02-10
  **/
 
 fun Double.roundTo(numberOfDecimals: Int = 1): Double {

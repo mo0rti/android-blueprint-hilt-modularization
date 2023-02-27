@@ -15,7 +15,7 @@ interface CategoryDao {
     suspend fun insertOrUpdate(entity: CategoryEntity)
 
     @Query("SELECT * FROM $TABLE_NAME")
-    fun getAll(): Flow<List<CategoryEntity>>
+    fun getAll(): List<CategoryEntity>
 
     @Query("SELECT * FROM $TABLE_NAME WHERE $COL_ID = :id")
     fun get(id: String): Flow<CategoryEntity?>

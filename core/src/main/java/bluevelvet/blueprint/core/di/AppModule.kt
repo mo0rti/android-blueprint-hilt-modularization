@@ -4,10 +4,10 @@ import android.app.Application
 import androidx.room.Room
 import bluevelvet.blueprint.core.BuildConfig
 import bluevelvet.blueprint.core.data.local.provider.AppDatabase
-import bluevelvet.blueprint.core.manager.contract.ApplicationStateManager
-import bluevelvet.blueprint.core.manager.contract.UserSessionManager
 import bluevelvet.blueprint.core.manager.ApplicationStateManagerImpl
 import bluevelvet.blueprint.core.manager.UserSessionManagerImpl
+import bluevelvet.blueprint.core.manager.contract.ApplicationStateManager
+import bluevelvet.blueprint.core.manager.contract.UserSessionManager
 import com.google.gson.Gson
 import com.google.gson.GsonBuilder
 import dagger.Module

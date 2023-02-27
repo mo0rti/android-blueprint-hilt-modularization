@@ -9,8 +9,9 @@ import bluevelvet.blueprint.core.ui.state.view.ViewState
 class HomeViewContract {
 
     data class State(
-        val isLoading: Boolean,
+        val isCategoriesLoading: Boolean,
         val categories: List<Category>,
+        val isPopularProductsLoading: Boolean,
         val popularProducts: List<Product>,
     ): ViewState
 

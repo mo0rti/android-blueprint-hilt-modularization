@@ -16,7 +16,7 @@ interface ProductDao {
     suspend fun insertOrUpdate(entity: ProductEntity)
 
     @Query("SELECT * FROM $TABLE_NAME")
-    fun getAll(): Flow<List<ProductEntity>>
+    fun getAll(): List<ProductEntity>
 
     @Query("SELECT * FROM $TABLE_NAME WHERE $COL_ID = :id")
     fun get(id: String): Flow<ProductEntity?>

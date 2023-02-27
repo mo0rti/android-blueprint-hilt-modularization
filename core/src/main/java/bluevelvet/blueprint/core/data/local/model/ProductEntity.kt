@@ -6,7 +6,6 @@ import androidx.room.PrimaryKey
 import bluevelvet.blueprint.core.data.local.model.ProductEntity.Companion.TABLE_NAME
 import bluevelvet.blueprint.core.data.local.model.base.EntityModel
 import bluevelvet.blueprint.core.domain.model.Category
-import bluevelvet.blueprint.core.domain.model.DomainModel
 import bluevelvet.blueprint.core.domain.model.Product
 
 @Entity(tableName = TABLE_NAME)
@@ -37,7 +36,7 @@ data class ProductEntity(
         const val COL_IMAGE = "imageUrl"
     }
 
-    fun toDomainModel(findCategory: (String) -> Category): DomainModel {
+    fun toDomainModel(findCategory: (String) -> Category): Product {
         return Product(
             id = id,
             name = name,

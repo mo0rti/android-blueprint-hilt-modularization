@@ -1,10 +1,10 @@
 package bluevelvet.blueprint.app.presentation.splash
 
 import bluevelvet.blueprint.app.navigation.MainCoordinatorEvent
+import bluevelvet.blueprint.core.manager.contract.UserSessionManager
+import bluevelvet.blueprint.core.ui.base.BaseViewModel
 import bluevelvet.blueprint.core.ui.state.view.empty.EmptyViewEffect
 import bluevelvet.blueprint.core.ui.state.view.empty.EmptyViewState
-import bluevelvet.blueprint.core.ui.base.BaseViewModel
-import bluevelvet.blueprint.core.manager.contract.UserSessionManager
 import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
 

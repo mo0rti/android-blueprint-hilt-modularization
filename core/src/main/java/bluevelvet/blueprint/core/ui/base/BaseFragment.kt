@@ -7,11 +7,11 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
 import androidx.viewbinding.ViewBinding
+import bluevelvet.blueprint.core.domain.model.ViewInflater
+import bluevelvet.blueprint.core.ui.ToolbarConfiguration
 import bluevelvet.blueprint.core.ui.state.view.ViewEffect
 import bluevelvet.blueprint.core.ui.state.view.ViewEvent
 import bluevelvet.blueprint.core.ui.state.view.ViewState
-import bluevelvet.blueprint.core.domain.model.ViewInflater
-import bluevelvet.blueprint.core.ui.ToolbarConfiguration
 import bluevelvet.blueprint.navigation.coordinator.Coordinator
 import bluevelvet.blueprint.navigation.coordinator.CoordinatorHost
 

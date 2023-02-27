@@ -2,8 +2,8 @@ package bluevelvet.blueprint.core.manager
 
 import android.content.Context
 import android.content.SharedPreferences
-import bluevelvet.blueprint.core.manager.contract.ApplicationStateManager
 import bluevelvet.blueprint.core.domain.model.ApplicationState
+import bluevelvet.blueprint.core.manager.contract.ApplicationStateManager
 import com.google.gson.Gson
 import javax.inject.Inject
 

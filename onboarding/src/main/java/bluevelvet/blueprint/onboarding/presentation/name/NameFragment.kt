@@ -1,11 +1,11 @@
 package bluevelvet.blueprint.onboarding.presentation.name
 
 import androidx.fragment.app.viewModels
+import bluevelvet.blueprint.core.ui.ToolbarConfiguration
+import bluevelvet.blueprint.core.ui.base.BaseFragment
 import bluevelvet.blueprint.core.ui.state.view.empty.EmptyViewEffect
 import bluevelvet.blueprint.core.ui.state.view.empty.EmptyViewEvent
 import bluevelvet.blueprint.core.ui.state.view.empty.EmptyViewState
-import bluevelvet.blueprint.core.ui.base.BaseFragment
-import bluevelvet.blueprint.core.ui.ToolbarConfiguration
 import bluevelvet.blueprint.onboarding.databinding.FragmentNameBinding
 import dagger.hilt.android.AndroidEntryPoint
 

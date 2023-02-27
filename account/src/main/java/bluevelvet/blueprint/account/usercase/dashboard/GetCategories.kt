@@ -4,7 +4,6 @@ import bluevelvet.blueprint.account.data.local.contract.DashboardLocalService
 import bluevelvet.blueprint.account.data.remote.contract.DashboardRemoteService
 import bluevelvet.blueprint.core.domain.model.Category
 import kotlinx.coroutines.flow.Flow
-import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.sync.Mutex
 import kotlinx.coroutines.sync.withLock
@@ -18,7 +17,7 @@ class GetCategories(
 
     suspend operator fun invoke() : Flow<List<Category>> = flow {
         // First emit the cache records
-        localService.getCategories().collect { emit(it) }
+        emit(localService.getCategories())
 
         // Get the result from remote api
         val remoteResult = remoteService.getCategories()
@@ -28,7 +27,7 @@ class GetCategories(
             localService.insertOrUpdateCategories(remoteResult)
 
             // Emit written values from cache
-            localService.getCategories().collectLatest { emit(it) }
+            emit(localService.getCategories())
         }
     }
 }
