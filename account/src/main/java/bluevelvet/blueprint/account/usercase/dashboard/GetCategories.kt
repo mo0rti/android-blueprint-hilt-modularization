@@ -16,21 +16,19 @@ class GetCategories(
     // Mutex to make writes to cached values thread-safe.
     private val mutex = Mutex()
 
-    private var categories: List<Category> = emptyList()
-
     suspend operator fun invoke() : Flow<List<Category>> = flow {
-        val networkResult = remoteService.getCategories()
+        // First emit the cache records
+        localService.getCategories().collect { emit(it) }
+
+        // Get the result from remote api
+        val remoteResult = remoteService.getCategories()
 
         // Thread-safe write to latestNews
         mutex.withLock {
-            localService.insertOrUpdateCategories(networkResult)
-            localService.getCategories().collectLatest {
-                categories = it
-            }
-        }
+            localService.insertOrUpdateCategories(remoteResult)
 
-        mutex.withLock {
-            emit(categories)
+            // Emit written values from cache
+            localService.getCategories().collectLatest { emit(it) }
         }
     }
 }

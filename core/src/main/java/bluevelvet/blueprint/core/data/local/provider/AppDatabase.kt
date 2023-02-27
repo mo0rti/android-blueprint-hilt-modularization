@@ -12,7 +12,7 @@ import bluevelvet.blueprint.core.data.local.model.ProductEntity
         ProductEntity::class,
         CategoryEntity::class,
     ],
-    version = 1,
+    version = 2,
     exportSchema = false,
 )
 abstract class AppDatabase: RoomDatabase() {

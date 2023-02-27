@@ -11,10 +11,7 @@ import bluevelvet.blueprint.core.domain.model.Product
 
 @Entity(tableName = TABLE_NAME)
 data class ProductEntity(
-    @PrimaryKey(autoGenerate = true)
-    @ColumnInfo(name = COL_PK)
-    var pk: Long = 0,
-
+    @PrimaryKey
     @ColumnInfo(name = COL_ID)
     val id: String = "",
 
@@ -33,7 +30,6 @@ data class ProductEntity(
     ): EntityModel() {
     companion object {
         const val TABLE_NAME = "product"
-        const val COL_PK = "pk"
         const val COL_ID = "id"
         const val COL_NAME = "name"
         const val COL_CATEGORY_ID = "categoryId"

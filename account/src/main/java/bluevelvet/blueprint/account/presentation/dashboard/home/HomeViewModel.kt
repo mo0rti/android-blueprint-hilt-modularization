@@ -47,7 +47,7 @@ constructor(
                     dashboardUseCases.getPopularProducts()
                 ) { categories, popularProducts ->
                     categories to popularProducts
-                }.collectLatest { (categories, popularProducts) ->
+                }.collect { (categories, popularProducts) ->
                     updateViewState {
                         copy(
                             categories = categories,

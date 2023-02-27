@@ -12,7 +12,7 @@ import kotlinx.coroutines.flow.Flow
 @Dao
 interface CategoryDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    suspend fun insert(entity: CategoryEntity)
+    suspend fun insertOrUpdate(entity: CategoryEntity)
 
     @Query("SELECT * FROM $TABLE_NAME")
     fun getAll(): Flow<List<CategoryEntity>>

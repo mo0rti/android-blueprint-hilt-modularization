@@ -13,7 +13,7 @@ import kotlinx.coroutines.flow.Flow
 @Dao
 interface ProductDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    suspend fun insert(entity: ProductEntity)
+    suspend fun insertOrUpdate(entity: ProductEntity)
 
     @Query("SELECT * FROM $TABLE_NAME")
     fun getAll(): Flow<List<ProductEntity>>
