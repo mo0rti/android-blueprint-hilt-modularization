@@ -7,7 +7,7 @@
 
 ## Hilt & Modularization
 
-This is an Android project template that implements the Model-View-Intent (MVI) architecture using Kotlin, 
+This is an Android project template that implements the Model-View-Intent [MVI](https://amsterdamstandard.com/story/modern-android-architecture-with-mvi-design-pattern) architecture using Kotlin, 
 Coroutine flow, Hilt, multi module structure, navigation coordinator, and single activity architecture.
 
 The project is designed to be used as a blueprint for other Android developers who want to start building 
