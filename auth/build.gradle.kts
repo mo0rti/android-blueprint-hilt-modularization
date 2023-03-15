@@ -40,6 +40,11 @@ android {
         viewBinding = true
         dataBinding = true
     }
+    tasks.withType<org.jetbrains.kotlin.gradle.tasks.KotlinCompile> {
+        kotlinOptions {
+            jvmTarget = JavaVersion.VERSION_11.toString()
+        }
+    }
 }
 
 addAndroidCore()
@@ -51,6 +56,8 @@ addGson()
 addRetrofit()
 addHilt()
 addAndroidxCoreTesting()
+addCoroutineTesting()
+addMockUtils()
 addUITestUtils()
 
 dependencies {

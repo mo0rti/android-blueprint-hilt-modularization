@@ -14,6 +14,7 @@ import bluevelvet.blueprint.core.ui.state.view.ViewEvent
 import bluevelvet.blueprint.core.ui.state.view.ViewState
 import bluevelvet.blueprint.navigation.coordinator.Coordinator
 import bluevelvet.blueprint.navigation.coordinator.CoordinatorHost
+import kotlinx.coroutines.flow.collectLatest
 
 abstract class BaseFragment<
         VB : ViewBinding,
@@ -48,7 +49,7 @@ constructor(
         super.onViewCreated(view, savedInstanceState)
 
         lifecycleScope.launchWhenStarted {
-            viewModel.coordinatorEvent.collect { coordinatorEvent ->
+            viewModel.coordinatorEvent.collectLatest { coordinatorEvent ->
                 activityCoordinator().onEvent(coordinatorEvent)
             }
         }
@@ -57,14 +58,14 @@ constructor(
 
         // Collect view state
         lifecycleScope.launchWhenStarted {
-            viewModel.viewState.collect {
+            viewModel.viewState.collectLatest {
                 onViewStateChange(it)
             }
         }
 
         // Collect view effect
         lifecycleScope.launchWhenStarted {
-            viewModel.viewEffect.collect {
+            viewModel.viewEffect.collectLatest {
                 onViewEffectReceived(it)
             }
         }

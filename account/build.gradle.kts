@@ -40,6 +40,11 @@ android {
         viewBinding = true
         dataBinding = true
     }
+    tasks.withType<org.jetbrains.kotlin.gradle.tasks.KotlinCompile> {
+        kotlinOptions {
+            jvmTarget = JavaVersion.VERSION_11.toString()
+        }
+    }
 }
 
 addAndroidCore()
@@ -52,6 +57,7 @@ addRetrofit()
 addGlide()
 addHilt()
 addAndroidxCoreTesting()
+addMockUtils()
 addUITestUtils()
 
 dependencies {
@@ -59,7 +65,6 @@ dependencies {
     implementation(project(":style"))
     implementation(project(":core"))
     implementation(project(":ui-components"))
-    implementation("androidx.recyclerview:recyclerview:1.2.1")
 }
 
 kapt {

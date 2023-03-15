@@ -38,6 +38,11 @@ android {
         viewBinding = true
         dataBinding = true
     }
+    tasks.withType<org.jetbrains.kotlin.gradle.tasks.KotlinCompile> {
+        kotlinOptions {
+            jvmTarget = JavaVersion.VERSION_11.toString()
+        }
+    }
 }
 
 addAndroidCore()
@@ -50,6 +55,8 @@ addRetrofit()
 addGlide()
 addGson()
 addRoom()
+addAndroidxCoreTesting()
+addCoroutineTesting()
 
 dependencies {
     implementation(project(":navigation"))

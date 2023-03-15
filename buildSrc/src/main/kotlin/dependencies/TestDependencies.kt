@@ -58,5 +58,5 @@ fun Project.addCoroutineTesting() {
 }
 
 object TestDependencies {
-    const val InstrumentationRunner = "nl.abnamro.identipay.utils.IdpUITestRunner"
+    const val InstrumentationRunner = "MyUITestRunner"
 }

@@ -49,8 +49,7 @@ abstract class BaseViewModel<
     }
 
     protected fun updateViewState(newState: VS.() -> VS) {
-        val newState = currentViewState().newState()
-        _viewState.value = newState
+        _viewState.value = currentViewState().newState()
     }
 
     fun updateViewEvent(event: VE) {
@@ -58,18 +57,21 @@ abstract class BaseViewModel<
     }
 
     protected fun updateViewEffect(effect: VF) {
-        viewModelScope.launch { _viewEffect.send(effect) }
+        // Using trySend instead of try to prevent the code from being suspended if the buffer is full.
+        viewModelScope.launch { _viewEffect.trySend(effect) }
     }
 
     private fun subscribeViewEvents() {
         viewModelScope.launch {
-            _viewEvent.collect { event ->
+            // using collectLatest instead of collect to ensure that if the events are produced faster than they can be consumed,
+            // the latest event will be collected and processed, discarding the previous unconsumed ones.
+            _viewEvent.collectLatest { event ->
                 handleViewEvent(event)
             }
         }
     }
 
     protected fun <E : CoordinatorEvent> sendCoordinatorEvent(event: E) {
-        viewModelScope.launch { _coordinatorEvent.send(event) }
+        viewModelScope.launch { _coordinatorEvent.trySend(event) }
     }
 }

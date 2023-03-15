@@ -1,6 +1,5 @@
 package bluevelvet.blueprint.account.presentation.dashboard.home
 
-import android.util.Log
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -68,7 +67,6 @@ class HomeFragment: BaseFragment<
         categoriesAdapter.data = viewState.categories
         popularProductsAdapter.data = viewState.popularProducts
 
-        Log.d("-----", "${viewState.isCategoriesLoading} ${viewState.isPopularProductsLoading}")
         binding.pbCategories.setVisibility(viewState.isCategoriesLoading)
         binding.pbPopularProducts.setVisibility(viewState.isPopularProductsLoading)
     }

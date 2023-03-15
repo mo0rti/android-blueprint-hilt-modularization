@@ -22,7 +22,7 @@ class GetCategories(
         // Get the result from remote api
         val remoteResult = remoteService.getCategories()
 
-        // Thread-safe write to latestNews
+        // Thread-safe write to categories
         mutex.withLock {
             localService.insertOrUpdateCategories(remoteResult)
 
