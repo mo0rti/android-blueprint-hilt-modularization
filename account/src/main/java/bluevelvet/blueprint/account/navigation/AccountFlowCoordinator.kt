@@ -6,8 +6,10 @@ import bluevelvet.blueprint.navigation.coordinator.Coordinator
 import bluevelvet.blueprint.navigation.event.CoordinatorEvent
 import bluevelvet.blueprint.navigation.navigator.FeatureNavigator
 import bluevelvet.blueprint.navigation.navigator.StartDestination
+import dagger.hilt.android.scopes.ActivityScoped
 import javax.inject.Inject
 
+@ActivityScoped
 class AccountFlowCoordinator
 @Inject
 constructor(

@@ -9,9 +9,11 @@ import kotlinx.coroutines.test.setMain
 import org.junit.rules.TestWatcher
 import org.junit.runner.Description
 
+// The Main dispatcher that wraps the Android UI thread will be unavailable, while unit testing and it should be replaced by a TestDispatcher in local unit tests.
+// Replacing the Main dispatcher also simplifies sharing schedulers between TestDispatchers.
 @ExperimentalCoroutinesApi
-class MainCoroutineRule(
-    private val testDispatcher: TestDispatcher = UnconfinedTestDispatcher()
+class MainDispatcherRule(
+    val testDispatcher: TestDispatcher = UnconfinedTestDispatcher()
 ) : TestWatcher() {
     override fun starting(description: Description?) {
         Dispatchers.setMain(testDispatcher)

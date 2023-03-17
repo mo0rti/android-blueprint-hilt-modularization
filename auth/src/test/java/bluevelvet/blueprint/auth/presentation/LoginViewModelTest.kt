@@ -3,9 +3,11 @@ package bluevelvet.blueprint.auth.presentation
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import bluevelvet.blueprint.auth.presentation.login.LoginViewContract
 import bluevelvet.blueprint.auth.presentation.login.LoginViewModel
-import bluevelvet.blueprint.auth.presentation.utils.MainCoroutineRule
+import bluevelvet.blueprint.auth.presentation.utils.MainDispatcherRule
 import bluevelvet.blueprint.auth.usecase.AuthUserCases
 import bluevelvet.blueprint.auth.usecase.LoginUseCase
+import bluevelvet.blueprint.auth.usecase.ResetPasswordUseCase
+import bluevelvet.blueprint.auth.usecase.SignupUseCase
 import io.mockk.*
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.test.runTest
@@ -19,7 +21,7 @@ import org.junit.rules.TestRule
 class LoginViewModelTest {
 
     @get:Rule
-    val coroutineRule = MainCoroutineRule()
+    val mainDispatcherRule = MainDispatcherRule()
 
     @get:Rule
     val rule: TestRule = InstantTaskExecutorRule()
@@ -27,6 +29,12 @@ class LoginViewModelTest {
     // Mocked dependencies
     @io.mockk.impl.annotations.MockK
     private lateinit var loginUseCase: LoginUseCase
+
+    @io.mockk.impl.annotations.MockK
+    private lateinit var signupUseCase: SignupUseCase
+
+    @io.mockk.impl.annotations.MockK
+    private lateinit var resetPasswordUseCase: ResetPasswordUseCase
 
     // System Under Test
     private lateinit var loginViewModel: LoginViewModel
@@ -37,7 +45,10 @@ class LoginViewModelTest {
         loginUseCase = mockk()
 
         // Initialize SUT with mocked dependencies
-        loginViewModel = LoginViewModel(AuthUserCases(loginUseCase, mockk(), mockk()))
+        loginViewModel = LoginViewModel(
+            AuthUserCases(loginUseCase, signupUseCase, resetPasswordUseCase),
+            mainDispatcherRule.testDispatcher
+        )
     }
 
     @Test
@@ -57,8 +68,7 @@ class LoginViewModelTest {
             // Then
             coVerify { loginUseCase.invoke(username, password) }
             assertEquals(expectedState, loginViewModel.currentViewState())
-            //loginViewModel.coordinatorEvent.
-            //verify { loginViewModel.coordinatorEvent.coordinatorEventObserver.onChanged(AuthCoordinatorEvent.AccountFlow) }
+            //coVerify { loginViewModel.coordinatorEvent.coordinatorEventObserver.onChanged(AuthCoordinatorEvent.AccountFlow) }
         }
 
     /*

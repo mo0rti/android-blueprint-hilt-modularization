@@ -9,21 +9,23 @@ import bluevelvet.blueprint.account.usercase.dashboard.GetPopularProducts
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
-import dagger.hilt.components.SingletonComponent
-import javax.inject.Singleton
+import dagger.hilt.android.components.ViewModelComponent
+import dagger.hilt.android.scopes.ViewModelScoped
 
 @Module
-@InstallIn(SingletonComponent::class)
+@InstallIn(ViewModelComponent::class)
 object UseCaseModule {
 
+    @ViewModelScoped
     @Provides
-    @Singleton
     fun provideEventUseCases(
         localService: DashboardLocalService,
         remoteService: DashboardRemoteService,
-    ) = DashboardUseCases(
-        getCategories = GetCategories(localService, remoteService),
-        getPopularProducts = GetPopularProducts(localService, remoteService),
-        bookmarkProduct = BookmarkProduct(localService, remoteService),
-    )
+    ): DashboardUseCases {
+        return DashboardUseCases(
+            getCategories = GetCategories(localService, remoteService),
+            getPopularProducts = GetPopularProducts(localService, remoteService),
+            bookmarkProduct = BookmarkProduct(localService, remoteService),
+        )
+    }
 }

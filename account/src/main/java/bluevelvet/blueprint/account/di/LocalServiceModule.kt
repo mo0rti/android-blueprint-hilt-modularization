@@ -5,14 +5,14 @@ import bluevelvet.blueprint.account.data.local.service.DashboardLocalServiceImpl
 import dagger.Binds
 import dagger.Module
 import dagger.hilt.InstallIn
-import dagger.hilt.components.SingletonComponent
-import javax.inject.Singleton
+import dagger.hilt.android.components.ViewModelComponent
+import dagger.hilt.android.scopes.ViewModelScoped
 
 @Module
-@InstallIn(SingletonComponent::class)
+@InstallIn(ViewModelComponent::class)
 abstract class LocalServiceModule {
 
-    @Singleton
+    @ViewModelScoped
     @Binds
     abstract fun bindDashboardLocalService(
         localService: DashboardLocalServiceImpl

@@ -5,14 +5,14 @@ import bluevelvet.blueprint.account.data.remote.service.DashboardRemoteServiceIm
 import dagger.Binds
 import dagger.Module
 import dagger.hilt.InstallIn
-import dagger.hilt.components.SingletonComponent
-import javax.inject.Singleton
+import dagger.hilt.android.components.ViewModelComponent
+import dagger.hilt.android.scopes.ViewModelScoped
 
 @Module
-@InstallIn(SingletonComponent::class)
+@InstallIn(ViewModelComponent::class)
 abstract class RemoteServiceModule {
 
-    @Singleton
+    @ViewModelScoped
     @Binds
     abstract fun bindDashboardRemoteService(
         remoteService: DashboardRemoteServiceImpl

@@ -3,8 +3,10 @@ package bluevelvet.blueprint.auth.presentation.login
 import androidx.lifecycle.viewModelScope
 import bluevelvet.blueprint.auth.navigation.AuthCoordinatorEvent
 import bluevelvet.blueprint.auth.usecase.AuthUserCases
+import bluevelvet.blueprint.core.di.IoDispatcher
 import bluevelvet.blueprint.core.ui.base.BaseViewModel
 import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
@@ -12,7 +14,9 @@ import javax.inject.Inject
 class LoginViewModel
 @Inject
 constructor(
-    private val authUserCases: AuthUserCases
+    private val authUserCases: AuthUserCases,
+    @IoDispatcher
+    private val IoDispatcher: CoroutineDispatcher
 ) : BaseViewModel<
         LoginViewContract.State,
         LoginViewContract.Event,
@@ -49,7 +53,7 @@ constructor(
         username: String,
         password: String
     ) {
-        viewModelScope.launch {
+        viewModelScope.launch(IoDispatcher) {
             try {
                 updateViewState { copy(isLoading = true) }
                 authUserCases.loginUseCase(username, password)

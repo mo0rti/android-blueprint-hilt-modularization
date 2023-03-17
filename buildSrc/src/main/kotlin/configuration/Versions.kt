@@ -58,6 +58,7 @@ object Versions {
         const val AndroidxTesting = "1.4.0"
         const val AndroidxJunit = "1.1.3"
         const val CoroutineTesting = "1.6.0"
+        const val FlowTurbine = "0.12.1"
     }
 
     object ExternalLibraries {

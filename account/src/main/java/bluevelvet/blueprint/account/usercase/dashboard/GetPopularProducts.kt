@@ -5,8 +5,6 @@ import bluevelvet.blueprint.account.data.remote.contract.DashboardRemoteService
 import bluevelvet.blueprint.core.domain.model.Product
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
-import kotlinx.coroutines.sync.Mutex
-import kotlinx.coroutines.sync.withLock
 
 class GetPopularProducts(
     private val localService: DashboardLocalService,
