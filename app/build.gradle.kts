@@ -39,15 +39,16 @@ android {
             keyPassword = "123456789"
         }
         create("release") {
-            storeFile = rootProject.file("certificates/debug_signing.keystore")
-            keyAlias = "alias"
-            storePassword = "123456789"
-            keyPassword = "123456789"
+            // This variables should be set via release pipeline
+            storeFile = rootProject.file(System.getenv("KEYSTORE_FILE") ?: ".")
+            keyAlias = System.getenv("KEYSTORE_ALIAS")
+            storePassword = System.getenv("KEYSTORE_PASSWORD")
+            keyPassword = System.getenv("KEYSTORE_PASSWORD")
         }
     }
 
     buildTypes {
-        Application.DEV.apply {
+        Application.DEVELOPMENT.apply {
             getByName(BuildName) {
                 buildConfigField("String", "BASE_URL", EndPoint)
                 manifestPlaceholders["app_icon"] = Icon
@@ -56,9 +57,9 @@ android {
                 isDebuggable = true
             }
         }
-        Application.STAGING.apply {
+        Application.ACCEPTANCE.apply {
             create(BuildName) {
-                initWith(getByName(Application.DEV.BuildName))
+                initWith(getByName(Application.DEVELOPMENT.BuildName))
                 buildConfigField("String", "BASE_URL", EndPoint)
                 manifestPlaceholders["app_icon"] = Icon
                 applicationIdSuffix = ApplicationIdSuffix
@@ -72,7 +73,6 @@ android {
                 proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro")
                 buildConfigField("String", "IDP_BASE_URL", EndPoint)
                 manifestPlaceholders["app_icon"] = Icon
-                // Should be replaced with azure pipeline signing when it's ready for production
                 signingConfig = signingConfigs.getByName("release")
                 isDebuggable = false
             }

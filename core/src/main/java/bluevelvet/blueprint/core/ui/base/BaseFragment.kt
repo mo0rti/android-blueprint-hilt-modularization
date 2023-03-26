@@ -5,7 +5,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
+import androidx.lifecycle.repeatOnLifecycle
 import androidx.viewbinding.ViewBinding
 import bluevelvet.blueprint.core.domain.model.ViewInflater
 import bluevelvet.blueprint.core.ui.ToolbarConfiguration
@@ -15,6 +17,7 @@ import bluevelvet.blueprint.core.ui.state.view.ViewState
 import bluevelvet.blueprint.navigation.coordinator.Coordinator
 import bluevelvet.blueprint.navigation.coordinator.CoordinatorHost
 import kotlinx.coroutines.flow.collectLatest
+import kotlinx.coroutines.launch
 
 abstract class BaseFragment<
         VB : ViewBinding,
@@ -56,18 +59,25 @@ constructor(
 
         initializeComponents()
 
-        // Collect view state
-        lifecycleScope.launchWhenStarted {
-            viewModel.viewState.collectLatest {
-                onViewStateChange(it)
-            }
-        }
+        viewLifecycleOwner.lifecycleScope.launch {
+            // Suspend the coroutine until the lifecycle is DESTROYED.
+            // repeatOnLifecycle launches the block in a new coroutine every time the
+            // lifecycle is in the STARTED state (or above) and cancels it when it's STOPPED.
+            repeatOnLifecycle(Lifecycle.State.STARTED) {
+                // Safely collect from locations when the lifecycle is STARTED
+                // and stop collecting when the lifecycle is STOPPED
 
-        // Collect view effect
-        lifecycleScope.launchWhenStarted {
-            viewModel.viewEffect.collectLatest {
-                onViewEffectReceived(it)
+                // Collect view state
+                viewModel.viewState.collect {
+                    onViewStateChange(it)
+                }
+
+                // Collect view effect
+                viewModel.viewEffect.collect {
+                    onViewEffectReceived(it)
+                }
             }
+            // Note: at this point, the lifecycle is DESTROYED!
         }
     }
 

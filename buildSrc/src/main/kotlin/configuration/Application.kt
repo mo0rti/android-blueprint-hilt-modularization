@@ -6,23 +6,23 @@ object Application {
     const val VersionName = "0.1"
     const val Id = "bluevelvet.blueprint.hilt"
 
-    object DEV {
+    object DEVELOPMENT {
         const val BuildName = "debug"
-        const val EndPoint = "\"https://myapi.dev.bluevelvet.com\""
+        const val EndPoint = "\"https://mortitech.com/api/blueprint/online-shopping/dev\""
         const val Icon = "@mipmap/ic_launcher"
         const val ApplicationIdSuffix = ".dev"
     }
 
-    object STAGING {
-        const val BuildName = "staging"
-        const val EndPoint = "\"https://myapi.staging.bluevelvet.com\""
+    object ACCEPTANCE {
+        const val BuildName = "acceptance"
+        const val EndPoint = "\"https://mortitech.com/api/blueprint/online-shopping/acceptance\""
         const val Icon = "@mipmap/ic_launcher"
-        const val ApplicationIdSuffix = ".staging"
+        const val ApplicationIdSuffix = ".acc"
     }
 
     object RELEASE {
         const val BuildName = "release"
-        const val EndPoint = "\"https://myapi.bluevelvet.com\""
+        const val EndPoint = "\"https://mortitech.com/api/blueprint/online-shopping/prod\""
         const val Icon = "@mipmap/ic_launcher"
     }
 }

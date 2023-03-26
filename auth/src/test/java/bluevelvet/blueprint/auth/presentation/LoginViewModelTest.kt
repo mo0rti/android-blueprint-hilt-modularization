@@ -1,6 +1,8 @@
 package bluevelvet.blueprint.auth.presentation
 
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
+import app.cash.turbine.test
+import bluevelvet.blueprint.auth.navigation.AuthCoordinatorEvent
 import bluevelvet.blueprint.auth.presentation.login.LoginViewContract
 import bluevelvet.blueprint.auth.presentation.login.LoginViewModel
 import bluevelvet.blueprint.auth.presentation.utils.MainDispatcherRule
@@ -8,7 +10,9 @@ import bluevelvet.blueprint.auth.usecase.AuthUserCases
 import bluevelvet.blueprint.auth.usecase.LoginUseCase
 import bluevelvet.blueprint.auth.usecase.ResetPasswordUseCase
 import bluevelvet.blueprint.auth.usecase.SignupUseCase
+import bluevelvet.blueprint.core.exception.InvalidInputException
 import io.mockk.*
+import io.mockk.impl.annotations.MockK
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.test.runTest
 import org.junit.Assert.assertEquals
@@ -26,14 +30,13 @@ class LoginViewModelTest {
     @get:Rule
     val rule: TestRule = InstantTaskExecutorRule()
 
-    // Mocked dependencies
-    @io.mockk.impl.annotations.MockK
+    @MockK(relaxed = true)
     private lateinit var loginUseCase: LoginUseCase
 
-    @io.mockk.impl.annotations.MockK
+    @MockK(relaxed = true)
     private lateinit var signupUseCase: SignupUseCase
 
-    @io.mockk.impl.annotations.MockK
+    @MockK(relaxed = true)
     private lateinit var resetPasswordUseCase: ResetPasswordUseCase
 
     // System Under Test
@@ -41,10 +44,7 @@ class LoginViewModelTest {
 
     @Before
     fun setUp() {
-        // Initialize mocked dependencies
-        loginUseCase = mockk()
-
-        // Initialize SUT with mocked dependencies
+        MockKAnnotations.init(this)
         loginViewModel = LoginViewModel(
             AuthUserCases(loginUseCase, signupUseCase, resetPasswordUseCase),
             mainDispatcherRule.testDispatcher
@@ -68,10 +68,12 @@ class LoginViewModelTest {
             // Then
             coVerify { loginUseCase.invoke(username, password) }
             assertEquals(expectedState, loginViewModel.currentViewState())
-            //coVerify { loginViewModel.coordinatorEvent.coordinatorEventObserver.onChanged(AuthCoordinatorEvent.AccountFlow) }
+            loginViewModel.coordinatorEvent.test {
+                assertEquals(AuthCoordinatorEvent.AccountFlow, this.awaitItem())
+                awaitComplete()
+            }
         }
 
-    /*
     @Test
     fun `login with invalid credentials shows error toast`() = runTest {
         // Given
@@ -82,12 +84,13 @@ class LoginViewModelTest {
         coEvery { loginUseCase.invoke(username, password) } throws InvalidInputException(errorMessage)
 
         // When
-        loginViewModel.updateViewState { copy(username = username, password = password) }
         loginViewModel.updateViewEvent(LoginViewContract.Event.OnLoginButtonClicked)
 
         // Then
         coVerify { loginUseCase.invoke(username, password) }
         assertEquals(expectedState, loginViewModel.currentViewState())
-        verify { viewEffectObserver.onChanged(LoginViewContract.Effect.ShowErrorToast(errorMessage)) }
-    }*/
+        loginViewModel.viewEffect.test {
+            assertEquals(LoginViewContract.Effect.ShowErrorToast(errorMessage), awaitItem())
+        }
+    }
 }

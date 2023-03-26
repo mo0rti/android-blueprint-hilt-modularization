@@ -51,7 +51,7 @@ fun Project.addCoroutineTesting() {
     dependencies {
         add("testImplementation", "org.jetbrains.kotlinx:kotlinx-coroutines-test:${TestDependencies.CoroutineTesting}")
         add("testImplementation", "org.jetbrains.kotlinx:kotlinx-coroutines-core:${TestDependencies.CoroutineTesting}")
-        add("testImplementation", "app.cash.turbine:turbine:${TestDependencies.CoroutineTesting}")
+        add("testImplementation", "app.cash.turbine:turbine:${TestDependencies.FlowTurbine}")
 
         add("androidTestImplementation", "org.jetbrains.kotlinx:kotlinx-coroutines-core:${TestDependencies.CoroutineTesting}")
         add("androidTestImplementation", "org.jetbrains.kotlinx:kotlinx-coroutines-test:${TestDependencies.CoroutineTesting}")
