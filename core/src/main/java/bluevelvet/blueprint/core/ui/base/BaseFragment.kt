@@ -51,12 +51,6 @@ constructor(
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        lifecycleScope.launchWhenStarted {
-            viewModel.coordinatorEvent.collectLatest { coordinatorEvent ->
-                activityCoordinator().onEvent(coordinatorEvent)
-            }
-        }
-
         initializeComponents()
 
         viewLifecycleOwner.lifecycleScope.launch {
@@ -71,13 +65,26 @@ constructor(
                 viewModel.viewState.collect {
                     onViewStateChange(it)
                 }
+            }
+            // Note: at this point, the lifecycle is DESTROYED!
+        }
 
+        viewLifecycleOwner.lifecycleScope.launch {
+            repeatOnLifecycle(Lifecycle.State.STARTED) {
                 // Collect view effect
                 viewModel.viewEffect.collect {
                     onViewEffectReceived(it)
                 }
             }
-            // Note: at this point, the lifecycle is DESTROYED!
+        }
+
+        viewLifecycleOwner.lifecycleScope.launch {
+            repeatOnLifecycle(Lifecycle.State.STARTED) {
+                // Collect coordinator events to navigate to the other screens
+                viewModel.coordinatorEvent.collect { coordinatorEvent ->
+                    activityCoordinator().onEvent(coordinatorEvent)
+                }
+            }
         }
     }
 
