@@ -12,7 +12,7 @@ dependencyResolutionManagement {
         mavenCentral()
     }
 }
-rootProject.name = "hiltModularisation"
+rootProject.name = "BlueprintHiltModularisation"
 include ':app'
 include ':core'
 include ':navigation'
