@@ -5,11 +5,11 @@ import dependencies.*
 plugins {
     id("com.android.application")
     id("com.google.gms.google-services")
+    id("com.google.firebase.crashlytics")
     id("kotlin-android")
     id("kotlin-kapt")
     id("kotlin-parcelize")
     id("androidx.navigation.safeargs")
-    id("com.google.firebase.crashlytics")
     id("dagger.hilt.android.plugin")
     id("org.jetbrains.kotlin.android")
 }
@@ -33,10 +33,10 @@ android {
 
     signingConfigs {
         getByName("debug") {
-            storeFile = rootProject.file("certificates/debug_signing.keystore")
-            keyAlias = "alias"
-            storePassword = "123456789"
-            keyPassword = "123456789"
+            storeFile = rootProject.file("certificates/debug_signing_key.keystore")
+            keyAlias = "android"
+            storePassword = "android"
+            keyPassword = "android"
         }
         create("release") {
             // This variables should be set via release pipeline

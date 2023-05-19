@@ -15,9 +15,8 @@ object Versions {
 
     object AndroidDependencies {
 
-        const val GoogleServices = "4.3.10"
-        const val Firebase = "28.3.1"
-        const val FirebaseAnalytics = "9.0.3"
+        const val GoogleServices = "4.3.15"
+        const val Firebase = "32.0.0"
         const val AndroidCore = "1.9.0"
         const val AndroidCompat = "1.4.2"
         const val AndroidLegacy = "1.0.0"

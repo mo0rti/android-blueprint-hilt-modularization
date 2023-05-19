@@ -7,41 +7,20 @@
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:105151226751:android:56a1706ef7e1696139b04a",
+        "mobilesdk_app_id": "1:105151226751:android:45dd6b85cdbf649839b04a",
         "android_client_info": {
-          "package_name": "bluevelvet.blueprint.hilt"
+          "package_name": "mortitech.blueprint.mvi.dev"
         }
       },
       "oauth_client": [
         {
-          "client_id": "105151226751-tt8rvld264lm4bqgiss5jcknhroa8o0f.apps.googleusercontent.com",
-          "client_type": 3
-        }
-      ],
-      "api_key": [
-        {
-          "current_key": "AIzaSyC0Ij3VNPOcRX7JooV3DRr9niAkYB7SjqI"
-        }
-      ],
-      "services": {
-        "appinvite_service": {
-          "other_platform_oauth_client": [
-            {
-              "client_id": "105151226751-tt8rvld264lm4bqgiss5jcknhroa8o0f.apps.googleusercontent.com",
-              "client_type": 3
-            }
-          ]
-        }
-      }
-    },
-    {
-      "client_info": {
-        "mobilesdk_app_id": "1:105151226751:android:79900b75bc154d4639b04a",
-        "android_client_info": {
-          "package_name": "bluevelvet.blueprint.hilt.dev"
-        }
-      },
-      "oauth_client": [
+          "client_id": "105151226751-dps4olis92238n8h42i1elj39o857hia.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "mortitech.blueprint.mvi.dev",
+            "certificate_hash": "598b364d6665bbd67abf48f85bdafe3ea1749554"
+          }
+        },
         {
           "client_id": "105151226751-tt8rvld264lm4bqgiss5jcknhroa8o0f.apps.googleusercontent.com",
           "client_type": 3

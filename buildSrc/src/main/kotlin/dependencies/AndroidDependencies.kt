@@ -7,7 +7,7 @@ import configuration.Versions.AndroidDependencies
 fun Project.addFirebase() {
     dependencies {
         add("implementation", platform("com.google.firebase:firebase-bom:${AndroidDependencies.Firebase}"))
-        add("implementation", "com.google.firebase:firebase-analytics-ktx:${AndroidDependencies.FirebaseAnalytics}")
+        add("implementation", "com.google.firebase:firebase-analytics-ktx")
         add("implementation", "com.google.firebase:firebase-crashlytics-ktx")
     }
 }

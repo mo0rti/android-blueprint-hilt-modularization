@@ -10,7 +10,7 @@ buildscript {
         classpath("org.jetbrains.kotlin:kotlin-gradle-plugin:${configuration.Versions.Build.KotlinGradle}")
         classpath("androidx.navigation:navigation-safe-args-gradle-plugin:${configuration.Versions.AndroidDependencies.NavigationComponent}")
         classpath("com.google.gms:google-services:${configuration.Versions.AndroidDependencies.GoogleServices}")
-        classpath("com.google.firebase:firebase-crashlytics-gradle:2.9.4")
+        classpath("com.google.firebase:firebase-crashlytics-gradle:2.9.5")
         classpath("com.google.dagger:hilt-android-gradle-plugin:${configuration.Versions.AndroidDependencies.Hilt}")
     }
 }
