@@ -3,7 +3,6 @@ import dependencies.*
 
 plugins {
     id("com.android.library")
-    id("androidx.navigation.safeargs")
     id("kotlin-kapt")
     id("org.jetbrains.kotlin.android")
     id("dagger.hilt.android.plugin")
@@ -54,17 +53,15 @@ addNavigationUI()
 addNavigationComponent()
 addGson()
 addRetrofit()
-addGlide()
 addHilt()
 addAndroidxCoreTesting()
-addMockUtils()
 addUITestUtils()
 
 dependencies {
-    implementation(project(":navigation"))
-    implementation(project(":style"))
-    implementation(project(":core"))
-    implementation(project(":ui-components"))
+    implementation(project(":application:navigation"))
+    implementation(project(":application:style"))
+    implementation(project(":application:core"))
+    implementation(project(":application:ui-components"))
 }
 
 kapt {

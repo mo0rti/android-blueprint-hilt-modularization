@@ -113,11 +113,11 @@ addAndroidxCoreTesting()
 addUITestUtils()
 
 dependencies {
-    implementation(project(":navigation"))
-    implementation(project(":core"))
-    implementation(project(":feature:account"))
-    implementation(project(":feature:auth"))
-    implementation(project(":style"))
+    implementation(project(":application:navigation"))
+    implementation(project(":application:core"))
+    implementation(project(":application:feature:account"))
+    implementation(project(":application:feature:auth"))
+    implementation(project(":application:style"))
 }
 
 kapt {

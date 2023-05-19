@@ -61,10 +61,10 @@ addMockUtils()
 addUITestUtils()
 
 dependencies {
-    implementation(project(":navigation"))
-    implementation(project(":style"))
-    implementation(project(":core"))
-    implementation(project(":ui-components"))
+    implementation(project(":application:navigation"))
+    implementation(project(":application:style"))
+    implementation(project(":application:core"))
+    implementation(project(":application:ui-components"))
 }
 
 kapt {

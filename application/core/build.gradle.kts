@@ -1,10 +1,11 @@
 import configuration.Versions
-import dependencies.addAndroidCore
-import dependencies.addMaterialDesign
+import dependencies.*
 
 plugins {
     id("com.android.library")
     id("org.jetbrains.kotlin.android")
+    id("kotlin-kapt")
+    id("dagger.hilt.android.plugin")
 }
 
 android {
@@ -14,14 +15,16 @@ android {
         minSdk = Versions.Build.MinSdk
         targetSdk = Versions.Build.TargetSdk
 
-        testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles("consumer-rules.pro")
     }
 
     buildTypes {
         release {
             isMinifyEnabled = false
-            proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro")
+            proguardFiles(
+                getDefaultProguardFile("proguard-android-optimize.txt"),
+                "proguard-rules.pro"
+            )
         }
     }
     compileOptions {
@@ -43,8 +46,23 @@ android {
 }
 
 addAndroidCore()
-addMaterialDesign()
+addCoroutines()
+addFragment()
+addNavigationCore()
+addNavigationUI()
+addHilt()
+addRetrofit()
+addGlide()
+addGson()
+addRoom()
+addAndroidxCoreTesting()
+addCoroutineTesting()
 
 dependencies {
-    implementation(project(":style"))
+    implementation(project(":application:navigation"))
+    implementation(project(":application:style"))
+}
+
+kapt {
+    correctErrorTypes = true
 }
