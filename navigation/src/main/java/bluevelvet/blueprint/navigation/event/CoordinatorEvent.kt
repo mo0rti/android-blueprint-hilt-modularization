@@ -1,3 +1,0 @@
-package bluevelvet.blueprint.navigation.event
-
-interface CoordinatorEvent

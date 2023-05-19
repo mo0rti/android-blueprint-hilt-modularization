@@ -12,7 +12,7 @@
         <!-- Status bar color. -->
         <item name="android:statusBarColor">?attr/colorPrimaryVariant</item>
         <!-- Customize your theme here. -->
-        <item name="android:windowBackground">@color/teal_100</item>
+        <item name="android:windowBackground">@color/teal_250</item>
         <item name="android:textAppearance">@style/BluePrint.Widget.TextView</item>
     </style>
 

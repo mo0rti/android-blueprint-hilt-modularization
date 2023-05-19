@@ -4,7 +4,7 @@ object Application {
 
     const val VersionCode = 1
     const val VersionName = "0.1"
-    const val Id = "bluevelvet.blueprint.hilt"
+    const val Id = "mortitech.blueprint.mvi"
 
     object DEVELOPMENT {
         const val BuildName = "debug"

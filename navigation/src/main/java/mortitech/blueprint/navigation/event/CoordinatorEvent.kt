@@ -1,0 +1,3 @@
+package mortitech.blueprint.navigation.event
+
+interface CoordinatorEvent

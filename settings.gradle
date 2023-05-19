@@ -12,12 +12,12 @@ dependencyResolutionManagement {
         mavenCentral()
     }
 }
-rootProject.name = "BlueprintHiltModularisation"
+rootProject.name = "BlueprintMVI"
 include ':app'
 include ':core'
 include ':navigation'
-include ':auth'
-include ':account'
-include ':onboarding'
 include ':style'
 include ':ui-components'
+include ':feature:auth'
+include ':feature:account'
+include ':feature:onboarding'

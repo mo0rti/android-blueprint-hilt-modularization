@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/navSplashFragment"
-        android:name="bluevelvet.blueprint.app.presentation.splash.SplashFragment"
+        android:name="mortitech.blueprint.app.presentation.splash.SplashFragment"
         android:label="Splash"
         tools:layout="@layout/fragment_splash" />
 

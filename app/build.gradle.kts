@@ -115,8 +115,8 @@ addUITestUtils()
 dependencies {
     implementation(project(":navigation"))
     implementation(project(":core"))
-    implementation(project(":account"))
-    implementation(project(":auth"))
+    implementation(project(":feature:account"))
+    implementation(project(":feature:auth"))
     implementation(project(":style"))
 }
 
