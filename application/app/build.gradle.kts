@@ -100,7 +100,7 @@ addAndroidCore()
 addFragment()
 addNavigationCore()
 addNavigationUI()
-addFirebase()
+
 addNavigationComponent()
 addMaterialDesign()
 addLayouts()
@@ -118,6 +118,9 @@ dependencies {
     implementation(project(":application:feature:account"))
     implementation(project(":application:feature:auth"))
     implementation(project(":application:style"))
+
+    implementation(platform(libs.firebase.bom))
+    implementation(libs.firebase.crashlytics)
 }
 
 kapt {

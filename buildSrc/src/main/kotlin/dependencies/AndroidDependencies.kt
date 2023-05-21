@@ -4,6 +4,7 @@ import org.gradle.api.Project
 import org.gradle.kotlin.dsl.dependencies
 import configuration.Versions.AndroidDependencies
 
+/*
 fun Project.addFirebase() {
     dependencies {
         add("implementation", platform("com.google.firebase:firebase-bom:${AndroidDependencies.Firebase}"))
@@ -11,6 +12,7 @@ fun Project.addFirebase() {
         add("implementation", "com.google.firebase:firebase-crashlytics-ktx")
     }
 }
+ */
 
 fun Project.addAndroidCore() {
     dependencies {
