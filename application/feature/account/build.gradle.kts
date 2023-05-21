@@ -1,5 +1,4 @@
 import configuration.Versions
-import dependencies.*
 
 plugins {
     id("com.android.library")
@@ -46,10 +45,6 @@ android {
     }
 }
 
-addAndroidxCoreTesting()
-addMockUtils()
-addUITestUtils()
-
 dependencies {
     implementation(project(":application:navigation"))
     implementation(project(":application:style"))
@@ -62,6 +57,7 @@ dependencies {
     implementation(libs.androidx.core)
     implementation(libs.android.material)
 
+    // Navigation
     implementation(libs.androidx.navigation.runtime)
     implementation(libs.androidx.navigation.fragment)
     implementation(libs.androidx.navigation.ui)
@@ -69,15 +65,18 @@ dependencies {
     implementation(libs.androidx.navigation.dynamic)
     androidTestImplementation(libs.androidx.navigation.testing)
 
+    // Glide
     implementation(libs.glide.runtime)
     kapt(libs.glide.compiler)
 
+    // Retrofit
     implementation(libs.retrofit2)
     implementation(libs.retrofit2.gson)
     implementation(libs.retrofit2.converter.scalars)
     implementation(libs.okhttp3)
     implementation(libs.okhttp3.logging.interceptor)
 
+    // Hilt
     implementation(libs.hilt)
     kapt(libs.hilt.compiler)
     testImplementation(libs.hilt.testing)

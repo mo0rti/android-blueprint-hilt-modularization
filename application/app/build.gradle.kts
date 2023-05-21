@@ -1,6 +1,5 @@
 import configuration.Application
 import configuration.Versions
-import dependencies.*
 
 plugins {
     id("com.android.application")
@@ -96,9 +95,6 @@ android {
     }
 }
 
-addAndroidxCoreTesting()
-addUITestUtils()
-
 dependencies {
     implementation(project(":application:navigation"))
     implementation(project(":application:core"))
@@ -157,6 +153,23 @@ dependencies {
     implementation(libs.room.ktx)
     kapt(libs.room.compiler)
     testImplementation(libs.room.testing)
+
+    // Mockk
+    testImplementation(libs.mockk)
+    androidTestImplementation(libs.mockk.android)
+
+    // Test
+    testImplementation(libs.junit)
+    testImplementation(libs.androidx.test.ext)
+    testImplementation(libs.androidx.test.core.ktx)
+    testImplementation(libs.androidx.test.rules)
+    testImplementation(libs.androidx.test.runner)
+
+    androidTestImplementation(libs.androidx.test.ext)
+    androidTestImplementation(libs.androidx.test.core.ktx)
+    androidTestImplementation(libs.androidx.test.rules)
+    androidTestImplementation(libs.androidx.test.runner)
+    androidTestImplementation(libs.espresso)
 }
 
 kapt {

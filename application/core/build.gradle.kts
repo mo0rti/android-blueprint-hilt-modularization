@@ -1,5 +1,4 @@
 import configuration.Versions
-import dependencies.*
 
 plugins {
     id("com.android.library")
@@ -43,9 +42,6 @@ android {
         }
     }
 }
-
-addAndroidxCoreTesting()
-addCoroutineTesting()
 
 dependencies {
     implementation(project(":application:navigation"))
