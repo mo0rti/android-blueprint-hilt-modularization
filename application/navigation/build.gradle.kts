@@ -1,16 +1,14 @@
-import configuration.Versions
-
 plugins {
     id("com.android.library")
     id("org.jetbrains.kotlin.android")
 }
 
 android {
-    compileSdk = Versions.Build.CompileSdk
-    buildToolsVersion = Versions.Build.BuildTools
+    compileSdk = 33
+    buildToolsVersion = "33.0.0"
 
     defaultConfig {
-        minSdk = Versions.Build.MinSdk
+        minSdk = 29
 
         consumerProguardFiles("consumer-rules.pro")
     }

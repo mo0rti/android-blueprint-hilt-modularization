@@ -1,5 +1,3 @@
-import configuration.Versions
-
 plugins {
     id("com.android.library")
     id("kotlin-kapt")
@@ -8,10 +6,10 @@ plugins {
 }
 
 android {
-    compileSdk = Versions.Build.CompileSdk
+    compileSdk = 33
 
     defaultConfig {
-        minSdk = Versions.Build.MinSdk
+        minSdk = 29
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles("consumer-rules.pro")

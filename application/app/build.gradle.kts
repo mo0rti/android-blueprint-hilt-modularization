@@ -1,5 +1,4 @@
 import configuration.Application
-import configuration.Versions
 
 plugins {
     id("com.android.application")
@@ -14,15 +13,15 @@ plugins {
 }
 
 android {
-    compileSdk = Versions.Build.CompileSdk
-    buildToolsVersion = Versions.Build.BuildTools
+    compileSdk = 33
+    buildToolsVersion = "33.0.0"
 
     defaultConfig {
         applicationId = Application.Id
-        minSdk = Versions.Build.MinSdk
-        targetSdk = Versions.Build.TargetSdk
-        versionCode = Application.VersionCode
-        versionName = Application.VersionName
+        minSdk = 29
+        targetSdk = 33
+        versionCode = 1
+        versionName = "1.0"
 
         // Specifies the application ID for the test APK.
         testApplicationId = "${Application.Id}.testing"
