@@ -1,0 +1,1 @@
+/Users/mortezataghdisi/Repos/BluePrints-Android/hilt-modularization/build-logic/build/classes/kotlin/main/plugin/AndroidApplicationPlugin.class
