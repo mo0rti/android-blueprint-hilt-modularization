@@ -96,19 +96,6 @@ android {
     }
 }
 
-addAndroidCore()
-addFragment()
-addNavigationCore()
-addNavigationUI()
-
-addNavigationComponent()
-addMaterialDesign()
-addLayouts()
-addHilt()
-addRetrofit()
-addGson()
-addCoroutines()
-
 addAndroidxCoreTesting()
 addUITestUtils()
 
@@ -119,8 +106,57 @@ dependencies {
     implementation(project(":application:feature:auth"))
     implementation(project(":application:style"))
 
+    implementation(libs.gson)
+
+    // Firebase
     implementation(platform(libs.firebase.bom))
     implementation(libs.firebase.crashlytics)
+
+    implementation(libs.androidx.appcompat)
+    implementation(libs.androidx.core)
+    implementation(libs.androidx.fragment)
+
+    implementation(libs.android.material)
+    implementation(libs.android.flexbox)
+
+    implementation(libs.androidx.constraintlayout)
+    implementation(libs.androidx.swiperefreshlayout)
+
+    // Navigation
+    implementation(libs.androidx.navigation.runtime)
+    implementation(libs.androidx.navigation.fragment)
+    implementation(libs.androidx.navigation.ui)
+    implementation(libs.androidx.navigation.dynamic)
+    androidTestImplementation(libs.androidx.navigation.testing)
+
+    // Coroutines
+    implementation(libs.kotlinx.coroutines.core)
+    implementation(libs.kotlinx.coroutines.android)
+
+    // LifeCycle
+    implementation(libs.androidx.lifecycle.runtime)
+    implementation(libs.androidx.lifecycle.viewmodel)
+
+    // Retrofit
+    implementation(libs.retrofit2)
+    implementation(libs.retrofit2.gson)
+    implementation(libs.retrofit2.converter.scalars)
+    implementation(libs.okhttp3)
+    implementation(libs.okhttp3.logging.interceptor)
+
+    // Hilt
+    implementation(libs.hilt)
+    kapt(libs.hilt.compiler)
+    testImplementation(libs.hilt.testing)
+    kaptTest(libs.hilt.compiler)
+    androidTestImplementation(libs.hilt.testing)
+    kaptAndroidTest(libs.hilt.compiler)
+
+    // Room
+    implementation(libs.room.runtime)
+    implementation(libs.room.ktx)
+    kapt(libs.room.compiler)
+    testImplementation(libs.room.testing)
 }
 
 kapt {

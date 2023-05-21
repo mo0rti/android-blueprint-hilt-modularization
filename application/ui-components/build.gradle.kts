@@ -1,6 +1,4 @@
 import configuration.Versions
-import dependencies.addAndroidCore
-import dependencies.addMaterialDesign
 
 plugins {
     id("com.android.library")
@@ -41,9 +39,10 @@ android {
     }
 }
 
-addAndroidCore()
-addMaterialDesign()
-
 dependencies {
     implementation(project(":application:style"))
+
+    implementation(libs.androidx.appcompat)
+    implementation(libs.androidx.core)
+    implementation(libs.android.material)
 }

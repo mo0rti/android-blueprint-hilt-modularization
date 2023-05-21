@@ -46,15 +46,6 @@ android {
     }
 }
 
-addAndroidCore()
-addMaterialDesign()
-addNavigationCore()
-addNavigationUI()
-addNavigationComponent()
-addGson()
-addRetrofit()
-addGlide()
-addHilt()
 addAndroidxCoreTesting()
 addMockUtils()
 addUITestUtils()
@@ -64,6 +55,35 @@ dependencies {
     implementation(project(":application:style"))
     implementation(project(":application:core"))
     implementation(project(":application:ui-components"))
+
+    implementation(libs.gson)
+
+    implementation(libs.androidx.appcompat)
+    implementation(libs.androidx.core)
+    implementation(libs.android.material)
+
+    implementation(libs.androidx.navigation.runtime)
+    implementation(libs.androidx.navigation.fragment)
+    implementation(libs.androidx.navigation.ui)
+    implementation(libs.androidx.navigation.runtime)
+    implementation(libs.androidx.navigation.dynamic)
+    androidTestImplementation(libs.androidx.navigation.testing)
+
+    implementation(libs.glide.runtime)
+    kapt(libs.glide.compiler)
+
+    implementation(libs.retrofit2)
+    implementation(libs.retrofit2.gson)
+    implementation(libs.retrofit2.converter.scalars)
+    implementation(libs.okhttp3)
+    implementation(libs.okhttp3.logging.interceptor)
+
+    implementation(libs.hilt)
+    kapt(libs.hilt.compiler)
+    testImplementation(libs.hilt.testing)
+    kaptTest(libs.hilt.compiler)
+    androidTestImplementation(libs.hilt.testing)
+    kaptAndroidTest(libs.hilt.compiler)
 }
 
 kapt {

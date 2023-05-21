@@ -44,22 +44,56 @@ android {
     }
 }
 
-addAndroidCore()
-addCoroutines()
-addFragment()
-addNavigationCore()
-addNavigationUI()
-addHilt()
-addRetrofit()
-addGlide()
-addGson()
-addRoom()
 addAndroidxCoreTesting()
 addCoroutineTesting()
 
 dependencies {
     implementation(project(":application:navigation"))
     implementation(project(":application:style"))
+
+    implementation(libs.gson)
+
+    implementation(libs.androidx.appcompat)
+    implementation(libs.androidx.core)
+    implementation(libs.androidx.fragment)
+
+    // Navigation
+    implementation(libs.androidx.navigation.runtime)
+    implementation(libs.androidx.navigation.fragment)
+    implementation(libs.androidx.navigation.ui)
+
+    // Glide
+    implementation(libs.glide.runtime)
+    kapt(libs.glide.compiler)
+
+    // Coroutines
+    implementation(libs.kotlinx.coroutines.core)
+    implementation(libs.kotlinx.coroutines.android)
+
+    // LifeCycle
+    implementation(libs.androidx.lifecycle.runtime)
+    implementation(libs.androidx.lifecycle.viewmodel)
+
+    // Retrofit
+    implementation(libs.retrofit2)
+    implementation(libs.retrofit2.gson)
+    implementation(libs.retrofit2.converter.scalars)
+    implementation(libs.okhttp3)
+    implementation(libs.okhttp3.logging.interceptor)
+
+    // Hilt
+    implementation(libs.hilt)
+    kapt(libs.hilt.compiler)
+    testImplementation(libs.hilt.testing)
+    kaptTest(libs.hilt.compiler)
+    androidTestImplementation(libs.hilt.testing)
+    kaptAndroidTest(libs.hilt.compiler)
+
+    // Room
+    implementation(libs.room.runtime)
+    implementation(libs.room.ktx)
+    kapt(libs.room.compiler)
+    testImplementation(libs.room.testing)
 }
 
 kapt {

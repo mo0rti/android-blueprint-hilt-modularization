@@ -1,7 +1,4 @@
 import configuration.Versions
-import dependencies.addAndroidCore
-import dependencies.addAndroidxCoreTesting
-import dependencies.addMaterialDesign
 
 plugins {
     id("com.android.library")
@@ -41,7 +38,12 @@ android {
     }
 }
 
+dependencies {
+    implementation(libs.androidx.appcompat)
+    implementation(libs.androidx.core)
+    implementation(libs.android.material)
 
-addAndroidCore()
-addMaterialDesign()
-addAndroidxCoreTesting()
+    testImplementation(libs.junit)
+    androidTestImplementation(libs.junit.androidx)
+    androidTestImplementation(libs.espresso)
+}

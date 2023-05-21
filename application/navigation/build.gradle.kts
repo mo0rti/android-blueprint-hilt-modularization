@@ -1,6 +1,4 @@
 import configuration.Versions
-import dependencies.addFragment
-import dependencies.addNavigationCore
 
 plugins {
     id("com.android.library")
@@ -40,5 +38,9 @@ android {
     }
 }
 
-addFragment()
-addNavigationCore()
+dependencies {
+    implementation(libs.androidx.fragment)
+
+    implementation(libs.androidx.navigation.runtime)
+    implementation(libs.androidx.navigation.fragment)
+}
