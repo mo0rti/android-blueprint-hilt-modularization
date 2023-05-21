@@ -1,5 +1,3 @@
-import configuration.Application
-
 plugins {
     id("com.android.application")
     id("com.google.gms.google-services")
@@ -17,14 +15,14 @@ android {
     buildToolsVersion = "33.0.0"
 
     defaultConfig {
-        applicationId = Application.Id
+        applicationId = "mortitech.blueprint.mvi"
         minSdk = 29
         targetSdk = 33
         versionCode = 1
         versionName = "1.0"
 
         // Specifies the application ID for the test APK.
-        testApplicationId = "${Application.Id}.testing"
+        testApplicationId = "mortitech.blueprint.mvi.testing"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
@@ -45,6 +43,7 @@ android {
         }
     }
 
+    /*
     buildTypes {
         Application.DEVELOPMENT.apply {
             getByName(BuildName) {
@@ -75,7 +74,25 @@ android {
                 isDebuggable = false
             }
         }
+    }*/
+    buildTypes {
+        getByName("debug") {
+            buildConfigField("String", "BASE_URL", "\"http://localhost:8080\"")
+            manifestPlaceholders["app_icon"] = "@mipmap/ic_launcher"
+            applicationIdSuffix = ".dev"
+        }
+        create("acceptance") {
+            initWith(getByName("debug"))
+            buildConfigField("String", "BASE_URL", "\"http://localhost:8080\"")
+            manifestPlaceholders["app_icon"] = "@mipmap/ic_launcher"
+            applicationIdSuffix = ".acc"
+        }
+        getByName("release") {
+            manifestPlaceholders["app_icon"] = "@mipmap/ic_launcher"
+            buildConfigField("String", "BASE_URL", "\"http://localhost:8080\"")
+        }
     }
+
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_11
         targetCompatibility = JavaVersion.VERSION_11

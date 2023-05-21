@@ -1,9 +1,8 @@
 package configuration
 
+/*
 object Application {
 
-    const val VersionCode = 1
-    const val VersionName = "0.1"
     const val Id = "mortitech.blueprint.mvi"
 
     object DEVELOPMENT {
@@ -26,3 +25,4 @@ object Application {
         const val Icon = "@mipmap/ic_launcher"
     }
 }
+*/
