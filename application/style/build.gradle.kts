@@ -2,12 +2,6 @@ plugins {
     id("mortitech.blueprint.gradle.android.library")
 }
 
-android {
-    defaultConfig {
-        testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
-    }
-}
-
 dependencies {
     implementation(libs.androidx.appcompat)
     implementation(libs.androidx.core)

@@ -19,6 +19,7 @@ class AndroidLibraryPlugin : Plugin<Project> {
 
             defaultConfig.apply {
                 consumerProguardFiles("consumer-rules.pro")
+                testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
             }
 
             buildTypes.apply {
