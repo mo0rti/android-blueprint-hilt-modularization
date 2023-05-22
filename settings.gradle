@@ -3,6 +3,9 @@ pluginManagement {
         gradlePluginPortal()
         google()
         mavenCentral()
+        maven {
+            url "https://jitpack.io"
+        }
     }
 
     includeBuild("build-logic")
@@ -10,6 +13,7 @@ pluginManagement {
 
 plugins {
     id("com.gradle.enterprise") version "3.13"
+    id("org.gradle.toolchains.foojay-resolver-convention") version "0.4.0"
 }
 
 dependencyResolutionManagement {

@@ -1,11 +1,12 @@
 [versions]
 kotlin = "1.8.20-RC"
+androidGradlePlugin = "7.4.2"
 
 gson = "2.10"
 dagger = "2.45"
 
 firebase-bom = "32.0.0"
-firebase-crashlytics = "2.9.5"
+firebaseCrashlyticsGradle = "2.9.5"
 
 android-material = "1.8.0"
 android-flexbox = "3.0.0"
@@ -20,6 +21,8 @@ androidx-swiperefreshlayout = "1.1.0"
 androidx-arch = "2.2.0"
 androidx-lifecycle = "2.6.1"
 
+navigationSafeargs = "2.5.3"
+
 androidxTestCore = "1.5.0"
 androidxTestExt = "1.1.5"
 androidxTestRules = "1.5.0"
@@ -33,7 +36,9 @@ okhttp3 = "5.0.0-alpha.10"
 timber = "5.0.1"
 
 hilt = "2.45"
+hiltExt = "1.0.0"
 room = "2.5.0-rc01"
+ksp = "1.8.10-1.0.9"
 
 mockk = "1.13.5"
 junit = "4.13.2"
@@ -48,10 +53,11 @@ targetSdk = "33"
 compileSdk = "33"
 
 [libraries]
-android-gradle-plugin = "com.android.tools.build:gradle:7.4.2"
+# Dependencies of the included build-logic
+android-gradle-plugin = { group = "com.android.tools.build", name = "gradle", version.ref = "androidGradlePlugin" }
+kotlin-gradle-plugin = { group = "org.jetbrains.kotlin", name = "kotlin-gradle-plugin", version.ref = "kotlin" }
 google-services = "com.google.gms:google-services:4.3.15"
-firebase-crashlytics-gradle = "com.google.firebase:firebase-crashlytics-gradle:2.9.5"
-kotlin-gradle-plugin = { module = "org.jetbrains.kotlin:kotlin-gradle-plugin", version.ref = "kotlin" }
+firebase-crashlytics-gradle = { group = "com.google.firebase", name = "firebase-crashlytics-gradle", version.ref = "firebaseCrashlyticsGradle" }
 
 gson = { module = "com.google.code.gson:gson", version.ref = "gson" }
 timber = { group = "com.jakewharton.timber", name = "timber", version.ref = "timber" }
@@ -95,9 +101,11 @@ retrofit2 = { module = "com.squareup.retrofit2:retrofit", version.ref = "retrofi
 retrofit2-gson = { module = "com.squareup.retrofit2:converter-gson", version.ref = "retrofit2" }
 retrofit2-converter-scalars = { module = "com.squareup.retrofit2:converter-scalars", version.ref = "retrofit2" }
 
-hilt = { group = "com.google.dagger", name = "hilt-android", version.ref = "hilt" }
-hilt-testing = { group = "com.google.dagger", name = "hilt-android-testing", version.ref = "hilt" }
-hilt-compiler = { group = "com.google.dagger", name = "hilt-compiler", version.ref = "hilt" }
+hilt-android-core = { group = "com.google.dagger", name = "hilt-android", version.ref = "hilt" }
+hilt-android-testing = { group = "com.google.dagger", name = "hilt-android-testing", version.ref = "hilt" }
+hilt-compiler = { group = "com.google.dagger", name = "hilt-android-compiler", version.ref = "hilt" }
+hilt-ext-compiler = { group = "androidx.hilt", name = "hilt-compiler", version.ref = "hiltExt" }
+hilt-ext-work = { group = "androidx.hilt", name = "hilt-work", version.ref = "hiltExt" }
 
 room-compiler = { group = "androidx.room", name = "room-compiler", version.ref = "room" }
 room-ktx = { group = "androidx.room", name = "room-ktx", version.ref = "room" }
@@ -119,6 +127,16 @@ kotlinx-coroutines-android = { module = "org.jetbrains.kotlinx:kotlinx-coroutine
 kotlinx-coroutines-core = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-core", version.ref = "kotlinx-coroutines" }
 kotlinx-coroutines-test = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-test", version.ref = "kotlinx-coroutines" }
 
-[plugins]
-firebase-crashlytics = { id = "com.google.firebase.crashlytics", version.ref = "firebase-crashlytics" }
+desugar-jdk-libs = "com.android.tools:desugar_jdk_libs:2.0.2"
 
+[plugins]
+firebase-crashlytics-gradle = { id = "com.google.firebase.crashlytics", version.ref = "firebaseCrashlyticsGradle" }
+android-application = { id = "com.android.application", version.ref = "androidGradlePlugin" }
+android-library = { id = "com.android.library", version.ref = "androidGradlePlugin" }
+android-test = { id = "com.android.test", version.ref = "androidGradlePlugin" }
+hilt = { id = "com.google.dagger.hilt.android", version.ref = "hilt" }
+kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
+kotlin-serialization = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "kotlin" }
+kapt = { id = "org.jetbrains.kotlin.kapt", version.ref = "kotlin" }
+ksp = { id = "com.google.devtools.ksp", version.ref = "ksp" }
+navigation-safeargs = { id = "androidx.navigation.safeargs", version.ref = "navigationSafeargs" }

@@ -1,117 +1,9 @@
 plugins {
-    id("com.android.application")
-    id("com.google.gms.google-services")
-    id("com.google.firebase.crashlytics")
-    id("kotlin-android")
-    id("kotlin-kapt")
-    id("kotlin-parcelize")
-    id("androidx.navigation.safeargs")
-    id("dagger.hilt.android.plugin")
-    id("org.jetbrains.kotlin.android")
-}
-
-android {
-    compileSdk = 33
-    buildToolsVersion = "33.0.0"
-
-    defaultConfig {
-        applicationId = "mortitech.blueprint.mvi"
-        minSdk = 29
-        targetSdk = 33
-        versionCode = 1
-        versionName = "1.0"
-
-        // Specifies the application ID for the test APK.
-        testApplicationId = "mortitech.blueprint.mvi.testing"
-
-        testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
-    }
-
-    signingConfigs {
-        getByName("debug") {
-            storeFile = rootProject.file("keys/keystore.debug")
-            keyAlias = "android"
-            storePassword = "android"
-            keyPassword = "android"
-        }
-        create("release") {
-            // This variables should be set via release pipeline
-            storeFile = rootProject.file(System.getenv("KEYSTORE_FILE") ?: ".")
-            keyAlias = System.getenv("KEYSTORE_ALIAS")
-            storePassword = System.getenv("KEYSTORE_PASSWORD")
-            keyPassword = System.getenv("KEYSTORE_PASSWORD")
-        }
-    }
-
-    /*
-    buildTypes {
-        Application.DEVELOPMENT.apply {
-            getByName(BuildName) {
-                buildConfigField("String", "BASE_URL", EndPoint)
-                manifestPlaceholders["app_icon"] = Icon
-                applicationIdSuffix = ApplicationIdSuffix
-                signingConfig = signingConfigs.getByName("debug")
-                isDebuggable = true
-            }
-        }
-        Application.ACCEPTANCE.apply {
-            create(BuildName) {
-                initWith(getByName(Application.DEVELOPMENT.BuildName))
-                buildConfigField("String", "BASE_URL", EndPoint)
-                manifestPlaceholders["app_icon"] = Icon
-                applicationIdSuffix = ApplicationIdSuffix
-                signingConfig = signingConfigs.getByName("debug")
-            }
-        }
-        Application.RELEASE.apply {
-            getByName(BuildName) {
-                isMinifyEnabled = true
-                isShrinkResources = true
-                proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro")
-                buildConfigField("String", "IDP_BASE_URL", EndPoint)
-                manifestPlaceholders["app_icon"] = Icon
-                signingConfig = signingConfigs.getByName("release")
-                isDebuggable = false
-            }
-        }
-    }*/
-    buildTypes {
-        getByName("debug") {
-            buildConfigField("String", "BASE_URL", "\"http://localhost:8080\"")
-            manifestPlaceholders["app_icon"] = "@mipmap/ic_launcher"
-            applicationIdSuffix = ".dev"
-        }
-        create("acceptance") {
-            initWith(getByName("debug"))
-            buildConfigField("String", "BASE_URL", "\"http://localhost:8080\"")
-            manifestPlaceholders["app_icon"] = "@mipmap/ic_launcher"
-            applicationIdSuffix = ".acc"
-        }
-        getByName("release") {
-            manifestPlaceholders["app_icon"] = "@mipmap/ic_launcher"
-            buildConfigField("String", "BASE_URL", "\"http://localhost:8080\"")
-        }
-    }
-
-    compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_11
-        targetCompatibility = JavaVersion.VERSION_11
-    }
-    kotlinOptions {
-        jvmTarget = JavaVersion.VERSION_11.toString()
-    }
-    buildFeatures {
-        viewBinding = true
-        dataBinding = true
-    }
-    tasks.withType<org.jetbrains.kotlin.gradle.tasks.KotlinCompile> {
-        kotlinOptions {
-            jvmTarget = JavaVersion.VERSION_11.toString()
-        }
-    }
+    id("mortitech.blueprint.gradle.android.application")
 }
 
 dependencies {
+    implementation(project(":foundation"))
     implementation(project(":application:navigation"))
     implementation(project(":application:core"))
     implementation(project(":application:feature:account"))
@@ -157,11 +49,11 @@ dependencies {
     implementation(libs.okhttp3.logging.interceptor)
 
     // Hilt
-    implementation(libs.hilt)
+    implementation(libs.hilt.android.core)
     kapt(libs.hilt.compiler)
-    testImplementation(libs.hilt.testing)
+    testImplementation(libs.hilt.android.testing)
     kaptTest(libs.hilt.compiler)
-    androidTestImplementation(libs.hilt.testing)
+    androidTestImplementation(libs.hilt.android.testing)
     kaptAndroidTest(libs.hilt.compiler)
 
     // Room

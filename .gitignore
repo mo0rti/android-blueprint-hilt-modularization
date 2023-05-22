@@ -14,7 +14,6 @@
 .externalNativeBuild
 .cxx
 local.properties
-/build-logic/build
 /build-logic/.gradle
 /account/build
 /app/build
@@ -26,3 +25,4 @@ local.properties
 /style/build
 /keys/keystore.release
 /keys/keystore.properties
+/build-logic/build/

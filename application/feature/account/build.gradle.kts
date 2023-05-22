@@ -75,11 +75,11 @@ dependencies {
     implementation(libs.okhttp3.logging.interceptor)
 
     // Hilt
-    implementation(libs.hilt)
+    implementation(libs.hilt.android.core)
     kapt(libs.hilt.compiler)
-    testImplementation(libs.hilt.testing)
+    testImplementation(libs.hilt.android.testing)
     kaptTest(libs.hilt.compiler)
-    androidTestImplementation(libs.hilt.testing)
+    androidTestImplementation(libs.hilt.android.testing)
     kaptAndroidTest(libs.hilt.compiler)
 }
 

@@ -35,11 +35,11 @@ fun Project.catalogDependency(name: String): String = extensions.findByType(Vers
     }
 
 fun Project.commonSetup() {
-    val bytecodeVersion = "1.8"
+    val bytecodeVersion = JavaVersion.VERSION_11.toString()
 
     extensions.findByType(JavaPluginExtension::class.java)!!.apply {
         toolchain {
-            languageVersion.set(JavaLanguageVersion.of(19))
+            languageVersion.set(JavaLanguageVersion.of(11))
         }
 
         sourceCompatibility = JavaVersion.toVersion(bytecodeVersion)

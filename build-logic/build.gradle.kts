@@ -20,9 +20,13 @@ dependencies {
 
 gradlePlugin {
     plugins {
-        create("embedded-kotlin") {
+        create("mortitech.blueprint.gradle.android.application") {
             id = "mortitech.blueprint.gradle.android.application"
             implementationClass = "mortitech.blueprint.gradle.plugin.AndroidApplicationPlugin"
+        }
+        create("mortitech.blueprint.gradle.android.library") {
+            id = "mortitech.blueprint.gradle.android.library"
+            implementationClass = "mortitech.blueprint.gradle.plugin.AndroidLibraryPlugin"
         }
     }
 }

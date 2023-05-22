@@ -3,10 +3,9 @@ package mortitech.blueprint.gradle.plugin
 import com.android.build.gradle.BaseExtension
 import mortitech.blueprint.gradle.androidSetup
 import mortitech.blueprint.gradle.commonSetup
-import org.gradle.api.JavaVersion
 import org.gradle.api.Plugin
 import org.gradle.api.Project
-import java.util.*
+import java.util.Properties
 
 class AndroidApplicationPlugin: Plugin<Project> {
     override fun apply(project: Project) {
@@ -14,28 +13,35 @@ class AndroidApplicationPlugin: Plugin<Project> {
         project.apply(mapOf("plugin" to "kotlin-android"))
         project.apply(mapOf("plugin" to "com.google.gms.google-services"))
         project.apply(mapOf("plugin" to "com.google.firebase.crashlytics"))
+        project.apply(mapOf("plugin" to "org.jetbrains.kotlin.android"))
+        project.apply(mapOf("plugin" to "kotlin-kapt"))
+        project.apply(mapOf("plugin" to "kotlin-parcelize"))
+        project.apply(mapOf("plugin" to "androidx.navigation.safeargs"))
+        project.apply(mapOf("plugin" to "dagger.hilt.android.plugin"))
 
         project.commonSetup()
         project.androidSetup()
 
         project.extensions.findByName("android")!!.apply {
             this as BaseExtension
+
+            buildToolsVersion = "33.0.0"
+
             defaultConfig.apply {
-                namespace = "mortitech.blueprint.mvi"
-                minSdk = 29
+                applicationId = "mortitech.blueprint.mvi"
                 targetSdk = 33
                 versionCode = 1
                 versionName = "1.0.0"
+
+                // Specifies the application ID for the test APK.
+                testApplicationId = "mortitech.blueprint.mvi.testing"
                 testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
             }
 
-            compileOptions {
-                // Sets Java compatibility to Java 8
-                sourceCompatibility = JavaVersion.VERSION_11
-                targetCompatibility = JavaVersion.VERSION_11
-            }
-
             buildFeatures.viewBinding = true
+            dataBinding {
+                enable = true
+            }
 
             val f = project.file("${project.rootDir}/keys/keystore.properties")
             signingConfigs.apply {
@@ -53,7 +59,7 @@ class AndroidApplicationPlugin: Plugin<Project> {
                 getByName("debug").apply {
                     keyAlias = "android"
                     keyPassword = "android"
-                    storeFile = project.file("keystore.debug")
+                    storeFile = project.file("${project.rootDir}/keys/keystore.debug")
                     storePassword = "android"
                 }
             }
@@ -89,4 +95,3 @@ class AndroidApplicationPlugin: Plugin<Project> {
         }
     }
 }
-
