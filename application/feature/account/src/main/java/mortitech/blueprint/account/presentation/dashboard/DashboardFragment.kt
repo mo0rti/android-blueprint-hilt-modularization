@@ -12,8 +12,8 @@ import mortitech.blueprint.account.presentation.dashboard.home.HomeFragmentDirec
 import mortitech.blueprint.account.presentation.dashboard.settings.SettingsFragmentDirections
 import mortitech.blueprint.core.ui.ToolbarConfiguration
 import mortitech.blueprint.core.ui.base.BaseFragment
-import mortitech.blueprint.core.ui.state.view.empty.EmptyViewEffect
 import mortitech.blueprint.core.ui.state.view.empty.EmptyViewEvent
+import mortitech.blueprint.core.ui.state.view.empty.EmptyViewAction
 import mortitech.blueprint.core.ui.state.view.empty.EmptyViewState
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -21,8 +21,8 @@ import dagger.hilt.android.AndroidEntryPoint
 class DashboardFragment: BaseFragment<
         FragmentDashboardBinding,
         EmptyViewState,
+        EmptyViewAction,
         EmptyViewEvent,
-        EmptyViewEffect,
         DashboardViewModel>(
     FragmentDashboardBinding::inflate,
     ToolbarConfiguration(title = "")
@@ -45,9 +45,9 @@ class DashboardFragment: BaseFragment<
         }
     }
 
-    override fun onViewEffectReceived(viewEffect: EmptyViewEffect) {
+    override fun onViewEventReceived(viewEvent: EmptyViewEvent) {
     }
 
-    override fun onViewStateChange(viewState: EmptyViewState) {
+    override fun onViewStateChanged(viewState: EmptyViewState) {
     }
 }

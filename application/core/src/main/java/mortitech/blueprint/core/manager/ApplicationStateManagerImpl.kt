@@ -15,7 +15,7 @@ constructor(
 ): ApplicationStateManager {
 
     private companion object {
-        const val FILE_NAME = "bluevelvet.blueprint"
+        const val FILE_NAME = "mortitech.blueprint"
     }
 
     // For security reasons, it's better to use EncryptedSharedPreferences

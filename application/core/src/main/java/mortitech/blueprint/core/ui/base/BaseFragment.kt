@@ -5,25 +5,22 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.Lifecycle
-import androidx.lifecycle.lifecycleScope
-import androidx.lifecycle.repeatOnLifecycle
 import androidx.viewbinding.ViewBinding
+import kotlinx.coroutines.flow.onEach
 import mortitech.blueprint.core.domain.model.ViewInflater
 import mortitech.blueprint.core.ui.ToolbarConfiguration
-import mortitech.blueprint.core.ui.state.view.ViewEffect
 import mortitech.blueprint.core.ui.state.view.ViewEvent
+import mortitech.blueprint.core.ui.state.view.ViewAction
 import mortitech.blueprint.core.ui.state.view.ViewState
 import mortitech.blueprint.navigation.coordinator.Coordinator
 import mortitech.blueprint.navigation.coordinator.CoordinatorHost
-import kotlinx.coroutines.launch
 
 abstract class BaseFragment<
         VB : ViewBinding,
         VS : ViewState,
+        VA : ViewAction,
         VE : ViewEvent,
-        VF : ViewEffect,
-        VM : BaseViewModel<VS, VE, VF>,
+        VM : BaseViewModel<VS, VA, VE>,
         >
 constructor(
     private val viewInflater: ViewInflater<VB>,
@@ -52,39 +49,9 @@ constructor(
 
         initializeComponents()
 
-        viewLifecycleOwner.lifecycleScope.launch {
-            // Suspend the coroutine until the lifecycle is DESTROYED.
-            // repeatOnLifecycle launches the block in a new coroutine every time the
-            // lifecycle is in the STARTED state (or above) and cancels it when it's STOPPED.
-            repeatOnLifecycle(Lifecycle.State.STARTED) {
-                // Safely collect from locations when the lifecycle is STARTED
-                // and stop collecting when the lifecycle is STOPPED
-
-                // Collect view state
-                viewModel.viewState.collect {
-                    onViewStateChange(it)
-                }
-            }
-            // Note: at this point, the lifecycle is DESTROYED!
-        }
-
-        viewLifecycleOwner.lifecycleScope.launch {
-            repeatOnLifecycle(Lifecycle.State.STARTED) {
-                // Collect view effect
-                viewModel.viewEffect.collect {
-                    onViewEffectReceived(it)
-                }
-            }
-        }
-
-        viewLifecycleOwner.lifecycleScope.launch {
-            repeatOnLifecycle(Lifecycle.State.STARTED) {
-                // Collect coordinator events to navigate to the other screens
-                viewModel.coordinatorEvent.collect { coordinatorEvent ->
-                    activityCoordinator().onEvent(coordinatorEvent)
-                }
-            }
-        }
+        viewModel.viewState.onEach { onViewStateChanged(it) }
+        viewModel.viewEvent.onEach { onViewEventReceived(it) }
+        viewModel.coordinatorEvent.onEach { activityCoordinator().onEvent(it) }
     }
 
     override fun onStart() {
@@ -97,11 +64,11 @@ constructor(
     } ?: throw Exception("Activity is not inherited from BaseActivity")
 
     //------------------- State and Event
-    protected fun postEvent(event: VE) {
-        viewModel.updateViewEvent(event)
+    protected fun postAction(event: VA) {
+        viewModel.updateViewAction(event)
     }
-    abstract fun onViewEffectReceived(viewEffect: VF)
-    abstract fun onViewStateChange(viewState: VS)
+    abstract fun onViewEventReceived(viewEvent: VE)
+    abstract fun onViewStateChanged(viewState: VS)
     //------------------- Navigation
     private fun activityCoordinator(): Coordinator {
         return (requireActivity() as CoordinatorHost<*>).coordinator

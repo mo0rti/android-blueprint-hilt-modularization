@@ -19,31 +19,31 @@ constructor(
     private val IoDispatcher: CoroutineDispatcher
 ) : BaseViewModel<
         LoginViewContract.State,
+        LoginViewContract.Action,
         LoginViewContract.Event,
-        LoginViewContract.Effect,
         >() {
 
     override fun createInitialState() = LoginViewContract.State(
         isLoading = false,
     )
 
-    override fun handleViewEvent(viewEvent: LoginViewContract.Event) {
+    override fun processViewActions(viewEvent: LoginViewContract.Action) {
         when(viewEvent) {
-            is LoginViewContract.Event.OnLoginButtonClicked -> {
+            is LoginViewContract.Action.OnLoginButtonClicked -> {
                 with(currentViewState()) {
                     login(username, password)
                 }
             }
-            is LoginViewContract.Event.OnForgotPasswordLinkClicked -> {
+            is LoginViewContract.Action.OnForgotPasswordLinkClicked -> {
                 sendCoordinatorEvent(AuthCoordinatorEvent.ForgotPinCode)
             }
-            is LoginViewContract.Event.OnSignupLinkClicked -> {
+            is LoginViewContract.Action.OnSignupLinkClicked -> {
                 sendCoordinatorEvent(AuthCoordinatorEvent.OnboardingFlow)
             }
-            is LoginViewContract.Event.OnUserNameTextChanged -> {
+            is LoginViewContract.Action.OnUserNameTextChanged -> {
                 updateViewState { copy(username = viewEvent.username) }
             }
-            is LoginViewContract.Event.OnPasswordTextChanged -> {
+            is LoginViewContract.Action.OnPasswordTextChanged -> {
                 updateViewState { copy(password = viewEvent.password) }
             }
         }
@@ -59,7 +59,7 @@ constructor(
                 authUserCases.loginUseCase(username, password)
                 sendCoordinatorEvent(AuthCoordinatorEvent.AccountFlow)
             } catch (e: Exception) {
-                updateViewEffect(LoginViewContract.Effect.ShowErrorToast(e.message))
+                updateViewEvent(LoginViewContract.Event.ShowErrorToast(e.message))
             } finally {
                 updateViewState { copy(isLoading = false) }
             }

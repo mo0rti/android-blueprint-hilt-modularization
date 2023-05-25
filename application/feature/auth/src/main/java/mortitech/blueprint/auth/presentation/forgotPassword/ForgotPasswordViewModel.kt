@@ -15,25 +15,25 @@ constructor(
     private val authUserCases: AuthUserCases
 ) : BaseViewModel<
         ForgotPasswordViewContract.State,
+        ForgotPasswordViewContract.Action,
         ForgotPasswordViewContract.Event,
-        ForgotPasswordViewContract.Effect,
         >() {
 
     override fun createInitialState() = ForgotPasswordViewContract.State(
         isLoading = false,
     )
 
-    override fun handleViewEvent(viewEvent: ForgotPasswordViewContract.Event) {
+    override fun processViewActions(viewEvent: ForgotPasswordViewContract.Action) {
         when(viewEvent) {
-            is ForgotPasswordViewContract.Event.OnResetButtonClicked -> {
+            is ForgotPasswordViewContract.Action.OnResetButtonClicked -> {
                 with(currentViewState()) {
                     resetPinCode(username)
                 }
             }
-            is ForgotPasswordViewContract.Event.OnBackToLoginLinkClicked -> {
+            is ForgotPasswordViewContract.Action.OnBackToLoginLinkClicked -> {
                 sendCoordinatorEvent(AuthCoordinatorEvent.BackToLogin)
             }
-            is ForgotPasswordViewContract.Event.OnUserNameTextChanged -> {
+            is ForgotPasswordViewContract.Action.OnUserNameTextChanged -> {
                 updateViewState { copy(username = viewEvent.username) }
             }
         }
@@ -46,9 +46,9 @@ constructor(
             try {
                 updateViewState { copy(isLoading = true) }
                 authUserCases.resetPasswordUseCase(username)
-                updateViewEffect(ForgotPasswordViewContract.Effect.ShowSuccessDialog())
+                updateViewEvent(ForgotPasswordViewContract.Event.ShowSuccessDialog())
             } catch (e: Exception) {
-                updateViewEffect(ForgotPasswordViewContract.Effect.ShowErrorToast(e.message))
+                updateViewEvent(ForgotPasswordViewContract.Event.ShowErrorToast(e.message))
             } finally {
                 updateViewState { copy(isLoading = false) }
             }

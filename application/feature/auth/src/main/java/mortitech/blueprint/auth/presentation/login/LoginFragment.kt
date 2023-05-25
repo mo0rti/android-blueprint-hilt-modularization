@@ -12,8 +12,8 @@ import dagger.hilt.android.AndroidEntryPoint
 class LoginFragment : BaseFragment<
         FragmentLoginBinding,
         LoginViewContract.State,
+        LoginViewContract.Action,
         LoginViewContract.Event,
-        LoginViewContract.Effect,
         LoginViewModel>(
     FragmentLoginBinding::inflate,
     ToolbarConfiguration(title = "")
@@ -23,31 +23,31 @@ class LoginFragment : BaseFragment<
 
     override fun initializeComponents() {
         binding.btnLogin.setOnClickListener {
-            postEvent(LoginViewContract.Event.OnLoginButtonClicked)
+            postAction(LoginViewContract.Action.OnLoginButtonClicked)
         }
         binding.tvForgotPassword.setOnClickListener {
-            postEvent(LoginViewContract.Event.OnForgotPasswordLinkClicked)
+            postAction(LoginViewContract.Action.OnForgotPasswordLinkClicked)
         }
         binding.tvSignup.setOnClickListener {
-            postEvent(LoginViewContract.Event.OnSignupLinkClicked)
+            postAction(LoginViewContract.Action.OnSignupLinkClicked)
         }
         binding.edtPassword.doOnTextChanged { text, _, _, _ ->
-            postEvent(LoginViewContract.Event.OnPasswordTextChanged(text.toString()))
+            postAction(LoginViewContract.Action.OnPasswordTextChanged(text.toString()))
         }
         binding.edtUserName.doOnTextChanged { text, _, _, _ ->
-            postEvent(LoginViewContract.Event.OnUserNameTextChanged(text.toString()))
+            postAction(LoginViewContract.Action.OnUserNameTextChanged(text.toString()))
         }
     }
 
-    override fun onViewEffectReceived(viewEffect: LoginViewContract.Effect) {
-        when(viewEffect) {
-            is LoginViewContract.Effect.ShowErrorToast -> {
-                showToast(viewEffect.error)
+    override fun onViewEventReceived(viewEvent: LoginViewContract.Event) {
+        when(viewEvent) {
+            is LoginViewContract.Event.ShowErrorToast -> {
+                showToast(viewEvent.error)
             }
         }
     }
 
-    override fun onViewStateChange(viewState: LoginViewContract.State) {
+    override fun onViewStateChanged(viewState: LoginViewContract.State) {
         binding.pbLoading.setVisibility(viewState.isLoading)
         binding.grpInput.setVisibility(!viewState.isLoading)
         binding.btnLogin.isEnabled = !viewState.isLoading

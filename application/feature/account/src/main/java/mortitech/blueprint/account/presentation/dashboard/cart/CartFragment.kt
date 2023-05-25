@@ -4,8 +4,8 @@ import androidx.fragment.app.viewModels
 import mortitech.blueprint.account.databinding.FragmentCartBinding
 import mortitech.blueprint.core.ui.ToolbarConfiguration
 import mortitech.blueprint.core.ui.base.BaseFragment
-import mortitech.blueprint.core.ui.state.view.empty.EmptyViewEffect
 import mortitech.blueprint.core.ui.state.view.empty.EmptyViewEvent
+import mortitech.blueprint.core.ui.state.view.empty.EmptyViewAction
 import mortitech.blueprint.core.ui.state.view.empty.EmptyViewState
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -13,8 +13,8 @@ import dagger.hilt.android.AndroidEntryPoint
 class CartFragment: BaseFragment<
         FragmentCartBinding,
         EmptyViewState,
+        EmptyViewAction,
         EmptyViewEvent,
-        EmptyViewEffect,
         CartViewModel>(
     FragmentCartBinding::inflate,
     ToolbarConfiguration(title = "")
@@ -24,9 +24,9 @@ class CartFragment: BaseFragment<
     override fun initializeComponents() {
     }
 
-    override fun onViewEffectReceived(viewEffect: EmptyViewEffect) {
+    override fun onViewEventReceived(viewEvent: EmptyViewEvent) {
     }
 
-    override fun onViewStateChange(viewState: EmptyViewState) {
+    override fun onViewStateChanged(viewState: EmptyViewState) {
     }
 }

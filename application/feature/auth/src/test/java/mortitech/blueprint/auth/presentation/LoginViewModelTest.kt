@@ -61,9 +61,9 @@ class LoginViewModelTest {
             coEvery { loginUseCase.invoke(username, password) } just Runs
 
             // When
-            loginViewModel.updateViewEvent(LoginViewContract.Event.OnUserNameTextChanged(username))
-            loginViewModel.updateViewEvent(LoginViewContract.Event.OnPasswordTextChanged(password))
-            loginViewModel.updateViewEvent(LoginViewContract.Event.OnLoginButtonClicked)
+            loginViewModel.updateViewAction(LoginViewContract.Action.OnUserNameTextChanged(username))
+            loginViewModel.updateViewAction(LoginViewContract.Action.OnPasswordTextChanged(password))
+            loginViewModel.updateViewAction(LoginViewContract.Action.OnLoginButtonClicked)
 
             // Then
             coVerify { loginUseCase.invoke(username, password) }
@@ -84,13 +84,13 @@ class LoginViewModelTest {
         coEvery { loginUseCase.invoke(username, password) } throws InvalidInputException(errorMessage)
 
         // When
-        loginViewModel.updateViewEvent(LoginViewContract.Event.OnLoginButtonClicked)
+        loginViewModel.updateViewAction(LoginViewContract.Action.OnLoginButtonClicked)
 
         // Then
         coVerify { loginUseCase.invoke(username, password) }
         assertEquals(expectedState, loginViewModel.currentViewState())
-        loginViewModel.viewEffect.test {
-            assertEquals(LoginViewContract.Effect.ShowErrorToast(errorMessage), awaitItem())
+        loginViewModel.viewEvent.test {
+            assertEquals(LoginViewContract.Event.ShowErrorToast(errorMessage), awaitItem())
         }
     }
 }

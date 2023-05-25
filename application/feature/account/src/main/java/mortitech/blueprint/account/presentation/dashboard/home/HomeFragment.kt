@@ -19,8 +19,8 @@ import dagger.hilt.android.AndroidEntryPoint
 class HomeFragment: BaseFragment<
         FragmentHomeBinding,
         HomeViewContract.State,
+        HomeViewContract.Action,
         HomeViewContract.Event,
-        HomeViewContract.Effect,
         HomeViewModel>(
     FragmentHomeBinding::inflate,
     ToolbarConfiguration(title = "")
@@ -55,15 +55,15 @@ class HomeFragment: BaseFragment<
         binding.popularProductsRecyclerView.adapter = popularProductsAdapter
     }
 
-    override fun onViewEffectReceived(viewEffect: HomeViewContract.Effect) {
-        when(viewEffect) {
-            is HomeViewContract.Effect.ShowErrorToast -> {
-                showToast(viewEffect.error)
+    override fun onViewEventReceived(viewEvent: HomeViewContract.Event) {
+        when(viewEvent) {
+            is HomeViewContract.Event.ShowErrorToast -> {
+                showToast(viewEvent.error)
             }
         }
     }
 
-    override fun onViewStateChange(viewState: HomeViewContract.State) {
+    override fun onViewStateChanged(viewState: HomeViewContract.State) {
         categoriesAdapter.data = viewState.categories
         popularProductsAdapter.data = viewState.popularProducts
 

@@ -1,7 +1,7 @@
 package mortitech.blueprint.auth.presentation.login
 
-import mortitech.blueprint.core.ui.state.view.ViewEffect
 import mortitech.blueprint.core.ui.state.view.ViewEvent
+import mortitech.blueprint.core.ui.state.view.ViewAction
 import mortitech.blueprint.core.ui.state.view.ViewState
 
 /**
@@ -16,17 +16,17 @@ class LoginViewContract {
         val password: String = "",
     ): ViewState
 
-    sealed class Event: ViewEvent {
-        object OnLoginButtonClicked: Event()
-        object OnForgotPasswordLinkClicked: Event()
-        object OnSignupLinkClicked: Event()
-        data class OnUserNameTextChanged(val username: String): Event()
-        data class OnPasswordTextChanged(val password: String): Event()
+    sealed class Action: ViewAction {
+        object OnLoginButtonClicked: Action()
+        object OnForgotPasswordLinkClicked: Action()
+        object OnSignupLinkClicked: Action()
+        data class OnUserNameTextChanged(val username: String): Action()
+        data class OnPasswordTextChanged(val password: String): Action()
     }
 
-    sealed class Effect: ViewEffect {
+    sealed class Event: ViewEvent {
         data class ShowErrorToast(
             val error: String?
-        ): Effect()
+        ): Event()
     }
 }

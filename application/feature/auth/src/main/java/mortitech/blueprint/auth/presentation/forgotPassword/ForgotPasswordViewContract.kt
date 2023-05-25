@@ -2,8 +2,8 @@ package mortitech.blueprint.auth.presentation.forgotPassword
 
 import androidx.annotation.StringRes
 import mortitech.blueprint.auth.R
-import mortitech.blueprint.core.ui.state.view.ViewEffect
 import mortitech.blueprint.core.ui.state.view.ViewEvent
+import mortitech.blueprint.core.ui.state.view.ViewAction
 import mortitech.blueprint.core.ui.state.view.ViewState
 
 /**
@@ -17,20 +17,20 @@ class ForgotPasswordViewContract {
         val username: String = "",
     ): ViewState
 
-    sealed class Event: ViewEvent {
-        object OnResetButtonClicked: Event()
-        object OnBackToLoginLinkClicked: Event()
-        data class OnUserNameTextChanged(val username: String): Event()
+    sealed class Action: ViewAction {
+        object OnResetButtonClicked: Action()
+        object OnBackToLoginLinkClicked: Action()
+        data class OnUserNameTextChanged(val username: String): Action()
     }
 
-    sealed class Effect: ViewEffect {
+    sealed class Event: ViewEvent {
         data class ShowErrorToast(
             val error: String?
-        ): Effect()
+        ): Event()
 
         data class ShowSuccessDialog(
             @StringRes
             val message: Int = R.string.reset_password_success
-        ): Effect()
+        ): Event()
     }
 }

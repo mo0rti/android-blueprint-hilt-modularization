@@ -18,11 +18,11 @@ constructor(
     private val IoDispatcher: CoroutineDispatcher
 ): BaseViewModel<
         HomeViewContract.State,
-        HomeViewContract.Event,
-        HomeViewContract.Effect>() {
+        HomeViewContract.Action,
+        HomeViewContract.Event>() {
 
     init {
-        handleViewEvent(HomeViewContract.Event.LoadDashboardData)
+        processViewActions(HomeViewContract.Action.LoadDashboardData)
     }
 
     override fun createInitialState(): HomeViewContract.State {
@@ -34,9 +34,9 @@ constructor(
         )
     }
 
-    override fun handleViewEvent(viewEvent: HomeViewContract.Event) {
+    override fun processViewActions(viewEvent: HomeViewContract.Action) {
         when(viewEvent) {
-            is HomeViewContract.Event.LoadDashboardData -> {
+            is HomeViewContract.Action.LoadDashboardData -> {
                 loadDashboardInfo()
             }
         }
@@ -57,7 +57,7 @@ constructor(
             }
         } catch (e: Exception) {
             updateViewState { copy(isCategoriesLoading = false) }
-            updateViewEffect(HomeViewContract.Effect.ShowErrorToast(e.message))
+            updateViewEvent(HomeViewContract.Event.ShowErrorToast(e.message))
         }
     }
 
@@ -70,7 +70,7 @@ constructor(
                 }
             }
         } catch (e: Exception) {
-            updateViewEffect(HomeViewContract.Effect.ShowErrorToast(e.message))
+            updateViewEvent(HomeViewContract.Event.ShowErrorToast(e.message))
             updateViewState { copy(isPopularProductsLoading = false) }
         }
     }

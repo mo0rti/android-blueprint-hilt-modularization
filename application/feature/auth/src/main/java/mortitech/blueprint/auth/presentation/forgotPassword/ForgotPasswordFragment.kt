@@ -12,8 +12,8 @@ import dagger.hilt.android.AndroidEntryPoint
 class ForgotPasswordFragment : BaseFragment<
         FragmentForgotPasswordBinding,
         ForgotPasswordViewContract.State,
+        ForgotPasswordViewContract.Action,
         ForgotPasswordViewContract.Event,
-        ForgotPasswordViewContract.Effect,
         ForgotPasswordViewModel>(
     FragmentForgotPasswordBinding::inflate,
     ToolbarConfiguration(title = "")
@@ -22,28 +22,28 @@ class ForgotPasswordFragment : BaseFragment<
     override val viewModel: ForgotPasswordViewModel by viewModels()
     override fun initializeComponents() {
         binding.btnResetPassword.setOnClickListener {
-            postEvent(ForgotPasswordViewContract.Event.OnResetButtonClicked)
+            postAction(ForgotPasswordViewContract.Action.OnResetButtonClicked)
         }
         binding.tvBackToLogin.setOnClickListener {
-            postEvent(ForgotPasswordViewContract.Event.OnBackToLoginLinkClicked)
+            postAction(ForgotPasswordViewContract.Action.OnBackToLoginLinkClicked)
         }
         binding.edtUserName.doOnTextChanged { text, _, _, _ ->
-            postEvent(ForgotPasswordViewContract.Event.OnUserNameTextChanged(text.toString()))
+            postAction(ForgotPasswordViewContract.Action.OnUserNameTextChanged(text.toString()))
         }
     }
 
-    override fun onViewEffectReceived(viewEffect: ForgotPasswordViewContract.Effect) {
-        when(viewEffect) {
-            is ForgotPasswordViewContract.Effect.ShowErrorToast -> {
-                showToast(viewEffect.error)
+    override fun onViewEventReceived(viewEvent: ForgotPasswordViewContract.Event) {
+        when(viewEvent) {
+            is ForgotPasswordViewContract.Event.ShowErrorToast -> {
+                showToast(viewEvent.error)
             }
-            is ForgotPasswordViewContract.Effect.ShowSuccessDialog -> {
-                showDialog(getString(viewEffect.message))
+            is ForgotPasswordViewContract.Event.ShowSuccessDialog -> {
+                showDialog(getString(viewEvent.message))
             }
         }
     }
 
-    override fun onViewStateChange(viewState: ForgotPasswordViewContract.State) {
+    override fun onViewStateChanged(viewState: ForgotPasswordViewContract.State) {
         binding.pbLoading.setVisibility(viewState.isLoading)
         binding.grpInput.setVisibility(!viewState.isLoading)
         binding.btnResetPassword.isEnabled = !viewState.isLoading
