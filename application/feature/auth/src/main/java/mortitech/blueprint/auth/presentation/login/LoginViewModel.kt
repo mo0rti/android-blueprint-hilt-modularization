@@ -41,9 +41,11 @@ constructor(
                 sendCoordinatorEvent(AuthCoordinatorEvent.OnboardingFlow)
             }
             is LoginViewContract.Action.OnUserNameTextChanged -> {
+                // TODO: handle the input validation and disable login button
                 updateViewState { copy(username = viewEvent.username) }
             }
             is LoginViewContract.Action.OnPasswordTextChanged -> {
+                // TODO: handle the input validation and disable login button
                 updateViewState { copy(password = viewEvent.password) }
             }
         }
